@@ -224,12 +224,13 @@ Preview host (`preview.qrbni.dev`): full **SEO off** — `noindex, nofollow`, ro
 
 ## 7. Hey API / OpenAPI
 
-1. Prefer **base-specific Swagger** from the NocoDB instance once tables exist (`/api/v2/meta/bases/{baseId}/swagger.json` with `xc-token`).
-2. Fallback: official NocoDB Data API v3 OpenAPI + thin domain mappers.
-3. Config: `@hey-api/openapi-ts` with TypeScript + SDK plugins (**no** `@tanstack/react-query` plugin).
-4. **Generate locally only.** Commit `src/generated/` (or agreed output path). CI must **not** regenerate.
-5. Script: `npm run codegen` (or `openapi-ts`) documented in `package.json`.
-6. Client config: base URL + `xc-token` / Bearer from server env only.
+**Decision (2026-07-31):** the current NocoDB PAT lacks `swaggerJson` permission, so we **generate a local OpenAPI** from Meta table schemas (`npm run nocodb:openapi` → `openapi/nocodb-cv.openapi.json`), then Hey API (`npm run codegen` → `src/generated/nocodb`). Prefer `npm run nocodb:sdk` after schema changes.
+
+1. ~~Live base swagger~~ blocked until token gains swagger permission (then we can switch input).
+2. Local Meta-derived OpenAPI (current) — typed per-table list/get/create/update/delete for v2 records API.
+3. Config: `@hey-api/openapi-ts` with TypeScript + SDK + client-fetch (**no** React Query plugin).
+4. **Generate locally only.** Commit OpenAPI + `src/generated/nocodb`. CI must **not** regenerate.
+5. Server wrapper: `src/server/nocodb.ts` sets `baseUrl` + `auth()` → `xc-token`. Never import generated client from Client Components.
 
 ---
 

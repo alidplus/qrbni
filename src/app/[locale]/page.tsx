@@ -51,6 +51,9 @@ export default async function HomePage({ params }: Props) {
         <p className="max-w-xl text-lg leading-relaxed text-zinc-600">{t.sub}</p>
       </div>
       <nav className="flex flex-wrap gap-4 text-sm font-medium">
+        <Link className="underline-offset-4 hover:underline" href={`/${locale}/experience`}>
+          {locale === "fa" ? "سوابق" : "Experience"}
+        </Link>
         <Link className="underline-offset-4 hover:underline" href={`/${locale}/services`}>
           {t.ctaServices}
         </Link>

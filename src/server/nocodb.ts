@@ -1,9 +1,20 @@
-/**
- * NocoDB Hey API client wrapper — wired after `npm run codegen`.
- * Token and base URL must never reach the browser.
- */
-export async function getNocoClient() {
-  throw new Error(
-    "NocoDB client not generated yet. Create tables, then run npm run codegen.",
-  );
+import { client } from "@/generated/nocodb/client.gen";
+import { serverEnv } from "@/server/env";
+
+let configured = false;
+
+/** Configure the generated Hey API client (server-only). */
+export function configureNocoClient() {
+  if (configured) return client;
+
+  client.setConfig({
+    baseUrl: serverEnv.nocodbBaseUrl(),
+    auth: () => serverEnv.nocodbApiToken(),
+  });
+
+  configured = true;
+  return client;
 }
+
+export { client as nocoClient };
+export * from "@/generated/nocodb";

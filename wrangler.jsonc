@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "qrbni",
+  // Top-level = preview (main branch). Production via --env production (git tags).
+  "name": "qrbni-preview",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-07-31",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
@@ -11,24 +14,20 @@
   "observability": {
     "enabled": true
   },
-  // Named envs only — always deploy with --env preview|production
+  "routes": [
+    {
+      "pattern": "preview.qrbni.dev",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "NOCODB_BASE_URL": "https://app.nocodb.com"
+  },
   "env": {
-    "preview": {
-      "name": "qrbni-preview",
-      "workers_dev": true,
-      "routes": [
-        {
-          "pattern": "preview.qrbni.dev",
-          "custom_domain": true
-        }
-      ],
-      "vars": {
-        "NOCODB_BASE_URL": "https://app.nocodb.com"
-      }
-    },
     "production": {
       "name": "qrbni",
       "workers_dev": true,
+      "preview_urls": false,
       "routes": [
         {
           "pattern": "qrbni.dev",

@@ -318,8 +318,9 @@ Authoritative integration notes live in repo `turnstile.md` (Cloudflare Spin). H
 
 Workflow: [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
 
-- `main` push → OpenNext build → `opennextjs-cloudflare deploy --env preview` → **`preview.qrbni.dev`** (Worker `qrbni-preview`)
-- tag `v*` → same → `--env production` → **`qrbni.dev`** (Worker `qrbni`)
+- `main` push → OpenNext build → `opennextjs-cloudflare deploy` → **`preview.qrbni.dev`** (Worker `qrbni-preview`, top-level wrangler config)
+- tag `v*` → `--env production` → **`qrbni.dev`** (Worker `qrbni`)
+- CI sanitizes CF credentials, preflights `GET /accounts/{id}/workers/scripts`, retries deploy on transient API failures (e.g. HTML 522)
 - After deploy, CI syncs app secrets onto the Worker via `wrangler secret bulk`
 - Build uses committed SDK (CI must **not** regenerate)
 - Node 22 (`.nvmrc`)

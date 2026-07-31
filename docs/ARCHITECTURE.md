@@ -316,15 +316,34 @@ Authoritative integration notes live in repo `turnstile.md` (Cloudflare Spin). H
 
 ### CI (GitHub Actions)
 
-- `main` push → build OpenNext → deploy Worker → `preview.qrbni.dev`
-- tag `v*` → build → deploy Worker → `qrbni.dev`
-- Build uses committed SDK; inject secrets from GitHub → CF as required
-- Node 22
+Workflow: [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
+
+- `main` push → OpenNext build → `opennextjs-cloudflare deploy --env preview` → **`preview.qrbni.dev`** (Worker `qrbni-preview`)
+- tag `v*` → same → `--env production` → **`qrbni.dev`** (Worker `qrbni`)
+- After deploy, CI syncs app secrets onto the Worker via `wrangler secret bulk`
+- Build uses committed SDK (CI must **not** regenerate)
+- Node 22 (`.nvmrc`)
+
+**GitHub repository configuration (required before first green deploy):**
+
+| Kind | Name |
+|---|---|
+| secret | `CLOUDFLARE_API_TOKEN` (Workers edit + account; zone/DNS if attaching custom domains) |
+| secret | `CLOUDFLARE_ACCOUNT_ID` |
+| secret | `NOCODB_API_TOKEN` |
+| secret | `TURNSTILE_SITE_KEY` |
+| secret | `TURNSTILE_SECRET` |
+| secret | `REVALIDATE_SECRET` |
+| variable | `NOCODB_BASE_URL` (optional; defaults to `https://app.nocodb.com`) |
+
+Local mirrors: `npm run deploy:preview` / `npm run deploy:production` (needs Wrangler auth + same env as `.env.local`).
+
+**DNS:** `qrbni.dev` zone on Cloudflare; custom domains are declared in `wrangler.jsonc` (`env.preview` / `env.production` routes). First attach may require the zone to already exist in the same account.
 
 ### Cloudflare infra (day one)
 
-- Worker + custom domains: apex + preview subdomain
-- KV (and R2 if chosen) for OpenNext ISR / tag cache
+- Worker + custom domains: apex + preview subdomain (`wrangler.jsonc` envs)
+- KV (and R2 if chosen) for OpenNext ISR / tag cache — deferred until revalidation at scale
 - Web Analytics enabled
 - Turnstile widget already provisioned
 

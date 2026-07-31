@@ -10,7 +10,35 @@
   },
   "observability": {
     "enabled": true
+  },
+  // Named envs only — always deploy with --env preview|production
+  "env": {
+    "preview": {
+      "name": "qrbni-preview",
+      "workers_dev": true,
+      "routes": [
+        {
+          "pattern": "preview.qrbni.dev",
+          "custom_domain": true
+        }
+      ],
+      "vars": {
+        "NOCODB_BASE_URL": "https://app.nocodb.com"
+      }
+    },
+    "production": {
+      "name": "qrbni",
+      "workers_dev": true,
+      "routes": [
+        {
+          "pattern": "qrbni.dev",
+          "custom_domain": true
+        }
+      ],
+      "vars": {
+        "NOCODB_BASE_URL": "https://app.nocodb.com"
+      }
+    }
   }
-  // Preview: preview.qrbni.dev · Prod: qrbni.dev (custom domains in CF dashboard / CI)
   // Add KV/R2 ISR bindings when enabling on-demand revalidation at scale.
 }

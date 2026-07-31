@@ -14,7 +14,7 @@ Public home (`/[locale]`). Visitor mode: Experience with Persuade CTA.
 Founders evaluating a senior technical partner. Job: decide if Ali is worth a conversation. Primary action: Book 30 min (Calendly). Contact is secondary.
 
 ## Direction
-Redline Pin-up world. Composition: Split Pin (comp-b). Memorable moment: tall taped name sheet beside a clear reading column.
+Redline Pin-up world. Composition: Split Pin (comp-b). Memorable moment: tall taped name sheet with Fig. 01 portrait (`/ali-portrait.webp`) beside a clear reading column.
 
 ## Constraints
 WCAG 2.2 AA; EN/FA RTL; no fabricated claims; NocoDB experience strip when available.

@@ -1,6 +1,10 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { PRODUCTION_HOST } from "@/config/site";
 import { serverEnv } from "@/server/env";
+import {
+  formatVisitorTelegramLines,
+  type VisitorContext,
+} from "@/server/visitor";
 
 const TELEGRAM_API = "https://api.telegram.org";
 
@@ -69,12 +73,14 @@ export function formatContactTelegram(parts: {
   contact: string;
   message: string;
   path?: string;
+  visitor?: VisitorContext;
 }): string {
   return [
     "📩 Contact form · qrbni.dev",
     `Name: ${parts.name}`,
     `Contact: ${parts.contact}`,
     parts.path ? `Path: ${parts.path}` : null,
+    ...(parts.visitor ? formatVisitorTelegramLines(parts.visitor) : []),
     "",
     parts.message,
   ]
@@ -87,6 +93,7 @@ export function formatTelemetryTelegram(parts: {
   path?: string;
   locale?: string;
   referrer?: string;
+  visitor?: VisitorContext;
 }): string {
   const titles = {
     site_visit: "👁 Site visit",
@@ -99,6 +106,7 @@ export function formatTelemetryTelegram(parts: {
     parts.path ? `Path: ${parts.path}` : null,
     parts.locale ? `Locale: ${parts.locale}` : null,
     parts.referrer ? `Referrer: ${parts.referrer}` : null,
+    ...(parts.visitor ? formatVisitorTelegramLines(parts.visitor) : []),
   ]
     .filter((line) => line != null)
     .join("\n");

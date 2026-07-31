@@ -10,6 +10,7 @@ import {
   hostFromRequest,
   notifyTelegram,
 } from "@/server/telegram";
+import { visitorCookieHeader, visitorFromRequest } from "@/server/visitor";
 
 export const dynamic = "force-dynamic";
 
@@ -78,10 +79,17 @@ export async function POST(request: Request) {
     );
   }
 
+  const host = hostFromRequest(request);
+  const visitor = visitorFromRequest(request);
+
   notifyTelegram({
-    host: hostFromRequest(request),
-    text: formatContactTelegram({ name, contact, message }),
+    host,
+    text: formatContactTelegram({ name, contact, message, visitor }),
   });
 
-  return NextResponse.json({ ok: true });
+  const res = NextResponse.json({ ok: true });
+  if (visitor.isNewVisitor) {
+    res.headers.append("Set-Cookie", visitorCookieHeader(visitor.visitorId, host));
+  }
+  return res;
 }

@@ -5,6 +5,7 @@ import {
   isTelegramNotifyEnabled,
   notifyTelegram,
 } from "@/server/telegram";
+import { visitorCookieHeader, visitorFromRequest } from "@/server/visitor";
 
 export const dynamic = "force-dynamic";
 
@@ -49,6 +50,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
+  const visitor = visitorFromRequest(request);
+
   notifyTelegram({
     host,
     text: formatTelemetryTelegram({
@@ -56,8 +59,13 @@ export async function POST(request: Request) {
       path: asShortString(body.path, 200),
       locale: asShortString(body.locale, 8),
       referrer: asShortString(body.referrer, 300),
+      visitor,
     }),
   });
 
-  return NextResponse.json({ ok: true });
+  const res = NextResponse.json({ ok: true });
+  if (visitor.isNewVisitor) {
+    res.headers.append("Set-Cookie", visitorCookieHeader(visitor.visitorId, host));
+  }
+  return res;
 }

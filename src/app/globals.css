@@ -5,7 +5,7 @@
   --ink: #111111;
   --redline: #c1121f;
   --slate: #5c6b73;
-  --tape: #e8e2d9;
+  --tape: #e8d5a0;
   --paper-sheet: color-mix(in srgb, var(--paper) 88%, white);
   --background: var(--paper);
   --foreground: var(--ink);

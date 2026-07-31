@@ -16,7 +16,7 @@
 | `--ink` | `#111111` | Primary text / rules |
 | `--redline` | `#C1121F` | Marks, primary CTA, active locale |
 | `--slate` | `#5C6B73` | Secondary text (tinted from scene, not gray-on-cream accident) |
-| `--tape` | `#E8E2D9` | Masking tape |
+| `--tape` | `#E8D5A0` | Masking tape (warm yellow) |
 
 Light scene: desk / pin-up wall under indoor ambient light. Not dark-mode default.
 

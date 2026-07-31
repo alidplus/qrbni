@@ -8,6 +8,12 @@ This repository is **qrbni.dev** — Ali Ghorbani’s public site.
 4. **Git:** `feat/*` for parallel work → `main` (preview) → **tags** for production on Cloudflare Workers (OpenNext).
 5. **Commits:** Conventional Commits; agents auto-commit coherent units.
 6. **Turnstile:** see `turnstile.md` (existing widget).
-7. Prefer Context7 for library docs; Cloudflare MCP for platform; NocoDB MCP for schema/data.
+7. Prefer Context7 for library docs; Cloudflare MCP for platform; NocoDB MCP for schema/data; GitHub MCP for Actions logs.
 
 Do not delete NocoDB tables/columns without user confirmation.
+
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->

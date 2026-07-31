@@ -168,10 +168,10 @@ jobs:
 
       - name: Sync Worker secrets
         run: |
+          # NOCODB_BASE_URL stays a wrangler var — cannot also be a secret (CF 10053).
           python3 - <<'PY' > /tmp/worker-secrets.json
           import json, os
           keys = [
-              "NOCODB_BASE_URL",
               "NOCODB_API_TOKEN",
               "TURNSTILE_SITE_KEY",
               "TURNSTILE_SECRET",
@@ -182,7 +182,8 @@ jobs:
           if [ "${{ steps.target.outputs.env }}" = "production" ]; then
             npx wrangler secret bulk /tmp/worker-secrets.json --env production
           else
-            npx wrangler secret bulk /tmp/worker-secrets.json
+            # Explicit top-level env when multiple envs exist in wrangler.jsonc
+            npx wrangler secret bulk /tmp/worker-secrets.json --env=""
           fi
           rm -f /tmp/worker-secrets.json
 

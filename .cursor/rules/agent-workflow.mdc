@@ -1,0 +1,41 @@
+---
+description: Agent git workflow, domains, and codegen loop
+alwaysApply: true
+---
+
+# Agent workflow
+
+## Branches
+
+- Active work on `main` or current `feat/*`.
+- Parallel agents **must** use separate `feat/<topic>` branches.
+- Production publish = git tag (`v*`), never untagged `main`.
+
+## Commits
+
+After a coherent unit of work, commit (do not wait to be asked):
+
+```text
+feat(blog): add post list route
+chore(sdk): regenerate NocoDB client
+docs(arch): clarify revalidate secrets
+```
+
+Scopes: `cv` | `blog` | `services` | `contact` | `settings` | `sdk` | `ci` | `i18n` | `ui` | `arch`
+
+Never commit `.env*`, secrets, or `turnstile` secret values.
+
+## Domains
+
+Prefer `src/domains/{cv,services,blog,contact,settings}` and pragmatic Atomic UI under `src/ui/`.
+
+## NocoDB → SDK
+
+1. Create/update tables via **NocoDB Base - CV** MCP.
+2. Confirm OpenAPI/Swagger reflects changes.
+3. Run local Hey API codegen; commit generated client.
+4. Do **not** regenerate in CI.
+
+## Contact / Turnstile
+
+Protect contact POST with Turnstile siteverify before writing `ContactMessage`. Inject site key from server when possible.

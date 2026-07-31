@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Next / OpenNext / Cloudflare
+.next/
+.open-next/
+.wrangler/
+dist/
+out/
+coverage/
+
+# Tooling
+.DS_Store
+*.log
+npm-debug.log*
+.turbo/
+
+# Local Impeccable / editor noise (keep shared config if committed intentionally)
+.impeccable/config.local.json
+
+# Typegen caches
+*.tsbuildinfo

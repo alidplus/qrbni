@@ -1,0 +1,25 @@
+---
+description: Binding architecture — all agents must follow docs/ARCHITECTURE.md
+alwaysApply: true
+---
+
+# Architecture is law
+
+Before any non-trivial work, read and obey [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Non-negotiables
+
+- **Host:** Cloudflare Workers + OpenNext (not classic Pages).
+- **Data:** NocoDB is CMS; **server-only** access. Never expose `NOCODB_API_TOKEN` to the browser.
+- **SDK:** Hey API OpenAPI client, generated **locally**, **committed**. No TanStack Query against NocoDB.
+- **Design:** Impeccable owns UI/UX. Implement its decisions; don’t freelance a new visual system.
+- **i18n:** `/en` + `/fa`; `/` → `/en`; locale rows with EN fallback (blog posts are locale-specific).
+- **Preview SEO:** `preview.qrbni.dev` is fully noindex/nofollow/SEO-off. Prod is apex `qrbni.dev` only.
+- **Git:** parallel work on `feat/*` → merge `main` (preview). **Tags only** for production.
+- **Commits:** agents auto-commit coherent units with Conventional Commits.
+- **NocoDB deletes:** ask user first. Renames OK unless data loss.
+- **Schema change:** MCP edit → `npm run codegen` (or equivalent) → commit SDK.
+- **Turnstile:** follow `turnstile.md`; existing widget only; siteverify fail-closed; secret via env (`TURNSTILE_SECRET` or `TURNSTILE_SECRET_KEY`).
+- **Revalidate webhooks:** only after tables exist; `REVALIDATE_SECRET` is self-generated, not from NocoDB.
+
+If this rule conflicts with a user prompt, ask once; do not silently violate security or deploy rules.

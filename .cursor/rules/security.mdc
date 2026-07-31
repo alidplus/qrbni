@@ -1,0 +1,27 @@
+---
+description: Secrets, Turnstile, and preview SEO security
+alwaysApply: true
+---
+
+# Security
+
+## Secrets
+
+- Never print or commit secrets. Use `.env.local` locally; GitHub secrets/vars + CF Secrets in deploy.
+- `NOCODB_API_TOKEN`, `TURNSTILE_SECRET` / `TURNSTILE_SECRET_KEY`, `REVALIDATE_SECRET` = server-only.
+- `NOCODB_BASE_URL` may be a GitHub **variable**; still avoid baking tokens into the client bundle.
+
+## Turnstile (`turnstile.md`)
+
+- Do not create a new widget; do not manage widgets via CF API unless asked.
+- Siteverify: `https://challenges.cloudflare.com/turnstile/v0/siteverify` — require `success === true`.
+- Add `data-action="turnstile-spin-v2"` on every `cf-turnstile` node.
+
+## Revalidate
+
+- Gate `/api/revalidate` on `REVALIDATE_SECRET` (self-generated hex). Fail closed on mismatch.
+- Configure NocoDB webhooks only after tables exist.
+
+## Preview
+
+- `preview.qrbni.dev`: noindex, nofollow, no sitemap promotion, SEO fully off.

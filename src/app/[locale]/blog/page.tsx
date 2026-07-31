@@ -1,26 +1,37 @@
-import Link from "next/link";
-import { isLocale } from "@/i18n/config";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { isLocale, type Locale } from "@/i18n/config";
+import { listPublishedPosts } from "@/domains/blog";
+import { BlogIndexPin } from "@/ui/templates/BlogIndexPin";
 
 type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale: Locale = isLocale(raw) ? raw : "en";
+  return {
+    title: locale === "fa" ? "بلاگ" : "Blog",
+    description:
+      locale === "fa"
+        ? "یادداشت‌های فنی علی قربانی."
+        : "Technical notes from Ali Ghorbani.",
+    alternates: {
+      languages: { en: "/en/blog", fa: "/fa/blog" },
+      canonical: `/${locale}/blog`,
+    },
+  };
+}
 
 export default async function BlogIndexPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16">
-      <Link href={`/${locale}`} className="text-sm text-zinc-500 hover:text-zinc-800">
-        ← Home
-      </Link>
-      <h1 className="mt-6 text-3xl font-semibold tracking-tight">
-        {locale === "fa" ? "بلاگ" : "Blog"}
-      </h1>
-      <p className="mt-3 text-zinc-600">
-        {locale === "fa"
-          ? "پست‌های این زبان به‌زودی از NocoDB می‌آیند."
-          : "Locale-filtered posts will load from NocoDB next."}
-      </p>
-    </main>
-  );
+  let posts: Awaited<ReturnType<typeof listPublishedPosts>> = [];
+  try {
+    posts = await listPublishedPosts(locale);
+  } catch {
+    posts = [];
+  }
+
+  return <BlogIndexPin locale={locale} posts={posts} />;
 }

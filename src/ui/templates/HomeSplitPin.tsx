@@ -113,10 +113,12 @@ export function HomeSplitPin({ locale, experiences }: Props) {
               />
               <span
                 aria-hidden
-                className="pointer-events-none absolute start-1 top-3 font-display text-[0.55rem] font-semibold tracking-[0.12em] text-redline"
-              >
-                187
-              </span>
+                className="pointer-events-none absolute start-3 end-3 top-3 h-px bg-ink/10"
+              />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute start-3 end-3 bottom-3 h-px bg-ink/10"
+              />
             </div>
 
             <h1 className="mt-7 font-display text-4xl font-bold uppercase leading-[0.95] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">

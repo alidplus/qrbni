@@ -1,3 +1,5 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { trackTelemetry } from "@/ui/molecules/Telemetry";
 import type { Locale } from "@/i18n/config";

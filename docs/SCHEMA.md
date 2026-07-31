@@ -11,6 +11,7 @@ nvm use 22
 set -a && source .env.local && set +a
 node scripts/nocodb/bootstrap-schema.mjs   # idempotent create
 node scripts/nocodb/seed.mjs               # skips if SiteSettings already has rows
+npm run nocodb:sync-content                # upsert EN + FA locales from cv.yaml / content/services.yaml
 ```
 
 Table IDs are written to `scripts/nocodb/.table-ids.json` (safe to commit).
@@ -46,8 +47,9 @@ After any table/column change: `npm run nocodb:sdk` and commit both the OpenAPI 
 
 ## Notes
 
-- Seeded EN content from `cv.yaml` + services catalog; FA translations can be added in NocoDB.
-- Headline typo fixed to **Serverless** on seed.
+- Seeded bilingual content from `cv.yaml` + `content/services.yaml` (EN + FA locale rows).
+- Headline uses **Serverless** (not the LinkedIn typo).
+- Approximate metrics softened to qualitative outcomes until verified.
 - Hireable / day-rate visibility flags default **off**.
 - One draft blog post: `hello-qrbni` (EN).
 - Revalidate webhooks (production only): `SITE_URL=https://qrbni.dev npm run nocodb:webhooks` (see `docs/ARCHITECTURE.md`).

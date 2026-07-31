@@ -182,10 +182,7 @@ export function HomeSplitPin({ locale, experiences }: Props) {
             aria-label={locale === "fa" ? "بخش‌ها" : "Sections"}
             className="flex flex-wrap gap-x-6 gap-y-2 border-y border-ink/12 py-4 font-display text-xs font-semibold uppercase tracking-[0.18em] text-slate"
           >
-            <Link
-              className="text-redline underline decoration-redline decoration-2 underline-offset-6"
-              href={`/${locale}/experience`}
-            >
+            <Link className="hover:text-ink" href={`/${locale}/experience`}>
               {t.experience}
             </Link>
             <Link className="hover:text-ink" href={`/${locale}/services`}>

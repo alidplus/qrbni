@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
+import { Barlow_Condensed, Source_Sans_3, Vazirmatn } from "next/font/google";
 import {
   defaultLocale,
   isLocale,
@@ -18,6 +18,13 @@ const display = Barlow_Condensed({
 const body = Source_Sans_3({
   variable: "--font-source",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+/** Persian UI + display — https://fonts.google.com/specimen/Vazirmatn */
+const vazirmatn = Vazirmatn({
+  variable: "--font-vazirmatn",
+  subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
 });
 
@@ -50,7 +57,8 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${display.variable} ${body.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${vazirmatn.variable} h-full antialiased`}
+      data-locale={locale}
     >
       <body className="min-h-full flex flex-col font-sans">
         {/*

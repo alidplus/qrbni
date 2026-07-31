@@ -2,8 +2,9 @@
 /**
  * Create NocoDB → site revalidate webhooks for CMS tables.
  *
+ * Production only — do not point webhooks at preview.qrbni.dev.
+ *
  * Usage:
- *   SITE_URL=https://preview.qrbni.dev npm run nocodb:webhooks
  *   SITE_URL=https://qrbni.dev npm run nocodb:webhooks
  *
  * Requires NOCODB_API_TOKEN with Meta webhook permissions (hookList/hookCreate).
@@ -41,10 +42,14 @@ loadEnvLocal();
 const BASE_URL = process.env.NOCODB_BASE_URL || "https://app.nocodb.com";
 const TOKEN = process.env.NOCODB_API_TOKEN;
 const REVALIDATE_SECRET = process.env.REVALIDATE_SECRET;
-const SITE_URL = (process.env.SITE_URL || "https://preview.qrbni.dev").replace(
-  /\/$/,
-  "",
-);
+const SITE_URL = (process.env.SITE_URL || "https://qrbni.dev").replace(/\/$/, "");
+
+if (/preview\.qrbni\.dev/i.test(SITE_URL)) {
+  console.error(
+    "Refusing preview SITE_URL. Revalidate webhooks are production-only (https://qrbni.dev).",
+  );
+  process.exit(1);
+}
 
 const ids = JSON.parse(
   fs.readFileSync(path.join(__dirname, ".table-ids.json"), "utf8"),

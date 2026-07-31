@@ -50,4 +50,4 @@ After any table/column change: `npm run nocodb:sdk` and commit both the OpenAPI 
 - Headline typo fixed to **Serverless** on seed.
 - Hireable / day-rate visibility flags default **off**.
 - One draft blog post: `hello-qrbni` (EN).
-- Revalidate webhooks: `SITE_URL=https://preview.qrbni.dev npm run nocodb:webhooks` (see `docs/ARCHITECTURE.md`).
+- Revalidate webhooks (production only): `SITE_URL=https://qrbni.dev npm run nocodb:webhooks` (see `docs/ARCHITECTURE.md`).

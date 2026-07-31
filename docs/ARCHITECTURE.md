@@ -67,27 +67,28 @@ Non-goals (v1): in-site CMS/admin, client-side NocoDB access, React Query / TanS
 
 **Write path (public):** Contact form → Turnstile token → Route Handler verifies Turnstile → inserts row in NocoDB Contacts. No outbound mail in v1 (NocoDB is the inbox). Optional later: Cloudflare Email Sending to verified Gmail. Email Routing may still forward `hello@qrbni.dev` → Gmail (inbound only).
 
-**Revalidate path:** NocoDB webhooks → `POST /api/revalidate` (Bearer `REVALIDATE_SECRET`) → `revalidateTag` / `revalidatePath`. CMS reads use `unstable_cache` tags (`cv`, `experience`, `services`, `blog`, `settings`). Time-based revalidate (1h) as backup.
+**Revalidate path (production only):** NocoDB webhooks → `POST https://qrbni.dev/api/revalidate` (Bearer `REVALIDATE_SECRET`) → `revalidateTag` / `revalidatePath`. CMS reads use `unstable_cache` tags (`cv`, `experience`, `services`, `blog`, `settings`). Time-based revalidate (1h) as backup.
 
-### NocoDB → site webhooks
+Preview (`preview.qrbni.dev`) is for design iteration — no NocoDB revalidate webhooks; stale/slow CMS data is acceptable there.
+
+### NocoDB → production webhooks
 
 ```bash
-SITE_URL=https://preview.qrbni.dev npm run nocodb:webhooks
-SITE_URL=https://qrbni.dev npm run nocodb:webhooks   # after production cutover
+SITE_URL=https://qrbni.dev npm run nocodb:webhooks
 ```
 
-Requires a NocoDB token with Meta **hookList / hookCreate**. If the PAT is data-only, the script prints a UI checklist.
+Requires a NocoDB token with Meta **hookList / hookCreate**. If the PAT is data-only, the script prints a UI checklist. Never configure hooks against preview.
 
 | Field | Value |
 |---|---|
-| URL | `{SITE_URL}/api/revalidate` (optional `?scope=cv\|services\|blog\|settings`) |
+| URL | `https://qrbni.dev/api/revalidate` (optional `?scope=cv\|services\|blog\|settings`) |
 | Method | `POST` |
 | Header | `Authorization: Bearer <REVALIDATE_SECRET>` |
 | Body | NocoDB default event JSON (`data.table_id` / `table_name` → scope) |
 | Tables | All CMS tables **except** `ContactMessage` |
 | Triggers | After insert, update, delete |
 
-Manual verify: `curl -X POST "$SITE_URL/api/revalidate?scope=cv" -H "Authorization: Bearer $REVALIDATE_SECRET"`
+Manual verify: `curl -X POST "https://qrbni.dev/api/revalidate?scope=cv" -H "Authorization: Bearer $REVALIDATE_SECRET"`
 
 ---
 
@@ -227,14 +228,15 @@ Form fields (v1): **contact** (email or phone) + **message** (+ name if useful f
 
 After any schema change that affects OpenAPI: regenerate Hey API SDK locally and commit (see §7).
 
-**Webhooks:** `npm run nocodb:webhooks` (or NocoDB UI) — see § revalidate path above. Skip `ContactMessage`.
+**Webhooks:** production only — `SITE_URL=https://qrbni.dev npm run nocodb:webhooks` (or NocoDB UI). Skip `ContactMessage`. Never hook preview.
 
 ---
 
 ## 6. Rendering & caching
 
 - Default: **SSG/ISR** for CV, services, blog lists/posts.
-- Domain queries: `unstable_cache` + tags; webhook `revalidateTag(..., "max")` + `revalidatePath`.
+- Production: domain queries use `unstable_cache` + tags; NocoDB webhooks call `revalidateTag(..., "max")` + `revalidatePath` on `qrbni.dev` only.
+- Preview: no revalidate webhooks; design-focused, CMS freshness optional.
 - OpenNext: defaults today; wire KV/R2 tag cache in `open-next.config.ts` / wrangler when multi-instance cache matters.
 - Contact + revalidate routes: dynamic, no public caching of POST.
 
@@ -400,8 +402,8 @@ Local mirrors: `npm run deploy:preview` / `npm run deploy:production` (needs Wra
 2. Import `cv.yaml` + services from `service-propose.md`.
 3. Verify on preview.
 4. Remove seed files from repo when user confirms (`cv.yaml`, optionally archive `service-propose.md`).
-5. Configure NocoDB webhooks → revalidate endpoints.
-6. First production tag when ready.
+5. First production tag (`v*`) → deploy `qrbni.dev`.
+6. Configure NocoDB webhooks → **production** revalidate only (`SITE_URL=https://qrbni.dev npm run nocodb:webhooks`).
 
 ---
 

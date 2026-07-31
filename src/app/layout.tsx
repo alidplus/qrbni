@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Barlow_Condensed, Source_Sans_3, Vazirmatn } from "next/font/google";
@@ -8,6 +9,11 @@ import {
   type Locale,
 } from "@/i18n/config";
 import "./globals.css";
+
+const faFontVars = {
+  "--font-barlow": "var(--font-vazirmatn)",
+  "--font-source": "var(--font-vazirmatn)",
+} as CSSProperties;
 
 const display = Barlow_Condensed({
   variable: "--font-barlow",
@@ -59,6 +65,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={`${display.variable} ${body.variable} ${vazirmatn.variable} h-full antialiased`}
       data-locale={locale}
+      style={locale === "fa" ? faFontVars : undefined}
     >
       <body className="min-h-full flex flex-col font-sans">
         {/*

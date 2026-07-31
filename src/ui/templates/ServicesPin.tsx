@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { ServiceCategoryGroup } from "@/domains/services";
+import { PinSheet, PinWall } from "@/ui/atoms";
 import { BookCta, SiteHeader } from "@/ui/organisms/SiteHeader";
 
 type Copy = {
@@ -66,7 +67,7 @@ export function ServicesPin({ locale, catalog }: Props) {
   const t = copy[locale];
 
   return (
-    <div className="flex min-h-full flex-1 flex-col">
+    <PinWall>
       <SiteHeader locale={locale} />
 
       <main className="mx-auto w-full max-w-5xl flex-1 px-5 py-12 sm:px-8 lg:py-16">
@@ -102,17 +103,15 @@ export function ServicesPin({ locale, catalog }: Props) {
 
                 <ul className="mt-8 space-y-4">
                   {group.services.map((svc, i) => (
-                    <li
+                    <PinSheet
                       key={svc.id}
-                      className="pin-sheet pin-settle relative px-6 py-6 sm:px-8"
-                      style={{
-                        ["--pin-rot" as string]: i % 2 === 0 ? "0.35deg" : "-0.4deg",
-                      }}
+                      as="li"
+                      className="px-6 py-6 sm:px-8"
+                      rotate={i % 2 === 0 ? 0.35 : -0.4}
+                      settleDelayMs={40 + i * 40}
+                      tapes="strip"
+                      registration={false}
                     >
-                      <span
-                        aria-hidden
-                        className="tape absolute -top-1 start-6 h-3 w-12 -rotate-2"
-                      />
                       <div className="flex flex-wrap items-start justify-between gap-4">
                         <div className="min-w-0 max-w-xl">
                           <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-ink">
@@ -142,7 +141,7 @@ export function ServicesPin({ locale, catalog }: Props) {
                           labels={t}
                         />
                       </div>
-                    </li>
+                    </PinSheet>
                   ))}
                 </ul>
               </section>
@@ -150,6 +149,6 @@ export function ServicesPin({ locale, catalog }: Props) {
           </div>
         )}
       </main>
-    </div>
+    </PinWall>
   );
 }

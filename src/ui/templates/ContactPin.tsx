@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import { PinSheet, PinWall } from "@/ui/atoms";
 import { BookCta, SiteHeader } from "@/ui/organisms/SiteHeader";
 import { ContactForm } from "@/ui/organisms/ContactForm";
 import { PrivacyDisclosure } from "@/ui/molecules/PrivacyDisclosure";
@@ -46,7 +47,7 @@ export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
   const t = copy[locale];
 
   return (
-    <div className="flex min-h-full flex-1 flex-col">
+    <PinWall>
       <SiteHeader locale={locale} />
 
       <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-10 px-5 py-12 sm:px-8 lg:grid lg:max-w-6xl lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 lg:py-16">
@@ -61,7 +62,7 @@ export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
             <BookCta locale={locale} />
           </div>
 
-          <div className="mt-12 space-y-5 border-t border-ink/10 pt-8">
+          <div className="mt-12 space-y-5 border-t border-ink/15 pt-8">
             <p className="font-display text-xs font-semibold tracking-[0.16em] text-slate uppercase">
               {t.channels}
             </p>
@@ -98,18 +99,12 @@ export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
           aria-label={t.formTitle}
           className="flex items-start justify-center lg:justify-end"
         >
-          <div
-            className="pin-sheet pin-settle relative w-full max-w-lg px-7 py-10 sm:px-10 sm:py-12"
-            style={{ ["--pin-rot" as string]: "0.6deg" }}
+          <PinSheet
+            className="w-full max-w-lg px-7 py-10 sm:px-10 sm:py-12"
+            rotate={0.6}
+            tapes="top"
+            pins
           >
-            <span
-              aria-hidden
-              className="tape absolute -top-2 start-8 h-4 w-16 -rotate-2"
-            />
-            <span
-              aria-hidden
-              className="tape absolute -top-1 end-10 h-4 w-14 rotate-5"
-            />
             <h2 className="font-display text-2xl font-semibold tracking-[-0.02em] text-ink uppercase">
               {t.formTitle}
             </h2>
@@ -125,9 +120,9 @@ export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
             <div className="mt-8">
               <PrivacyDisclosure locale={locale} defaultOpen={privacyOpen} />
             </div>
-          </div>
+          </PinSheet>
         </section>
       </main>
-    </div>
+    </PinWall>
   );
 }

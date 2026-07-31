@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { BlogPostDetail } from "@/domains/blog/post";
+import { PinSheet, PinWall } from "@/ui/atoms";
 import { SiteHeader } from "@/ui/organisms/SiteHeader";
 
 type Props = {
@@ -43,7 +44,7 @@ function renderSimpleMarkdown(source: string) {
 
 export function BlogPostPin({ locale, post }: Props) {
   return (
-    <div className="flex min-h-full flex-1 flex-col">
+    <PinWall>
       <SiteHeader locale={locale} />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-12 sm:px-8 lg:py-16">
@@ -53,25 +54,25 @@ export function BlogPostPin({ locale, post }: Props) {
         >
           {locale === "fa" ? "← بلاگ" : "← Blog"}
         </Link>
-        <article
-          className="pin-sheet pin-settle relative mt-8 px-7 py-10 sm:px-10 sm:py-12"
-          style={{ ["--pin-rot" as string]: "0.25deg" }}
+        <PinSheet
+          as="article"
+          className="mt-8 px-7 py-10 sm:px-10 sm:py-12"
+          rotate={0.25}
+          tapes="strip"
         >
-          <span
-            aria-hidden
-            className="tape absolute -top-1 start-8 h-3 w-12 -rotate-2"
-          />
           <h1 className="font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
             {post.title}
           </h1>
           {post.excerpt ? (
-            <p className="mt-4 text-base leading-relaxed text-slate">{post.excerpt}</p>
+            <p className="mt-4 text-base leading-relaxed text-slate">
+              {post.excerpt}
+            </p>
           ) : null}
-          <div className="mt-8 border-t border-ink/10 pt-8">
+          <div className="mt-8 border-t border-ink/15 pt-8">
             {renderSimpleMarkdown(post.bodyMarkdown)}
           </div>
-        </article>
+        </PinSheet>
       </main>
-    </div>
+    </PinWall>
   );
 }

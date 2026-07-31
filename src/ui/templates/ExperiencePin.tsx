@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { ExperienceEntry } from "@/domains/cv";
+import { PinSheet, PinWall } from "@/ui/atoms";
 import { BookCta, SiteHeader } from "@/ui/organisms/SiteHeader";
 
 type Copy = {
@@ -44,7 +45,7 @@ export function ExperiencePin({ locale, entries }: Props) {
   const t = copy[locale];
 
   return (
-    <div className="flex min-h-full flex-1 flex-col">
+    <PinWall>
       <SiteHeader locale={locale} />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-12 sm:px-8 lg:py-16">
@@ -59,7 +60,7 @@ export function ExperiencePin({ locale, entries }: Props) {
             <BookCta locale={locale} />
             <Link
               href={`/${locale}/contact`}
-              className="font-display text-sm font-semibold tracking-[0.14em] text-ink uppercase underline decoration-redline decoration-2 underline-offset-4 hover:text-redline"
+              className="redline-underline font-display text-sm font-semibold tracking-[0.14em] text-ink uppercase hover:text-redline"
             >
               {t.contact}
             </Link>
@@ -74,17 +75,15 @@ export function ExperiencePin({ locale, entries }: Props) {
               const range = dateRange(entry, t.present);
               const href = entry.companyUrl || entry.website;
               return (
-                <li
+                <PinSheet
                   key={entry.id}
-                  className="pin-sheet pin-settle relative px-6 py-7 sm:px-8"
-                  style={{
-                    ["--pin-rot" as string]: i % 2 === 0 ? "0.4deg" : "-0.45deg",
-                  }}
+                  as="li"
+                  className="px-6 py-7 sm:px-8"
+                  rotate={i % 2 === 0 ? 0.4 : -0.45}
+                  settleDelayMs={60 + i * 50}
+                  tapes="strip"
+                  registration={false}
                 >
-                  <span
-                    aria-hidden
-                    className="tape absolute -top-1 start-6 h-3 w-11 -rotate-2"
-                  />
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h2 className="font-display text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">
                       {href ? (
@@ -115,7 +114,8 @@ export function ExperiencePin({ locale, entries }: Props) {
 
                   {entry.relatedCompany ? (
                     <p className="mt-1 text-sm text-slate">
-                      {locale === "fa" ? "مرتبط با" : "Related"} · {entry.relatedCompany}
+                      {locale === "fa" ? "مرتبط با" : "Related"} ·{" "}
+                      {entry.relatedCompany}
                     </p>
                   ) : null}
 
@@ -154,12 +154,12 @@ export function ExperiencePin({ locale, entries }: Props) {
                   >
                     /
                   </span>
-                </li>
+                </PinSheet>
               );
             })}
           </ol>
         )}
       </main>
-    </div>
+    </PinWall>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { BlogListItem } from "@/domains/blog";
+import { PinSheet, PinWall } from "@/ui/atoms";
 import { SiteHeader } from "@/ui/organisms/SiteHeader";
 
 type Copy = {
@@ -45,7 +46,7 @@ export function BlogIndexPin({ locale, posts }: Props) {
   const t = copy[locale];
 
   return (
-    <div className="flex min-h-full flex-1 flex-col">
+    <PinWall>
       <SiteHeader locale={locale} />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-12 sm:px-8 lg:py-16">
@@ -59,14 +60,7 @@ export function BlogIndexPin({ locale, posts }: Props) {
         </header>
 
         {posts.length === 0 ? (
-          <div
-            className="pin-sheet pin-settle relative mt-14 px-7 py-10"
-            style={{ ["--pin-rot" as string]: "0.4deg" }}
-          >
-            <span
-              aria-hidden
-              className="tape absolute -top-1 start-8 h-3 w-12 -rotate-2"
-            />
+          <PinSheet className="mt-14 px-7 py-10" rotate={0.4} tapes="strip">
             <p className="text-base text-slate">{t.empty}</p>
             <p
               aria-hidden
@@ -74,23 +68,21 @@ export function BlogIndexPin({ locale, posts }: Props) {
             >
               DRAFT WALL
             </p>
-          </div>
+          </PinSheet>
         ) : (
           <ul className="mt-14 space-y-4">
             {posts.map((post, i) => {
               const dateLabel = formatDate(post.publishedAt, locale);
               return (
-                <li
+                <PinSheet
                   key={post.id}
-                  className="pin-sheet pin-settle relative px-6 py-6 sm:px-8"
-                  style={{
-                    ["--pin-rot" as string]: i % 2 === 0 ? "-0.35deg" : "0.4deg",
-                  }}
+                  as="li"
+                  className="px-6 py-6 sm:px-8"
+                  rotate={i % 2 === 0 ? -0.35 : 0.4}
+                  settleDelayMs={40 + i * 40}
+                  tapes="strip"
+                  registration={false}
                 >
-                  <span
-                    aria-hidden
-                    className="tape absolute -top-1 start-6 h-3 w-11 rotate-2"
-                  />
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h2 className="font-display text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">
                       <Link
@@ -116,16 +108,16 @@ export function BlogIndexPin({ locale, posts }: Props) {
                   ) : null}
                   <Link
                     href={`/${locale}/blog/${post.slug}`}
-                    className="mt-4 inline-block font-display text-xs font-semibold tracking-[0.14em] text-ink uppercase underline decoration-redline decoration-2 underline-offset-4 hover:text-redline"
+                    className="redline-underline mt-4 inline-block font-display text-xs font-semibold tracking-[0.14em] text-ink uppercase hover:text-redline"
                   >
                     {t.read}
                   </Link>
-                </li>
+                </PinSheet>
               );
             })}
           </ul>
         )}
       </main>
-    </div>
+    </PinWall>
   );
 }

@@ -29,10 +29,23 @@ Light scene: desk / pin-up wall under indoor ambient light. Not dark-mode defaul
 
 ## Components
 
-- **Pin sheet:** paper surface + soft offset shadow + optional tape chips + registration corners
-- **Book CTA:** solid redline block, uppercase display tracking — primary conversion to Calendly
-- **Header:** thin title-block rule; `qrbni.dev` + EN/FA
-- Avoid card grids as page structure; experience items are individual pinned sheets
+Craft kit (`src/ui/atoms`):
+
+| Atom | Role |
+|---|---|
+| `PinWall` | Critique-wall page shell (soft plotter wash) |
+| `PinSheet` | Paper sheet + settle + optional tape / pins / registration |
+| `Tape` | Masking-tape chip |
+| `PushPin` | Red geometric pin |
+| `RegistrationMarks` | Redline L-corners |
+| `FigLabel` / `TitleBlockMeta` / `RedlineEm` | Title-block voice (no marketing eyebrows) |
+
+Also:
+
+- **Book CTA:** solid redline block — primary Calendly conversion
+- **Header:** title-block rule; `qrbni.dev` + EN/FA + Istanbul meta
+- Avoid card grids as page structure; experience/services items are individual pinned sheets
+- Atmosphere only — no invented slogans, fake case studies, or doodle annotations
 
 ## Motion
 

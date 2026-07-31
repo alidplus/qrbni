@@ -67,7 +67,27 @@ Non-goals (v1): in-site CMS/admin, client-side NocoDB access, React Query / TanS
 
 **Write path (public):** Contact form → Turnstile token → Route Handler verifies Turnstile → inserts row in NocoDB Contacts. No outbound mail in v1 (NocoDB is the inbox). Optional later: Cloudflare Email Sending to verified Gmail. Email Routing may still forward `hello@qrbni.dev` → Gmail (inbound only).
 
-**Revalidate path:** NocoDB webhooks (configured **after** tables exist) → `POST /api/revalidate` with `REVALIDATE_SECRET` → `revalidateTag` / `revalidatePath`. Also time-based ISR as backup.
+**Revalidate path:** NocoDB webhooks → `POST /api/revalidate` (Bearer `REVALIDATE_SECRET`) → `revalidateTag` / `revalidatePath`. CMS reads use `unstable_cache` tags (`cv`, `experience`, `services`, `blog`, `settings`). Time-based revalidate (1h) as backup.
+
+### NocoDB → site webhooks
+
+```bash
+SITE_URL=https://preview.qrbni.dev npm run nocodb:webhooks
+SITE_URL=https://qrbni.dev npm run nocodb:webhooks   # after production cutover
+```
+
+Requires a NocoDB token with Meta **hookList / hookCreate**. If the PAT is data-only, the script prints a UI checklist.
+
+| Field | Value |
+|---|---|
+| URL | `{SITE_URL}/api/revalidate` (optional `?scope=cv\|services\|blog\|settings`) |
+| Method | `POST` |
+| Header | `Authorization: Bearer <REVALIDATE_SECRET>` |
+| Body | NocoDB default event JSON (`data.table_id` / `table_name` → scope) |
+| Tables | All CMS tables **except** `ContactMessage` |
+| Triggers | After insert, update, delete |
+
+Manual verify: `curl -X POST "$SITE_URL/api/revalidate?scope=cv" -H "Authorization: Bearer $REVALIDATE_SECRET"`
 
 ---
 
@@ -207,15 +227,15 @@ Form fields (v1): **contact** (email or phone) + **message** (+ name if useful f
 
 After any schema change that affects OpenAPI: regenerate Hey API SDK locally and commit (see §7).
 
-**Webhooks:** create only after tables exist (user or agent with confirmation of URLs/secrets).
+**Webhooks:** `npm run nocodb:webhooks` (or NocoDB UI) — see § revalidate path above. Skip `ContactMessage`.
 
 ---
 
 ## 6. Rendering & caching
 
 - Default: **SSG/ISR** for CV, services, blog lists/posts.
-- OpenNext: configure **incremental cache** (KV; R2 if needed) + **tag cache** for on-demand revalidation.
-- Time-based revalidate **and** NocoDB webhook-driven revalidation.
+- Domain queries: `unstable_cache` + tags; webhook `revalidateTag(..., "max")` + `revalidatePath`.
+- OpenNext: defaults today; wire KV/R2 tag cache in `open-next.config.ts` / wrangler when multi-instance cache matters.
 - Contact + revalidate routes: dynamic, no public caching of POST.
 
 Preview host (`preview.qrbni.dev`): full **SEO off** — `noindex, nofollow`, robots disallow, no AI training hints as applicable, do not submit sitemap for preview.

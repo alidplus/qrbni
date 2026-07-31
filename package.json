@@ -19,7 +19,8 @@
     "nocodb:schema": "node scripts/nocodb/bootstrap-schema.mjs",
     "nocodb:seed": "node scripts/nocodb/seed.mjs",
     "nocodb:openapi": "node scripts/nocodb/generate-openapi.mjs",
-    "nocodb:sdk": "npm run nocodb:openapi && npm run codegen"
+    "nocodb:sdk": "npm run nocodb:openapi && npm run codegen",
+    "nocodb:webhooks": "node scripts/nocodb/configure-webhooks.mjs"
   },
   "dependencies": {
     "@hey-api/client-fetch": "^0.13.1",

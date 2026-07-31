@@ -18,6 +18,7 @@
     "codegen": "openapi-ts",
     "nocodb:schema": "node scripts/nocodb/bootstrap-schema.mjs",
     "nocodb:seed": "node scripts/nocodb/seed.mjs",
+    "nocodb:sync-content": "node scripts/nocodb/sync-content.mjs",
     "nocodb:openapi": "node scripts/nocodb/generate-openapi.mjs",
     "nocodb:sdk": "npm run nocodb:openapi && npm run codegen",
     "nocodb:webhooks": "node scripts/nocodb/configure-webhooks.mjs"

@@ -1,0 +1,237 @@
+# Partner-toned services catalog (EN + FA) for NocoDB seed/sync.
+# Voice: outcomes and ownership — not ticket queues.
+
+categories:
+  - key: product-development
+    sort: 1
+    title:
+      en: Custom Product Development
+      fa: توسعه محصول سفارشی
+    description:
+      en: Web apps, SaaS, and APIs from idea to production.
+      fa: اپلیکیشن وب، SaaS و API از ایده تا پروداکشن.
+    services:
+      - key: custom-web-apps
+        title:
+          en: Custom Web Applications
+          fa: اپلیکیشن‌های وب سفارشی
+        summary:
+          en: Own the build of scalable web applications from idea to production.
+          fa: مالکیت ساخت اپلیکیشن‌های وب مقیاس‌پذیر از ایده تا پروداکشن.
+        bullets:
+          en:
+            - SaaS platforms
+            - Internal business tools
+            - Admin dashboards
+            - Customer portals
+            - Marketplaces
+          fa:
+            - پلتفرم‌های SaaS
+            - ابزارهای داخلی کسب‌وکار
+            - داشبوردهای ادمین
+            - پرتال مشتری
+            - مارکت‌پلیس
+      - key: mvp
+        title:
+          en: MVP Development
+          fa: توسعه MVP
+        summary:
+          en: Ship a production-ready MVP for founders validating a product bet.
+          fa: تحویل MVP آماده پروداکشن برای بنیان‌گذاران در حال اعتبارسنجی محصول.
+        bullets:
+          en:
+            - Product validation
+            - Fast iteration
+            - Solid foundations
+          fa:
+            - اعتبارسنجی محصول
+            - تکرار سریع
+            - زیربنای محکم
+      - key: api-development
+        title:
+          en: API Development
+          fa: توسعه API
+        summary:
+          en: Design and build robust APIs with auth, payments, and clear docs.
+          fa: طراحی و ساخت API پایدار با احراز هویت، پرداخت و مستندات روشن.
+        bullets:
+          en:
+            - REST & GraphQL
+            - Authentication
+            - Payments
+            - SDKs & documentation
+          fa:
+            - REST و GraphQL
+            - احراز هویت
+            - پرداخت
+            - SDK و مستندات
+
+  - key: architecture-consulting
+    sort: 2
+    title:
+      en: Architecture & Consulting
+      fa: معماری و مشاوره
+    description:
+      en: Reviews, audits, and fractional technical leadership.
+      fa: بازبینی، ممیزی و رهبری فنی پاره‌وقت.
+    services:
+      - key: architecture-review
+        title:
+          en: Architecture Review
+          fa: بازبینی معماری
+        summary:
+          en: Map bottlenecks, security risks, and a prioritized refactoring roadmap.
+          fa: نقشه گلوگاه‌ها، ریسک‌های امنیتی و نقشه بازآرایی اولویت‌بندی‌شده.
+        bullets:
+          en:
+            - Codebase review
+            - Risk map
+            - Prioritized improvements
+          fa:
+            - بازبینی کدبیس
+            - نقشه ریسک
+            - بهبودهای اولویت‌دار
+      - key: code-audit
+        title:
+          en: Code Audit
+          fa: ممیزی کد
+        summary:
+          en: Independent review before launch or investment decisions.
+          fa: بازبینی مستقل پیش از لانچ یا تصمیم سرمایه‌گذاری.
+        bullets:
+          en:
+            - Quality & maintainability
+            - Security & scalability
+            - Technical debt
+          fa:
+            - کیفیت و نگهداری‌پذیری
+            - امنیت و مقیاس‌پذیری
+            - بدهی فنی
+      - key: cto-advisory
+        title:
+          en: CTO Advisory
+          fa: مشاوره CTO
+        summary:
+          en: Fractional technical leadership when a full-time CTO is not the fit yet.
+          fa: رهبری فنی پاره‌وقت وقتی CTO تمام‌وقت هنوز مناسب نیست.
+        bullets:
+          en:
+            - Hiring advice
+            - Architecture decisions
+            - Roadmaps & mentoring
+          fa:
+            - مشاوره استخدام
+            - تصمیم‌های معماری
+            - نقشه راه و منتورینگ
+
+  - key: performance-infra
+    sort: 3
+    title:
+      en: Performance & Infrastructure
+      fa: عملکرد و زیرساخت
+    description:
+      en: Make systems faster and operations calmer.
+      fa: سیستم‌ها را سریع‌تر و عملیات را آرام‌تر کنید.
+    services:
+      - key: performance
+        title:
+          en: Performance Optimization
+          fa: بهینه‌سازی عملکرد
+        summary:
+          en: Backend, database, API latency, and frontend performance work.
+          fa: بهینه‌سازی بک‌اند، دیتابیس، تأخیر API و عملکرد فرانت‌اند.
+        bullets:
+          en:
+            - Query tuning
+            - Caching
+            - Frontend Core Web Vitals
+          fa:
+            - تنظیم کوئری
+            - کش
+            - Core Web Vitals فرانت‌اند
+      - key: cloud-devops
+        title:
+          en: Cloud & DevOps
+          fa: کلود و DevOps
+        summary:
+          en: CI/CD, containers, monitoring, and infrastructure automation.
+          fa: CI/CD، کانتینر، مانیتورینگ و خودکارسازی زیرساخت.
+        bullets:
+          en:
+            - Docker & CI/CD
+            - Cloudflare / cloud deploy
+            - Observability
+          fa:
+            - Docker و CI/CD
+            - استقرار Cloudflare / کلود
+            - مشاهده‌پذیری
+
+  - key: ai-integration
+    sort: 4
+    title:
+      en: AI Integration
+      fa: یکپارچه‌سازی AI
+    description:
+      en: Add practical AI to existing products.
+      fa: افزودن AI کاربردی به محصولات موجود.
+    services:
+      - key: ai-features
+        title:
+          en: AI Features for Existing Products
+          fa: قابلیت‌های AI برای محصولات موجود
+        summary:
+          en: Chat, RAG, document search, workflows, agents, and MCP—tied to real product jobs.
+          fa: چت، RAG، جستجوی سند، گردش‌کار، ایجنت و MCP—متصل به کارهای واقعی محصول.
+        bullets:
+          en:
+            - AI chat & RAG
+            - Workflow automation
+            - MCP & agent development
+            - OpenAI integrations
+          fa:
+            - چت AI و RAG
+            - خودکارسازی گردش‌کار
+            - توسعه MCP و ایجنت
+            - یکپارچه‌سازی OpenAI
+
+  - key: partnerships
+    sort: 5
+    title:
+      en: Long-Term Partnerships
+      fa: شراکت‌های بلندمدت
+    description:
+      en: Ongoing senior engineering capacity.
+      fa: ظرفیت مهندسی ارشد به‌صورت مستمر.
+    services:
+      - key: technical-partner
+        title:
+          en: Technical Partner Retainer
+          fa: ریتینر شریک فنی
+        summary:
+          en: External senior engineer for features, architecture, and planning.
+          fa: مهندس ارشد بیرونی برای فیچر، معماری و برنامه‌ریزی.
+        bullets:
+          en:
+            - 20–40 hours/month
+            - Feature development
+            - Technical decisions
+          fa:
+            - ۲۰ تا ۴۰ ساعت در ماه
+            - توسعه فیچر
+            - تصمیم‌های فنی
+      - key: startup-cto
+        title:
+          en: Startup CTO (part-time)
+          fa: CTO استارتاپ (پاره‌وقت)
+        summary:
+          en: Part-time technical leadership without a full-time hire.
+          fa: رهبری فنی پاره‌وقت بدون استخدام تمام‌وقت.
+        bullets:
+          en:
+            - Roadmaps
+            - Team mentoring
+            - Architecture ownership
+          fa:
+            - نقشه راه
+            - منتورینگ تیم
+            - مالکیت معماری

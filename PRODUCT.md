@@ -61,9 +61,10 @@ Not a generic freelance “full-stack developer for hire.” Position as a **sen
 
 1. **Partner, not tickets** — every services and home narrative reinforces outcome ownership.
 2. **Calendly first** — primary conversion is a 30‑minute meeting; contact form supports, doesn’t compete.
-3. **Truthful evidence** — only show experience, projects, and claims backed by NocoDB/seed sources.
-4. **Bilingual without compromise** — FA is a first-class locale (RTL); missing FA falls back to EN.
-5. **CMS-operated** — editors change NocoDB; the site stays a fast, cacheable public surface.
+3. **Truthful evidence** — only show experience, projects, and claims backed by NocoDB/seed sources. Soften unverified numeric metrics to qualitative outcomes until confirmed.
+4. **Bilingual without compromise** — FA is a first-class locale (RTL); missing FA falls back to EN. Prefer authored FA locale rows over fallback.
+5. **CMS-operated** — editors change NocoDB; the site stays a fast, cacheable public surface. Source bilingual copy in `cv.yaml` + `content/services.yaml`, sync with `npm run nocodb:sync-content`.
+6. **Dual tone** — Home/Services speak as technical partner; Experience keeps CV-literal job titles for recruiters, with outcome-led highlights.
 
 ## Accessibility & Inclusion
 

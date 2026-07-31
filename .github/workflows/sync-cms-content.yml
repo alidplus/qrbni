@@ -1,0 +1,52 @@
+name: Sync CMS content
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "cv.yaml"
+      - "content/services.yaml"
+      - "scripts/nocodb/sync-content.mjs"
+      - "scripts/nocodb/locale-helpers.mjs"
+      - "scripts/nocodb/.table-ids.json"
+
+concurrency:
+  group: sync-cms-content
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      NOCODB_BASE_URL: ${{ vars.NOCODB_BASE_URL }}
+      NOCODB_API_TOKEN: ${{ secrets.NOCODB_API_TOKEN }}
+      REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Sync NocoDB locales
+        run: npm run nocodb:sync-content
+
+      - name: Revalidate production cache
+        if: env.REVALIDATE_SECRET != ''
+        run: |
+          code=$(curl -sS -o /tmp/reval.out -w "%{http_code}" \
+            -X POST "https://qrbni.dev/api/revalidate?secret=${REVALIDATE_SECRET}&tag=cv")
+          echo "cv tag → HTTP $code"
+          cat /tmp/reval.out || true
+          code=$(curl -sS -o /tmp/reval2.out -w "%{http_code}" \
+            -X POST "https://qrbni.dev/api/revalidate?secret=${REVALIDATE_SECRET}&tag=services")
+          echo "services tag → HTTP $code"
+          cat /tmp/reval2.out || true

@@ -1,11 +1,20 @@
 /**
- * Seed NocoDB from cv.yaml + services catalog.
+ * Seed NocoDB from cv.yaml + content/services.yaml (EN + FA locales).
  * Usage: set -a && source .env.local && set +a && node scripts/nocodb/seed.mjs
+ *
+ * Idempotent: aborts if SiteSettings already has rows.
+ * For updates to an existing base, use: npm run nocodb:sync-content
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { load as loadYaml } from "js-yaml";
+import {
+  bulletsMarkdown,
+  highlightBodies,
+  pickLabel,
+  pickLocale,
+} from "./locale-helpers.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -51,7 +60,6 @@ async function createRecords(tableTitle, records) {
   if (!records.length) return [];
   const tableId = ids[tableTitle];
   if (!tableId) throw new Error(`Unknown table ${tableTitle}`);
-  // NocoDB accepts array body
   const created = await api("POST", `/api/v2/tables/${tableId}/records`, records);
   const list = Array.isArray(created) ? created : [created];
   console.log(`+ ${tableTitle}: ${list.length} row(s)`);
@@ -60,19 +68,19 @@ async function createRecords(tableTitle, records) {
 
 async function count(tableTitle) {
   const tableId = ids[tableTitle];
-  const data = await api(
-    "GET",
-    `/api/v2/tables/${tableId}/records?limit=1`,
-  );
+  const data = await api("GET", `/api/v2/tables/${tableId}/records?limit=1`);
   return data?.pageInfo?.totalRows ?? data?.list?.length ?? 0;
 }
 
 const cv = loadYaml(fs.readFileSync(path.join(ROOT, "cv.yaml"), "utf8"));
+const servicesDoc = loadYaml(
+  fs.readFileSync(path.join(ROOT, "content/services.yaml"), "utf8"),
+);
 
-// Idempotency: skip if SiteSettings already seeded
 const settingsCount = await count("SiteSettings");
 if (settingsCount > 0) {
   console.log("Seed already present (SiteSettings rows > 0). Aborting.");
+  console.log("Use: npm run nocodb:sync-content");
   process.exit(0);
 }
 
@@ -115,15 +123,16 @@ const [profile] = await createRecords("Profile", [
 ]);
 
 const profileId = profile.Id ?? profile.id;
-await createRecords("ProfileLocale", [
-  {
+await createRecords(
+  "ProfileLocale",
+  ["en", "fa"].map((locale) => ({
     ProfileId: profileId,
-    Locale: "en",
-    Headline: String(cv.basics.headline || "").replace("Severless", "Serverless"),
-    Summary: String(cv.basics.summary || "").trim(),
-    Label: (cv.basics.label || []).join(" · "),
-  },
-]);
+    Locale: locale,
+    Headline: pickLocale(cv.basics.headline, locale),
+    Summary: pickLocale(cv.basics.summary, locale),
+    Label: pickLabel(cv.basics.label, locale),
+  })),
+);
 
 await createRecords(
   "Language",
@@ -175,20 +184,23 @@ for (const [index, exp] of (cv.experience || []).entries()) {
     },
   ]);
   const experienceId = row.Id ?? row.id;
-  await createRecords("ExperienceLocale", [
-    {
+  await createRecords(
+    "ExperienceLocale",
+    ["en", "fa"].map((locale) => ({
       ExperienceId: experienceId,
-      Locale: "en",
-      Title: exp.title || "Role",
-      Summary: exp.summary ? String(exp.summary).trim() : null,
-    },
-  ]);
-  const highlights = (exp.highlights || []).map((h, i) => ({
-    ExperienceId: experienceId,
-    Locale: "en",
-    Body: String(h).trim(),
-    Sort: i + 1,
-  }));
+      Locale: locale,
+      Title: pickLocale(exp.title, locale) || (locale === "en" ? "Role" : "نقش"),
+      Summary: pickLocale(exp.summary, locale),
+    })),
+  );
+  const highlights = ["en", "fa"].flatMap((locale) =>
+    highlightBodies(exp.highlights || [], locale).map((h) => ({
+      ExperienceId: experienceId,
+      Locale: locale,
+      Body: h.body,
+      Sort: h.sort,
+    })),
+  );
   await createRecords("ExperienceHighlight", highlights);
 }
 
@@ -206,13 +218,16 @@ for (const [index, project] of (cv.projects || []).entries()) {
       RelatedPosts: (project.related_posts || []).join("\n"),
     },
   ]);
-  await createRecords("ProjectLocale", [
-    {
-      ProjectId: row.Id ?? row.id,
-      Locale: "en",
-      Summary: project.summary ? String(project.summary).trim() : null,
-    },
-  ]);
+  await createRecords(
+    "ProjectLocale",
+    ["en", "fa"]
+      .map((locale) => ({
+        ProjectId: row.Id ?? row.id,
+        Locale: locale,
+        Summary: pickLocale(project.summary, locale),
+      }))
+      .filter((r) => r.Summary),
+  );
 }
 
 for (const [index, edu] of (cv.education || []).entries()) {
@@ -226,164 +241,54 @@ for (const [index, edu] of (cv.education || []).entries()) {
       Sort: index + 1,
     },
   ]);
-  await createRecords("EducationLocale", [
-    {
+  await createRecords(
+    "EducationLocale",
+    ["en", "fa"].map((locale) => ({
       EducationId: row.Id ?? row.id,
-      Locale: "en",
-      Degree: edu.degree || null,
-      Field: edu.field || null,
-    },
-  ]);
+      Locale: locale,
+      Degree: pickLocale(edu.degree, locale),
+      Field: pickLocale(edu.field, locale),
+    })),
+  );
 }
 
-// Services from service-propose.md structure (homepage categories)
-const serviceCategories = [
-  {
-    Key: "product-development",
-    Sort: 1,
-    Title: "Custom Product Development",
-    Description: "Web apps, SaaS, and APIs from idea to production.",
-    services: [
-      {
-        Key: "custom-web-apps",
-        Title: "Custom Web Applications",
-        Summary: "Build scalable web applications from idea to production.",
-        BulletsMarkdown:
-          "- SaaS platforms\n- Internal business tools\n- Admin dashboards\n- Customer portals\n- Marketplaces",
-      },
-      {
-        Key: "mvp",
-        Title: "MVP Development",
-        Summary: "Launch a production-ready MVP for founders and early-stage startups.",
-        BulletsMarkdown: "- Product validation\n- Fast iteration\n- Solid foundations",
-      },
-      {
-        Key: "api-development",
-        Title: "API Development",
-        Summary: "Design and build robust APIs with auth, payments, and docs.",
-        BulletsMarkdown: "- REST & GraphQL\n- Authentication\n- Payments\n- SDKs & documentation",
-      },
-    ],
-  },
-  {
-    Key: "architecture-consulting",
-    Sort: 2,
-    Title: "Architecture & Consulting",
-    Description: "Reviews, audits, and fractional technical leadership.",
-    services: [
-      {
-        Key: "architecture-review",
-        Title: "Architecture Review",
-        Summary: "Bottlenecks, security risks, performance, and a refactoring roadmap.",
-        BulletsMarkdown: "- Codebase review\n- Risk map\n- Prioritized improvements",
-      },
-      {
-        Key: "code-audit",
-        Title: "Code Audit",
-        Summary: "Independent review before launch or investment.",
-        BulletsMarkdown: "- Quality & maintainability\n- Security & scalability\n- Technical debt",
-      },
-      {
-        Key: "cto-advisory",
-        Title: "CTO Advisory",
-        Summary: "Fractional technical leadership for startups.",
-        BulletsMarkdown: "- Hiring advice\n- Architecture decisions\n- Roadmaps & mentoring",
-      },
-    ],
-  },
-  {
-    Key: "performance-infra",
-    Sort: 3,
-    Title: "Performance & Infrastructure",
-    Description: "Make systems faster and operations calmer.",
-    services: [
-      {
-        Key: "performance",
-        Title: "Performance Optimization",
-        Summary: "Backend, database, API latency, and frontend performance.",
-        BulletsMarkdown: "- Query tuning\n- Caching\n- Frontend Core Web Vitals",
-      },
-      {
-        Key: "cloud-devops",
-        Title: "Cloud & DevOps",
-        Summary: "CI/CD, containers, monitoring, and infrastructure automation.",
-        BulletsMarkdown: "- Docker & CI/CD\n- Cloudflare / cloud deploy\n- Observability",
-      },
-    ],
-  },
-  {
-    Key: "ai-integration",
-    Sort: 4,
-    Title: "AI Integration",
-    Description: "Add practical AI to existing products.",
-    services: [
-      {
-        Key: "ai-features",
-        Title: "AI Features for Existing Products",
-        Summary: "Chat, RAG, document search, workflows, agents, and MCP.",
-        BulletsMarkdown:
-          "- AI chat & RAG\n- Workflow automation\n- MCP & agent development\n- OpenAI integrations",
-      },
-    ],
-  },
-  {
-    Key: "partnerships",
-    Sort: 5,
-    Title: "Long-Term Partnerships",
-    Description: "Ongoing senior engineering capacity.",
-    services: [
-      {
-        Key: "technical-partner",
-        Title: "Technical Partner Retainer",
-        Summary: "External senior engineer for features, architecture, and planning.",
-        BulletsMarkdown: "- 20–40 hours/month\n- Feature development\n- Technical decisions",
-      },
-      {
-        Key: "startup-cto",
-        Title: "Startup CTO (part-time)",
-        Summary: "Part-time technical leadership without a full-time hire.",
-        BulletsMarkdown: "- Roadmaps\n- Team mentoring\n- Architecture ownership",
-      },
-    ],
-  },
-];
-
-for (const cat of serviceCategories) {
+for (const cat of servicesDoc.categories || []) {
   const [catRow] = await createRecords("ServiceCategory", [
-    { Key: cat.Key, Sort: cat.Sort, Active: true },
+    { Key: cat.key, Sort: cat.sort, Active: true },
   ]);
   const categoryId = catRow.Id ?? catRow.id;
-  await createRecords("ServiceCategoryLocale", [
-    {
+  await createRecords(
+    "ServiceCategoryLocale",
+    ["en", "fa"].map((locale) => ({
       CategoryId: categoryId,
-      Locale: "en",
-      Title: cat.Title,
-      Description: cat.Description,
-    },
-  ]);
-  for (const [i, svc] of cat.services.entries()) {
+      Locale: locale,
+      Title: pickLocale(cat.title, locale),
+      Description: pickLocale(cat.description, locale),
+    })),
+  );
+  for (const [i, svc] of (cat.services || []).entries()) {
     const [svcRow] = await createRecords("Service", [
       {
         CategoryId: categoryId,
-        Key: svc.Key,
+        Key: svc.key,
         Sort: i + 1,
         Active: true,
         CtaType: "both",
       },
     ]);
-    await createRecords("ServiceLocale", [
-      {
+    await createRecords(
+      "ServiceLocale",
+      ["en", "fa"].map((locale) => ({
         ServiceId: svcRow.Id ?? svcRow.id,
-        Locale: "en",
-        Title: svc.Title,
-        Summary: svc.Summary,
-        BulletsMarkdown: svc.BulletsMarkdown,
-      },
-    ]);
+        Locale: locale,
+        Title: pickLocale(svc.title, locale),
+        Summary: pickLocale(svc.summary, locale),
+        BulletsMarkdown: bulletsMarkdown(svc.bullets, locale),
+      })),
+    );
   }
 }
 
-// Sample published EN blog post (placeholder)
 await createRecords("BlogCategory", [{ Slug: "engineering", Sort: 1 }]);
 const catList = await api(
   "GET",
@@ -393,6 +298,7 @@ const blogCategoryId = catList.list?.[0]?.Id;
 if (blogCategoryId) {
   await createRecords("BlogCategoryLocale", [
     { CategoryId: blogCategoryId, Locale: "en", Name: "Engineering" },
+    { CategoryId: blogCategoryId, Locale: "fa", Name: "مهندسی" },
   ]);
 }
 
@@ -413,4 +319,4 @@ await createRecords("BlogPost", [
   },
 ]);
 
-console.log("Seed complete.");
+console.log("Seed complete (EN + FA locales).");

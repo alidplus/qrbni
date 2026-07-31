@@ -1,10 +1,7 @@
-# Ali Ghorbani — CV / resume data
-# Compiled for a personal public website.
-# Primary source: public LinkedIn (https://www.linkedin.com/in/ali-ghorbani-web/)
-# Supplemented by: Twine portfolio (https://www.twine.net/qrbni), GitHub (@alidplus)
-# Collected: 2026-07-31
-# Note: LinkedIn blocks anonymous full-page crawls; some fields come from public
-# search indexes / mirrored portfolio pages. Review and correct before publishing.
+# Ali Ghorbani — CV / resume data (bilingual EN + FA)
+# CMS: NocoDB locale rows. Sync: npm run nocodb:sync-content
+# Voice: partner on Home/Services; CV-literal titles on Experience.
+# Metrics: qualitative only until verified (no approximate %).
 
 meta:
   sources:
@@ -18,27 +15,41 @@ meta:
       url: https://github.com/alidplus
       username: alidplus
   collected_at: "2026-07-31"
+  content_updated_at: "2026-07-31"
   caveats:
-    - "LinkedIn authwall prevented a full live scrape; employment dates prefer LinkedIn index data over Twine (Twine end dates look like profile-join date 2025-09-03)."
-    - "Location differs across profiles (LinkedIn posts: Tehran; GitHub: Dubai; Twine: Istanbul) — confirm preferred public location."
-    - "Email / phone were not publicly available."
-    - "Headline typo \"Severless\" kept as on LinkedIn; consider fixing to \"Serverless\" on the site."
+    - "Employment dates prefer LinkedIn index data over Twine."
+    - "Public location for the site is Istanbul (PRODUCT.md)."
+    - "Numeric performance claims softened to qualitative until verified."
 
 basics:
   name: Ali Ghorbani
-  headline: "Full-Stack | Software Design | Severless | 10+ Years"
+  headline:
+    en: "Full-Stack | Software Design | Serverless | 10+ Years"
+    fa: "فول‌استک | طراحی نرم‌افزار | Serverless | بیش از ۱۰ سال"
   label:
-    - Full Stack Developer
-    - Back-End Developer
-    - Front-End Developer
-  summary: >
-    Experienced fullstack developer with over 5 years of expertise in designing
-    and maintaining web applications using JavaScript, React, Node.js, and MongoDB.
-    Skilled in delivering scalable solutions and collaborating in agile teams,
-    with a focus on clean, efficient code and industry best practices.
+    en:
+      - Full Stack Developer
+      - Back-End Developer
+      - Front-End Developer
+    fa:
+      - توسعه‌دهنده فول‌استک
+      - توسعه‌دهنده بک‌اند
+      - توسعه‌دهنده فرانت‌اند
+  # Partner-aligned site summary (ProfileLocale); Experience stays CV-literal.
+  summary:
+    en: >
+      Senior technical partner with 10+ years designing, building, and scaling
+      reliable web products. Hands-on across React, Node.js, TypeScript, GraphQL,
+      AWS, and Cloudflare—from MVPs and SaaS platforms to APIs, performance work,
+      and long-term delivery ownership. Not ticket hours.
+    fa: >
+      شریک فنی ارشد با بیش از ۱۰ سال تجربه در طراحی، ساخت و مقیاس‌پذیری محصولات
+      وب قابل‌اعتماد. کار عملی با React، Node.js، TypeScript، GraphQL، AWS و
+      Cloudflare—از MVP و پلتفرم‌های SaaS تا API، بهینه‌سازی عملکرد و مالکیت
+      بلندمدت تحویل. نه فروش ساعت کاری.
   total_experience_reported: "10 years and 7 months"
   location:
-    preferred: null # set manually for the website
+    preferred: Istanbul
     linkedin_reported: "Tehran, Tehran Province, Iran"
     github_reported: "Dubai, UAE"
     twine_reported: "Istanbul, Türkiye"
@@ -56,9 +67,9 @@ basics:
       currency: USD
       unit: day
   contact:
-    email: null
-    phone: null
-    website: null
+    email: ali.ghorbani.tr@gmail.com
+    phone: "+989143252762"
+    website: https://qrbni.dev
 
 languages:
   - name: Persian
@@ -72,7 +83,6 @@ languages:
     level: 20
 
 skills:
-  # From Twine self-reported expertise (0–100)
   primary:
     - name: React JS
       level: 100
@@ -110,7 +120,6 @@ skills:
       level: 75
     - name: Redis
       level: 70
-  # Also evidenced in experience / posts (no self-score)
   also_used:
     - Apollo GraphQL
     - Feathers.js
@@ -147,10 +156,11 @@ industries:
   - Retail
 
 experience:
-  # Prefer LinkedIn date ranges where they differ from Twine.
   - company: Abrunnet ITC
     company_url: https://www.linkedin.com/company/abrunnet-itc
-    title: Full Stack Engineer
+    title:
+      en: Full Stack Engineer
+      fa: مهندس فول‌استک
     location: Dubai, United Arab Emirates
     start_date: "2021-05"
     end_date: "2025-02"
@@ -158,31 +168,46 @@ experience:
     date_notes: >
       LinkedIn index: May 2021 – Feb 2025 (Dubai).
       Twine lists Feb 2024 – Sep 2025 (likely inaccurate end date).
-    summary: >
-      Full-stack development across multiple innovative projects, including a
-      school management platform, an AI-driven text-to-app startup, and a
-      restaurant inventory management system, delivering scalable solutions and
-      enhancing user experiences.
+    summary:
+      en: >
+        Full-stack engineering across a school management platform, an AI-driven
+        text-to-app product, and a restaurant inventory system—owning delivery
+        from architecture through production operations.
+      fa: >
+        مهندسی فول‌استک روی پلتفرم مدیریت مدرسه، محصول text-to-app مبتنی بر AI و
+        سیستم موجودی رستوران—از معماری تا عملیات پروداکشن.
     highlights:
-      - >
-        Spearheaded development of a school management platform, leading an agile
-        team through product design, user research, and MVP creation, streamlining
-        administrative tasks for educational institutions.
-      - >
-        Designed and implemented a Pay-As-You-Go subscription model with Stripe
-        (Skippet), boosting monthly recurring revenue by ~35% and reducing churn
-        by ~20% through flexible billing options.
-      - >
-        Optimized platform performance by customizing Apollo GraphQL caching,
-        reducing API response times by ~40% (from ~600ms to ~360ms), and
-        automating machine learning workflows, cutting manual processing time by ~50%.
-      - >
-        Modernized legacy software by upgrading dependencies and refactoring UI
-        components for improved UX and stability.
-      - >
-        Enhanced system observability using AWS CloudWatch and LogDNA, achieving
-        ~99.8% uptime; developed messaging with AWS SES/SNS supporting 5,000+
-        daily messages at ~99% delivery rate.
+      - en: >
+          Led development of a school management platform through product design,
+          user research, and MVP delivery, streamlining administrative workflows
+          for educational institutions.
+        fa: >
+          رهبری ساخت پلتفرم مدیریت مدرسه از طراحی محصول و پژوهش کاربر تا تحویل
+          MVP و ساده‌سازی فرایندهای اداری مؤسسات آموزشی.
+      - en: >
+          Designed and shipped a Pay-As-You-Go Stripe subscription model
+          (Skippet), improving billing flexibility and subscription retention.
+        fa: >
+          طراحی و پیاده‌سازی مدل اشتراک Pay-As-You-Go با Stripe (Skippet) برای
+          انعطاف بیشتر در صورتحساب و حفظ مشترکین.
+      - en: >
+          Improved platform performance with custom Apollo GraphQL caching and
+          automated machine-learning workflows that cut manual processing effort.
+        fa: >
+          بهبود عملکرد پلتفرم با کش سفارشی Apollo GraphQL و خودکارسازی گردش‌کارهای
+          یادگیری ماشین برای کاهش کار دستی.
+      - en: >
+          Modernized legacy software by upgrading dependencies and refactoring UI
+          components for clearer UX and better stability.
+        fa: >
+          نوسازی نرم‌افزار قدیمی با ارتقای وابستگی‌ها و بازآرایی کامپوننت‌های UI
+          برای تجربه کاربری واضح‌تر و پایداری بهتر.
+      - en: >
+          Strengthened observability with AWS CloudWatch and LogDNA, and built
+          messaging on AWS SES/SNS for reliable high-volume delivery.
+        fa: >
+          تقویت مشاهده‌پذیری با AWS CloudWatch و LogDNA و ساخت پیام‌رسانی روی
+          AWS SES/SNS برای ارسال پایدار در حجم بالا.
     tech:
       - React
       - Node.js
@@ -197,7 +222,9 @@ experience:
   - company: eStart4
     company_url: null
     related_company: Arbunize Co.
-    title: Full Stack Engineer
+    title:
+      en: Full Stack Engineer
+      fa: مهندس فول‌استک
     location: Mīāneh, East Azerbaijan, Iran
     start_date: "2020-05"
     end_date: "2021-10"
@@ -205,25 +232,40 @@ experience:
     date_notes: >
       LinkedIn index: May 2020 – Oct 2021.
       Twine lists Oct 2021 – Sep 2025 (likely inaccurate).
-    summary: >
-      Led end-to-end development of a food delivery platform for a Portuguese
-      client under Arbunize Co., delivering a fully functional application as a
-      solo developer over ~18 months. The startup later closed due to lack of
-      investment and market competition.
+    summary:
+      en: >
+        Solo end-to-end delivery of a food delivery platform for a Portuguese
+        client under Arbunize Co.—from API and frontends to maps, offline support,
+        and cloud deploy. The startup later closed for investment and market reasons.
+      fa: >
+        تحویل سرتاسری پلتفرم سفارش غذا برای مشتری پرتغالی زیر Arbunize Co.—از API
+        و فرانت‌اندها تا نقشه، پشتیبانی آفلاین و استقرار ابری. استارتاپ بعداً به‌دلیل
+        سرمایه‌گذاری و رقابت بازار بسته شد.
     highlights:
-      - >
-        Mastered React.js and Google Cloud Platform (GCP); deployed a scalable
-        API with Google Cloud Run, Feathers.js, and MongoDB Atlas, handling up
-        to ~1,000 requests/minute with ~200ms average response time.
-      - >
-        Designed and launched 3 responsive frontends (website, dashboard,
-        storefront) using React and Bootstrap — 50+ unique pages.
-      - >
-        Implemented live delivery routing with Google Maps API, tracking an
-        estimated 100+ packages daily with real-time updates under ~2s latency.
-      - >
-        Built offline mode with Workbox service workers so a large share of core
-        features worked without connectivity.
+      - en: >
+          Built a scalable API on Google Cloud Run with Feathers.js and MongoDB
+          Atlas, focused on steady latency under load.
+        fa: >
+          ساخت API مقیاس‌پذیر روی Google Cloud Run با Feathers.js و MongoDB Atlas
+          با تمرکز روی تأخیر پایدار زیر بار.
+      - en: >
+          Designed and launched three responsive React/Bootstrap frontends
+          (website, dashboard, storefront) covering the full product surface.
+        fa: >
+          طراحی و راه‌اندازی سه فرانت‌اند واکنش‌گرا با React و Bootstrap (وب‌سایت،
+          داشبورد، فروشگاه) برای پوشش کامل سطح محصول.
+      - en: >
+          Implemented live delivery routing with Google Maps API for real-time
+          package tracking.
+        fa: >
+          پیاده‌سازی مسیریابی زنده ارسال با Google Maps API برای ردیابی لحظه‌ای
+          مرسوله‌ها.
+      - en: >
+          Added offline mode with Workbox service workers so core flows kept
+          working without connectivity.
+        fa: >
+          افزودن حالت آفلاین با Workbox service workers تا جریان‌های اصلی بدون
+          اتصال هم کار کنند.
     tech:
       - React.js
       - Bootstrap
@@ -236,7 +278,9 @@ experience:
   - company: Bittestan
     company_url: https://www.linkedin.com/company/bittestan
     website: https://bittestan.com/
-    title: Full Stack Developer
+    title:
+      en: Full Stack Developer
+      fa: توسعه‌دهنده فول‌استک
     location: Tehran, Iran
     start_date: "2019-01"
     end_date: "2020-03"
@@ -244,17 +288,26 @@ experience:
     date_notes: >
       LinkedIn index: Jan 2019 – Mar 2020.
       Twine lists Mar 2020 – Sep 2025 (likely inaccurate).
-    summary: >
-      Joined Bittestan, a cryptocurrency exchange startup in its early stages,
-      gaining critical skills alongside senior developers.
+    summary:
+      en: >
+        Early-stage cryptocurrency exchange: user dashboard work, microservices
+        support, and real-time market charts alongside senior engineers.
+      fa: >
+        صرافی رمزارز در مراحل اولیه: داشبورد کاربر، پشتیبانی میکروسرویس‌ها و
+        نمودارهای لحظه‌ای بازار در کنار مهندسان ارشد.
     highlights:
-      - Designed and implemented an intuitive user dashboard with strong UI/UX focus.
-      - >
-        Supported backend teams in stabilizing microservices architecture,
-        resolving API bugs, and creating new services.
-      - >
-        Implemented real-time price charts with Socket.io, supporting ~10,000
-        concurrent users at under ~100ms latency.
+      - en: Designed and implemented a clear trading user dashboard with strong UX focus.
+        fa: طراحی و پیاده‌سازی داشبورد معاملاتی کاربر با تمرکز بر تجربه کاربری.
+      - en: >
+          Helped stabilize microservices—debugging APIs and shipping new backend
+          services with the core team.
+        fa: >
+          کمک به پایدارسازی میکروسرویس‌ها—اشکال‌زدایی API و تحویل سرویس‌های جدید
+          بک‌اند همراه تیم اصلی.
+      - en: >
+          Built real-time price charts with Socket.io for concurrent market viewers.
+        fa: >
+          ساخت نمودارهای قیمت لحظه‌ای با Socket.io برای کاربران همزمان بازار.
     tech:
       - Socket.io
       - Microservices
@@ -263,19 +316,28 @@ experience:
 
   - company: Kamand
     company_url: https://www.linkedin.com/company/kamand
-    title: Web Developer
+    title:
+      en: Web Developer
+      fa: توسعه‌دهنده وب
     location: Tabriz, Iran
     start_date: "2014-10"
     end_date: "2018-12"
     current: false
-    summary: >
-      Employed at Kamand working first with PHP MVC and WordPress, then
-      transitioning with the company to Node.js / MEVN stack in 2015.
+    summary:
+      en: >
+        Web development at Kamand—starting with PHP MVC and WordPress, then moving
+        with the team to Node.js and the MEVN stack from 2015.
+      fa: >
+        توسعه وب در کمند—شروع با PHP MVC و WordPress، سپس همراه تیم از ۲۰۱۵ به
+        Node.js و استک MEVN.
     highlights:
-      - >
-        Contributed to projects including melketabriz.com, iranfarm.com,
-        keshtkala.ir and others.
-      - Switched with the team from PHP/WordPress to Node.js and the MEVN stack (2015).
+      - en: >
+          Shipped client sites including melketabriz.com, iranfarm.com, and
+          keshtkala.ir.
+        fa: >
+          تحویل سایت‌های مشتری از جمله melketabriz.com، iranfarm.com و keshtkala.ir.
+      - en: Transitioned with the team from PHP/WordPress to Node.js and MEVN (2015).
+        fa: انتقال همراه تیم از PHP/WordPress به Node.js و MEVN (۲۰۱۵).
     tech:
       - PHP
       - PHP MVC
@@ -285,15 +347,21 @@ experience:
       - Express
       - Vue.js
 
-  - company: Kamand # confirm title/role on LinkedIn — early period before Web Developer title
-    title: null
+  - company: Kamand
+    title:
+      en: Developer
+      fa: توسعه‌دهنده
     location: Tabriz, East Azerbaijan Province, Iran
     start_date: "2014-03"
     end_date: "2014-09"
     current: false
-    summary: >
-      Earlier Tabriz role (~6 months) listed on LinkedIn near the Kamand
-      section; exact title not fully recovered from public indexes — verify.
+    summary:
+      en: >
+        Earlier Kamand engagement in Tabriz (about six months) before the Web
+        Developer title period—foundational web delivery with the same team.
+      fa: >
+        همکاری زودتر با کمند در تبریز (حدود شش ماه) پیش از دوره عنوان Web
+        Developer—تحویل پایه وب همراه همان تیم.
     highlights: []
 
 projects:
@@ -301,10 +369,13 @@ projects:
     start_date: "2025-03"
     end_date: null
     current: true
-    summary: >
-      A SaaS boilerplate prepared with edge technologies, ready for team
-      collaboration. Built around Cloudflare Pages / Workers, with interest in
-      Next.js, Wrangler, tRPC, and D1 (SQLite).
+    summary:
+      en: >
+        Edge SaaS boilerplate for team collaboration on Cloudflare Pages / Workers,
+        with Next.js, Wrangler, tRPC, and D1.
+      fa: >
+        اسکلت SaaS لبه‌ای برای همکاری تیمی روی Cloudflare Pages / Workers، با
+        Next.js، Wrangler، tRPC و D1.
     related_posts:
       - https://www.linkedin.com/posts/ali-ghorbani-web_revolutionizing-your-startups-infrastructure-activity-7306718105102094336-cI8e
       - https://www.linkedin.com/posts/ali-ghorbani-web_framework-guides-cloudflare-pages-docs-activity-7306711979941879809-dagG
@@ -318,34 +389,46 @@ projects:
 
   - name: Atlantis School management system
     role: Co-founder / builder
-    summary: >
-      Co-founded and managed a school management SaaS startup; led a small team
-      building a digital platform to streamline school administrative tasks.
-      Faced team changes and resource limits; startup did not reach full potential.
-      Experience emphasized product development, customer needs, and pivoting.
+    summary:
+      en: >
+        Co-founded a school management SaaS; led a small team building admin
+        workflows. Resource limits and team changes constrained growth; the work
+        sharpened product judgment and pivot discipline.
+      fa: >
+        هم‌بنیان‌گذار SaaS مدیریت مدرسه؛ رهبری تیم کوچک برای ساخت گردش‌کارهای
+        اداری. محدودیت منابع و تغییر تیم رشد را محدود کرد؛ تجربه قضاوت محصول و
+        انضباط pivot را تقویت کرد.
     tech:
       - SaaS
       - Full-stack web
 
   - name: Food delivery platform (Portuguese client)
     company: eStart4 / Arbunize Co.
-    summary: Solo end-to-end food delivery product (see eStart4 experience).
+    summary:
+      en: Solo end-to-end food delivery product (see eStart4 experience).
+      fa: محصول سفارش غذا سرتاسری به‌صورت انفرادی (نگاه کنید به سوابق eStart4).
 
   - name: Cryptocurrency exchange (Bittestan)
     company: Bittestan
-    summary: Early-stage crypto exchange dashboard and realtime market charts.
+    summary:
+      en: Early-stage crypto exchange dashboard and realtime market charts.
+      fa: داشبورد صرافی رمزارز در مراحل اولیه و نمودارهای لحظه‌ای بازار.
 
 education:
   - institution: University of Tabriz
     institution_url: https://www.linkedin.com/school/university-of-tabriz
-    degree: Master of Engineering (MEng)
-    field: Petroleum Engineering
+    degree:
+      en: Master of Engineering (MEng)
+      fa: کارشناسی ارشد مهندسی
+    field:
+      en: Petroleum Engineering
+      fa: مهندسی نفت
     start_date: "2009-09"
     end_date: "2014-06"
     location: Tabriz, Iran
 
 recommendations:
-  - author: null # name not fully recovered from public index
+  - author: null
     company: Skippet
     quote: >
       I would wholly recommend Ali as a software engineer. Ali worked at Skippet
@@ -364,49 +447,8 @@ github:
   location: Dubai, UAE
   hireable: true
   joined: "2015-07-18"
-  notable_repos:
-    - name: yepagi
-      url: https://github.com/alidplus/yepagi
-      language: TypeScript
-      stars: 1
-    - name: uikit
-      url: https://github.com/alidplus/uikit
-      language: TypeScript
-    - name: v2worker
-      url: https://github.com/alidplus/v2worker
-      language: TypeScript
-    - name: marketa-shop
-      url: https://github.com/alidplus/marketa-shop
-      language: TypeScript
-    - name: lobox-test
-      url: https://github.com/alidplus/lobox-test
-      language: TypeScript
-      description: Simple test project for Lobox
-    - name: blog-test
-      url: https://github.com/alidplus/blog-test
-      language: JavaScript
-      description: Blog API as test project
-      stars: 1
-    - name: logical-gates
-      url: https://github.com/alidplus/logical-gates
-      language: TypeScript
-      stars: 1
-    - name: feathersjs-socket-developer-panel
-      url: https://github.com/alidplus/feathersjs-socket-developer-panel
-      description: >
-        Panel that auto-assigns backend-developer tasks from front-end API
-        calls, based on GraphQL and Socket.io
-    - name: schema.org-mongoose-schema
-      url: https://github.com/alidplus/schema.org-mongoose-schema
-      description: Translate schema.org schemas to mongoose schemas
-    - name: ekamand-job
-      url: https://github.com/alidplus/ekamand-job
-      description: Job directory (Kamand-era)
 
 website_todos:
-  - Confirm preferred public location (Tehran / Dubai / Istanbul).
-  - Add email, phone, and personal domain when ready.
-  - Fix headline spelling to "Serverless" if desired.
-  - Verify Mar–Sep 2014 Kamand role title.
-  - Reconcile Abrunnet / eStart4 / Bittestan exact month ranges with your LinkedIn export.
-  - Optionally export LinkedIn PDF / data archive and merge any missing sections (certifications, full skills endorsements, media).
+  - Verify and restore numeric metrics when evidence is available.
+  - Reconcile Abrunnet / eStart4 / Bittestan month ranges with LinkedIn export.
+  - Optionally publish first real blog post (EN + FA).

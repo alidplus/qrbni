@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { LocaleDocument } from "@/ui/molecules/LocaleDocument";
+import { SiteVisitBeacon } from "@/ui/molecules/Telemetry";
 
 type Props = {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <>
       <LocaleDocument locale={locale} />
+      <SiteVisitBeacon locale={locale} />
       {children}
     </>
   );

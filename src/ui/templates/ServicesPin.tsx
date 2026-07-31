@@ -3,8 +3,6 @@ import type { Locale } from "@/i18n/config";
 import type { ServiceCategoryGroup } from "@/domains/services";
 import { BookCta, SiteHeader } from "@/ui/organisms/SiteHeader";
 
-const calendly = "https://calendly.com/alighorbani/30min";
-
 type Copy = {
   title: string;
   support: string;
@@ -53,16 +51,7 @@ function ServiceCtas({
       {labels.contact}
     </Link>
   );
-  const book = (
-    <a
-      href={calendly}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-display text-xs font-semibold tracking-[0.14em] text-redline uppercase hover:underline"
-    >
-      {labels.book}
-    </a>
-  );
+  const book = <BookCta locale={locale} variant="link">{labels.book}</BookCta>;
   if (ctaType === "contact") return contact;
   if (ctaType === "calendly") return book;
   return (

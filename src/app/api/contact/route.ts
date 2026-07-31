@@ -5,6 +5,11 @@ import {
   hashIp,
   verifyTurnstileToken,
 } from "@/server/turnstile";
+import {
+  formatContactTelegram,
+  hostFromRequest,
+  notifyTelegram,
+} from "@/server/telegram";
 
 export const dynamic = "force-dynamic";
 
@@ -72,6 +77,11 @@ export async function POST(request: Request) {
       { status: 500 },
     );
   }
+
+  notifyTelegram({
+    host: hostFromRequest(request),
+    text: formatContactTelegram({ name, contact, message }),
+  });
 
   return NextResponse.json({ ok: true });
 }

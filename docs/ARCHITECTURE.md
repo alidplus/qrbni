@@ -65,7 +65,9 @@ Non-goals (v1): in-site CMS/admin, client-side NocoDB access, React Query / TanS
 
 **Read path:** Server components / generateStaticParams / fetch at build & revalidation use the Hey API client with token from Worker secrets / env.
 
-**Write path (public):** Contact form → Turnstile token → Route Handler verifies Turnstile → inserts row in NocoDB Contacts. No outbound mail in v1 (NocoDB is the inbox). Optional later: Cloudflare Email Sending to verified Gmail. Email Routing may still forward `hello@qrbni.dev` → Gmail (inbound only).
+**Write path (public):** Contact form → Turnstile token → Route Handler verifies Turnstile → inserts row in NocoDB Contacts. On **production** (`qrbni.dev`) also notifies Telegram (`TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`). No outbound mail in v1. Optional later: Cloudflare Email Sending to verified Gmail. Email Routing may still forward `hello@qrbni.dev` → Gmail (inbound only).
+
+**Telegram (production only):** contact form body; one site visit per browser session; contact page visit; Calendly “Book 30 min” clicks. Preview/local never call Telegram (host gate + secrets only on production Worker).
 
 **Revalidate path (production only):** NocoDB webhooks → `POST https://qrbni.dev/api/revalidate` (Bearer `REVALIDATE_SECRET`) → `revalidateTag` / `revalidatePath`. CMS reads use `unstable_cache` tags (`cv`, `experience`, `services`, `blog`, `settings`). Time-based revalidate (1h) as backup.
 
@@ -315,8 +317,12 @@ Authoritative integration notes live in repo `turnstile.md` (Cloudflare Spin). H
 | `TURNSTILE_SITE_KEY` | secret | var OK (non-sensitive) | yes |
 | `TURNSTILE_SECRET` / `TURNSTILE_SECRET_KEY` | secret | **secret** | yes |
 | `REVALIDATE_SECRET` | secret | **secret** | yes |
+| `TELEGRAM_BOT_TOKEN` | secret | **secret (production only)** | optional (unused locally) |
+| `TELEGRAM_CHAT_ID` | secret | **secret (production only)** | optional (unused locally) |
 
 `REVALIDATE_SECRET`: **self-generated** (`openssl rand -hex 32`), not issued by NocoDB. Paste the same value into NocoDB webhook URL/header after tables exist.
+
+`TELEGRAM_*`: BotFather token + destination chat id. Notified only when `Host` is `qrbni.dev` (contact form, site visit, contact page, meeting CTA). Preview and local never send — client and server both gate on apex host; CI syncs these secrets only onto the production Worker.
 
 ---
 
@@ -357,6 +363,8 @@ Workflow: [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
 | secret | `TURNSTILE_SITE_KEY` |
 | secret | `TURNSTILE_SECRET` |
 | secret | `REVALIDATE_SECRET` |
+| secret | `TELEGRAM_BOT_TOKEN` (production Worker only) |
+| secret | `TELEGRAM_CHAT_ID` (production Worker only) |
 | variable | `NOCODB_BASE_URL` (optional; defaults to `https://app.nocodb.com`) |
 
 Local mirrors: `npm run deploy:preview` / `npm run deploy:production` (needs Wrangler auth + same env as `.env.local`).

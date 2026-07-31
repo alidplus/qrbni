@@ -24,6 +24,8 @@ jobs:
       TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
       TURNSTILE_SECRET: ${{ secrets.TURNSTILE_SECRET }}
       REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       # Prefer IPv4 — some runners hit flaky IPv6 paths to api.cloudflare.com
       NODE_OPTIONS: --dns-result-order=ipv4first
     steps:
@@ -169,6 +171,8 @@ jobs:
       - name: Sync Worker secrets
         run: |
           # NOCODB_BASE_URL stays a wrangler var — cannot also be a secret (CF 10053).
+          # TELEGRAM_* are production-only (never synced to preview).
+          export DEPLOY_TARGET="${{ steps.target.outputs.env }}"
           python3 - <<'PY' > /tmp/worker-secrets.json
           import json, os
           keys = [
@@ -177,9 +181,15 @@ jobs:
               "TURNSTILE_SECRET",
               "REVALIDATE_SECRET",
           ]
-          print(json.dumps({k: os.environ[k] for k in keys}))
+          payload = {k: os.environ[k] for k in keys}
+          if os.environ.get("DEPLOY_TARGET") == "production":
+              for k in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID"):
+                  val = os.environ.get(k)
+                  if val:
+                      payload[k] = val
+          print(json.dumps(payload))
           PY
-          if [ "${{ steps.target.outputs.env }}" = "production" ]; then
+          if [ "$DEPLOY_TARGET" = "production" ]; then
             npx wrangler secret bulk /tmp/worker-secrets.json --env production
           else
             # Explicit top-level env when multiple envs exist in wrangler.jsonc

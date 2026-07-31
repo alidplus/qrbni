@@ -1,8 +1,6 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 
-const calendly = "https://calendly.com/alighorbani/30min";
-
 type Props = {
   locale: Locale;
 };
@@ -47,22 +45,4 @@ export function SiteHeader({ locale }: Props) {
   );
 }
 
-export function BookCta({
-  locale,
-  className = "",
-}: {
-  locale: Locale;
-  className?: string;
-}) {
-  const label = locale === "fa" ? "رزرو ۳۰ دقیقه" : "Book 30 min";
-  return (
-    <a
-      href={calendly}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center bg-redline px-5 py-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-redline ${className}`}
-    >
-      {label}
-    </a>
-  );
-}
+export { BookCta } from "./BookCta";

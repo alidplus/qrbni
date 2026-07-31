@@ -15,7 +15,6 @@ type Copy = {
   errValidation: string;
   errForbidden: string;
   errServer: string;
-  privacy: string;
 };
 
 const copy: Record<Locale, Copy> = {
@@ -30,7 +29,6 @@ const copy: Record<Locale, Copy> = {
     errValidation: "Check the fields and try again.",
     errForbidden: "Bot check failed. Reset and try again.",
     errServer: "Couldn’t send right now. Try again or email me.",
-    privacy: "Privacy",
   },
   fa: {
     name: "نام",
@@ -43,7 +41,6 @@ const copy: Record<Locale, Copy> = {
     errValidation: "فیلدها را بررسی کنید و دوباره بفرستید.",
     errForbidden: "تأیید امنیتی ناموفق بود. دوباره تلاش کنید.",
     errServer: "الان ارسال نشد. دوباره تلاش کنید یا ایمیل بزنید.",
-    privacy: "حریم خصوصی",
   },
 };
 
@@ -217,12 +214,6 @@ export function ContactForm({ locale, siteKey }: Props) {
         >
           {status === "sending" ? t.sending : t.submit}
         </button>
-        <a
-          href={`/${locale}/privacy`}
-          className="font-display text-xs font-semibold tracking-[0.14em] text-slate uppercase underline decoration-ink/20 underline-offset-4 hover:text-ink"
-        >
-          {t.privacy}
-        </a>
       </div>
     </form>
   );

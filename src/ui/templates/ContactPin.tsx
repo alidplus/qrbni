@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { BookCta, SiteHeader } from "@/ui/organisms/SiteHeader";
 import { ContactForm } from "@/ui/organisms/ContactForm";
+import { PrivacyDisclosure } from "@/ui/molecules/PrivacyDisclosure";
 
 type Copy = {
   title: string;
@@ -38,9 +39,10 @@ const copy: Record<Locale, Copy> = {
 type Props = {
   locale: Locale;
   siteKey: string;
+  privacyOpen?: boolean;
 };
 
-export function ContactPin({ locale, siteKey }: Props) {
+export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
   const t = copy[locale];
 
   return (
@@ -119,6 +121,9 @@ export function ContactPin({ locale, siteKey }: Props) {
             </p>
             <div className="mt-8">
               <ContactForm locale={locale} siteKey={siteKey} />
+            </div>
+            <div className="mt-8">
+              <PrivacyDisclosure locale={locale} defaultOpen={privacyOpen} />
             </div>
           </div>
         </section>

@@ -3,7 +3,7 @@ import { locales } from "@/i18n/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://qrbni.dev";
-  const paths = ["", "/services", "/blog", "/contact", "/privacy"];
+  const paths = ["", "/services", "/blog", "/contact", "/experience"];
 
   return locales.flatMap((locale) =>
     paths.map((path) => ({

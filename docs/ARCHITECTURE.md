@@ -259,7 +259,7 @@ Implement:
 - JSON-LD: `Person`, services/`OfferCatalog` or `ProfessionalService`, `BlogPosting`, `BreadcrumbList`
 - Markdown blog rendering with sensible heading hygiene
 - Placeholder favicon + default OG until real assets replace them
-- Privacy page (`/en/privacy`, `/fa/privacy`) — agent-authored copy for contact + Turnstile
+- Privacy copy lives on contact as an expandable section (`#privacy`); `/privacy` redirects there
 
 Apex only: no `www` site (redirect `www` → apex at DNS/CF if needed).
 

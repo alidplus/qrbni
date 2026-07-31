@@ -130,7 +130,7 @@ export function HomeSplitPin({ locale, experiences }: Props) {
             <Link className="hover:text-redline" href={`/${locale}/blog`}>
               {t.blog}
             </Link>
-            <Link className="hover:text-redline" href={`/${locale}/privacy`}>
+            <Link className="hover:text-redline" href={`/${locale}/contact#privacy`}>
               {locale === "fa" ? "حریم خصوصی" : "Privacy"}
             </Link>
           </nav>

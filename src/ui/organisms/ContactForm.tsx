@@ -210,7 +210,7 @@ export function ContactForm({ locale, siteKey }: Props) {
         <button
           type="submit"
           disabled={status === "sending" || !token}
-          className="inline-flex items-center justify-center bg-redline px-5 py-3 font-display text-sm font-bold tracking-[0.14em] text-paper uppercase transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-redline disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center justify-center border border-ink/30 bg-transparent px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:border-redline hover:text-redline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-redline disabled:cursor-not-allowed disabled:opacity-50"
         >
           {status === "sending" ? t.sending : t.submit}
         </button>

@@ -60,9 +60,9 @@ WCAG 2.2 AA target. Red CTA on paper must keep contrast; body text uses ink/slat
 | Surface | Mode | Notes |
 |---|---|---|
 | Home `/[locale]` | Experience (+ Persuade CTA) | Split Pin |
-| Contact `/[locale]/contact` | Operate (+ Persuade Calendly) | Channels column + taped message pin; Turnstile; expandable Privacy (`#privacy`) |
-| Services `/[locale]/services` | Persuade | Category sections + taped offering sheets; Calendly/contact CTAs |
-| Experience `/[locale]/experience` | Experience | Timeline of taped role sheets (title, highlights, tech) |
+| Contact `/[locale]/contact` | Operate (+ Persuade Calendly) | Channels PinSheet + Message pin; solid BookCta primary; form submit ink outline (doesn’t compete) |
+| Services `/[locale]/services` | Persuade | Category walls (Fig. labels) + taped offering sheets; page BookCta solid; per-offering CTAs unchanged |
+| Experience `/[locale]/experience` | Experience | Critique timeline rail + stacked role plates (Fig. NN); real highlights |
 | Blog `/[locale]/blog` | Read | Index pin sheets; empty “draft wall” until published |
 | Privacy `/[locale]/privacy` | — | Permanent redirect → `/contact#privacy` |
 | Other routes | inherit world | Apply SiteHeader + paper ground progressively |

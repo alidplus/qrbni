@@ -1,0 +1,28 @@
+{
+  "baseId": "p4cutoefjsz0z2t",
+  "tables": {
+    "SiteSettings": "mt5ryw6xd5p4uzh",
+    "Profile": "mj95o6kije73ef6",
+    "ProfileLocale": "mj9pet753har2cw",
+    "Experience": "m6hz7c6gy0uocpr",
+    "ExperienceLocale": "ms7tl779p3us138",
+    "ExperienceHighlight": "mvg7ly9o5s02kle",
+    "Project": "m0eyo7az9b8icq5",
+    "ProjectLocale": "mvycmtfajv61kgd",
+    "Education": "m5kxnwxf9f7rkkj",
+    "EducationLocale": "myr5jk40v3iw30s",
+    "Skill": "m7vi25il2esozvw",
+    "Language": "m2oqpufqtn80gsx",
+    "SocialLink": "mdzh4gwchfje2y9",
+    "ServiceCategory": "mj3hrhct117jnnl",
+    "ServiceCategoryLocale": "m76g2r4dx1l35gf",
+    "Service": "mvo7hy38c52u94r",
+    "ServiceLocale": "mzbyx8j5396pqnk",
+    "BlogTag": "mgmxeh7fx6smtxv",
+    "BlogTagLocale": "mexfths3zxg4ufx",
+    "BlogCategory": "m5jck17x53j98kp",
+    "BlogCategoryLocale": "mxdxijqr1hy64mm",
+    "BlogPost": "msd14u1seb5bcav",
+    "ContactMessage": "m1lfvq0kb7h7f45"
+  }
+}

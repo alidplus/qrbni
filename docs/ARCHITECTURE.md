@@ -107,6 +107,9 @@ Cross-domain imports go through small public APIs (`domains/<x>/index.ts`), not 
 
 ## 5. NocoDB schema (first cut)
 
+> **Live inventory:** see [`docs/SCHEMA.md`](./SCHEMA.md) and `scripts/nocodb/.table-ids.json`.  
+> Bootstrap: `npm run nocodb:schema` · Seed: `npm run nocodb:seed` (requires `.env.local`).
+
 Locale model: **option B** — parent (or shared identity) + **locale variant rows** linked by relation. If FA variant missing → fall back to EN for CV/services copy. Blog posts are **locale-specific** (language key on post); EN list shows EN posts under `/en/blog`, FA under `/fa/blog`.
 
 ### settings

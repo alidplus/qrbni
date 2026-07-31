@@ -19,10 +19,10 @@ meta:
       username: alidplus
   collected_at: "2026-07-31"
   caveats:
-    - LinkedIn authwall prevented a full live scrape; employment dates prefer LinkedIn index data over Twine (Twine end dates look like profile-join date 2025-09-03).
-    - Location differs across profiles (LinkedIn posts: Tehran; GitHub: Dubai; Twine: Istanbul) — confirm preferred public location.
-    - Email / phone were not publicly available.
-    - Headline typo "Severless" kept as on LinkedIn; consider fixing to "Serverless" on the site.
+    - "LinkedIn authwall prevented a full live scrape; employment dates prefer LinkedIn index data over Twine (Twine end dates look like profile-join date 2025-09-03)."
+    - "Location differs across profiles (LinkedIn posts: Tehran; GitHub: Dubai; Twine: Istanbul) — confirm preferred public location."
+    - "Email / phone were not publicly available."
+    - "Headline typo \"Severless\" kept as on LinkedIn; consider fixing to \"Serverless\" on the site."
 
 basics:
   name: Ali Ghorbani

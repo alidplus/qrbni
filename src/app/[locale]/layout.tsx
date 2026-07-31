@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
+import { LocaleDocument } from "@/ui/molecules/LocaleDocument";
 
 type Props = {
   children: React.ReactNode;
@@ -13,7 +14,12 @@ export function generateStaticParams() {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  return children;
+  return (
+    <>
+      <LocaleDocument locale={locale} />
+      {children}
+    </>
+  );
 }
 
 export type LocaleParams = { locale: Locale };

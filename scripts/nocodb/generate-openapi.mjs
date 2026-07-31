@@ -1,12 +1,15 @@
 /**
- * Build a local OpenAPI 3 spec from NocoDB Meta table schemas.
- * Needed because the API token lacks swaggerJson permission.
+ * Fetch live NocoDB base swagger (v2) and normalize for Hey API.
+ * Requires PAT with swaggerJson permission.
  *
  * Usage: set -a && source .env.local && set +a && node scripts/nocodb/generate-openapi.mjs
+ *
+ * Fallback: META_OPENAPI=1 uses Meta-derived generator (scripts/nocodb/generate-openapi-from-meta.mjs)
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -15,334 +18,55 @@ const BASE_URL = (process.env.NOCODB_BASE_URL || "https://app.nocodb.com").repla
   "",
 );
 const TOKEN = process.env.NOCODB_API_TOKEN;
-const ids = JSON.parse(
-  fs.readFileSync(path.join(__dirname, ".table-ids.json"), "utf8"),
-);
+const BASE_ID = "p4cutoefjsz0z2t";
+const outFile = path.join(ROOT, "openapi/nocodb-cv.openapi.json");
+
+if (process.env.META_OPENAPI === "1") {
+  const r = spawnSync(
+    process.execPath,
+    [path.join(__dirname, "generate-openapi-from-meta.mjs")],
+    { stdio: "inherit", env: process.env },
+  );
+  process.exit(r.status ?? 1);
+}
 
 if (!TOKEN) {
   console.error("NOCODB_API_TOKEN missing");
   process.exit(1);
 }
 
-function uidtToSchema(uidt) {
-  switch (uidt) {
-    case "Number":
-    case "Decimal":
-    case "Currency":
-    case "Percent":
-    case "Rating":
-    case "Year":
-    case "Duration":
-      return { type: ["number", "null"] };
-    case "Checkbox":
-      return { type: ["boolean", "null"] };
-    case "JSON":
-      return { type: ["object", "null"], additionalProperties: true };
-    case "Attachment":
-      return { type: ["array", "null"], items: { type: "object", additionalProperties: true } };
-    case "ID":
-      return { type: ["integer", "null"] };
-    default:
-      return { type: ["string", "null"] };
-  }
+const url = `${BASE_URL}/api/v2/meta/bases/${BASE_ID}/swagger.json`;
+const res = await fetch(url, {
+  headers: { "xc-token": TOKEN, Accept: "application/json" },
+});
+const text = await res.text();
+if (!res.ok) {
+  console.error(`Live swagger failed ${res.status}: ${text}`);
+  console.error("Retry with META_OPENAPI=1 for Meta-derived fallback.");
+  process.exit(1);
 }
 
-function isWritable(col) {
-  if (col.system) return false;
-  if (col.pk || col.ai) return false;
-  const skip = new Set([
-    "ID",
-    "CreatedTime",
-    "LastModifiedTime",
-    "CreatedBy",
-    "LastModifiedBy",
-    "Order",
-    "Deleted",
-    "Meta",
-    "Formula",
-    "Lookup",
-    "Rollup",
-    "Barcode",
-    "QrCode",
-    "Button",
-  ]);
-  return !skip.has(col.uidt);
+let spec;
+try {
+  spec = JSON.parse(text);
+} catch {
+  console.error("Swagger response was not JSON");
+  process.exit(1);
 }
 
-async function api(pathname) {
-  const res = await fetch(`${BASE_URL}${pathname}`, {
-    headers: { "xc-token": TOKEN, Accept: "application/json" },
-  });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(`${pathname} → ${res.status}: ${JSON.stringify(data)}`);
-  }
-  return data;
-}
+spec.servers = [{ url: BASE_URL }];
+spec.info = spec.info || {};
+spec.info.title = spec.info.title || "qrbni NocoDB CV base";
+spec.info.description = [
+  spec.info.description || "",
+  "Fetched live from NocoDB v2 base swagger.",
+  `Source: /api/v2/meta/bases/${BASE_ID}/swagger.json`,
+  "Regenerate: npm run nocodb:openapi",
+]
+  .filter(Boolean)
+  .join("\n");
 
-const paths = {};
-const schemas = {};
-const tags = [];
-
-for (const [title, tableId] of Object.entries(ids.tables)) {
-  const meta = await api(`/api/v2/meta/tables/${tableId}`);
-  const columns = (meta.columns || []).filter((c) => !c.system || c.uidt === "ID");
-  const props = {};
-  const writeProps = {};
-
-  for (const col of columns) {
-    const schema = uidtToSchema(col.uidt);
-    props[col.title] = { ...schema, description: col.uidt };
-    if (isWritable(col)) {
-      writeProps[col.title] = { ...schema, description: col.uidt };
-    }
-  }
-
-  const recordName = `${title}Record`;
-  const writeName = `${title}Write`;
-  schemas[recordName] = {
-    type: "object",
-    additionalProperties: true,
-    properties: props,
-  };
-  schemas[writeName] = {
-    type: "object",
-    additionalProperties: true,
-    properties: writeProps,
-  };
-  schemas[`${title}ListResponse`] = {
-    type: "object",
-    properties: {
-      list: { type: "array", items: { $ref: `#/components/schemas/${recordName}` } },
-      pageInfo: {
-        type: "object",
-        additionalProperties: true,
-        properties: {
-          totalRows: { type: "integer" },
-          page: { type: "integer" },
-          pageSize: { type: "integer" },
-          isFirstPage: { type: "boolean" },
-          isLastPage: { type: "boolean" },
-        },
-      },
-    },
-  };
-
-  tags.push({ name: title, description: `Table ${title} (${tableId})` });
-  const basePath = `/api/v2/tables/${tableId}/records`;
-
-  paths[basePath] = {
-    get: {
-      operationId: `list${title}`,
-      tags: [title],
-      summary: `List ${title}`,
-      parameters: [
-        { name: "limit", in: "query", schema: { type: "integer" } },
-        { name: "offset", in: "query", schema: { type: "integer" } },
-        { name: "where", in: "query", schema: { type: "string" } },
-        { name: "sort", in: "query", schema: { type: "string" } },
-        { name: "fields", in: "query", schema: { type: "string" } },
-      ],
-      responses: {
-        "200": {
-          description: "OK",
-          content: {
-            "application/json": {
-              schema: { $ref: `#/components/schemas/${title}ListResponse` },
-            },
-          },
-        },
-      },
-      security: [{ xcToken: [] }],
-    },
-    post: {
-      operationId: `create${title}`,
-      tags: [title],
-      summary: `Create ${title} record(s)`,
-      requestBody: {
-        required: true,
-        content: {
-          "application/json": {
-            schema: {
-              oneOf: [
-                { $ref: `#/components/schemas/${writeName}` },
-                { type: "array", items: { $ref: `#/components/schemas/${writeName}` } },
-              ],
-            },
-          },
-        },
-      },
-      responses: {
-        "200": {
-          description: "OK",
-          content: {
-            "application/json": {
-              schema: {
-                oneOf: [
-                  { $ref: `#/components/schemas/${recordName}` },
-                  { type: "array", items: { $ref: `#/components/schemas/${recordName}` } },
-                ],
-              },
-            },
-          },
-        },
-      },
-      security: [{ xcToken: [] }],
-    },
-    patch: {
-      operationId: `update${title}`,
-      tags: [title],
-      summary: `Update ${title} record(s)`,
-      requestBody: {
-        required: true,
-        content: {
-          "application/json": {
-            schema: {
-              oneOf: [
-                {
-                  allOf: [
-                    { $ref: `#/components/schemas/${writeName}` },
-                    {
-                      type: "object",
-                      required: ["Id"],
-                      properties: { Id: { type: "integer" } },
-                    },
-                  ],
-                },
-                {
-                  type: "array",
-                  items: {
-                    allOf: [
-                      { $ref: `#/components/schemas/${writeName}` },
-                      {
-                        type: "object",
-                        required: ["Id"],
-                        properties: { Id: { type: "integer" } },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        },
-      },
-      responses: {
-        "200": {
-          description: "OK",
-          content: {
-            "application/json": {
-              schema: {
-                oneOf: [
-                  { $ref: `#/components/schemas/${recordName}` },
-                  { type: "array", items: { $ref: `#/components/schemas/${recordName}` } },
-                ],
-              },
-            },
-          },
-        },
-      },
-      security: [{ xcToken: [] }],
-    },
-    delete: {
-      operationId: `delete${title}`,
-      tags: [title],
-      summary: `Delete ${title} record(s)`,
-      requestBody: {
-        required: true,
-        content: {
-          "application/json": {
-            schema: {
-              oneOf: [
-                {
-                  type: "object",
-                  required: ["Id"],
-                  properties: { Id: { type: "integer" } },
-                },
-                {
-                  type: "array",
-                  items: {
-                    type: "object",
-                    required: ["Id"],
-                    properties: { Id: { type: "integer" } },
-                  },
-                },
-              ],
-            },
-          },
-        },
-      },
-      responses: {
-        "200": {
-          description: "OK",
-          content: {
-            "application/json": {
-              schema: { type: "object", additionalProperties: true },
-            },
-          },
-        },
-      },
-      security: [{ xcToken: [] }],
-    },
-  };
-
-  paths[`${basePath}/{recordId}`] = {
-    get: {
-      operationId: `get${title}`,
-      tags: [title],
-      summary: `Get ${title} by id`,
-      parameters: [
-        {
-          name: "recordId",
-          in: "path",
-          required: true,
-          schema: { type: "integer" },
-        },
-      ],
-      responses: {
-        "200": {
-          description: "OK",
-          content: {
-            "application/json": {
-              schema: { $ref: `#/components/schemas/${recordName}` },
-            },
-          },
-        },
-      },
-      security: [{ xcToken: [] }],
-    },
-  };
-
-  console.log(`+ ${title} (${Object.keys(writeProps).length} writable fields)`);
-}
-
-const openapi = {
-  openapi: "3.1.0",
-  info: {
-    title: "qrbni NocoDB CV base",
-    version: "1.0.0",
-    description:
-      "Generated from NocoDB Meta API because the PAT lacks swaggerJson. Regenerate with npm run nocodb:openapi.",
-  },
-  servers: [{ url: BASE_URL }],
-  tags,
-  paths,
-  components: {
-    securitySchemes: {
-      xcToken: {
-        type: "apiKey",
-        in: "header",
-        name: "xc-token",
-      },
-    },
-    schemas,
-  },
-  security: [{ xcToken: [] }],
-};
-
-const outDir = path.join(ROOT, "openapi");
-fs.mkdirSync(outDir, { recursive: true });
-const outFile = path.join(outDir, "nocodb-cv.openapi.json");
-fs.writeFileSync(outFile, JSON.stringify(openapi, null, 2));
+fs.mkdirSync(path.dirname(outFile), { recursive: true });
+fs.writeFileSync(outFile, JSON.stringify(spec, null, 2));
 console.log(`Wrote ${outFile}`);
-console.log(`Operations: ${Object.keys(paths).length * 2}+ paths for ${tags.length} tables`);
+console.log(`openapi ${spec.openapi} · paths ${Object.keys(spec.paths || {}).length}`);

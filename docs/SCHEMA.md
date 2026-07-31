@@ -27,8 +27,7 @@ Table IDs are written to `scripts/nocodb/.table-ids.json` (safe to commit).
 
 ## Hey API SDK
 
-The NocoDB PAT currently lacks `swaggerJson` permission, so we generate a local OpenAPI
-spec from Meta table schemas, then run Hey API:
+**Primary:** fetch live NocoDB **v2 base swagger** (requires PAT `swaggerJson`), then Hey API:
 
 ```bash
 set -a && source .env.local && set +a
@@ -38,10 +37,12 @@ npm run nocodb:sdk   # = nocodb:openapi + codegen
 - Spec: `openapi/nocodb-cv.openapi.json` (committed)
 - Client: `src/generated/nocodb/` (committed)
 - Server wrapper: `src/server/nocodb.ts` (token via `xc-token`, never browser)
+- SDK ops look like `experienceDbTableRowList`, `sitesettingsDbTableRowList`, …
+
+**Fallback** (if swagger forbidden again): `META_OPENAPI=1 npm run nocodb:openapi`  
+→ Meta-derived spec via `scripts/nocodb/generate-openapi-from-meta.mjs`
 
 After any table/column change: `npm run nocodb:sdk` and commit both the OpenAPI file and generated client.
-
-If you later grant swagger access on the token, we can switch `openapi-ts` input to the live base swagger URL.
 
 ## Notes
 

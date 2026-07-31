@@ -2,7 +2,7 @@
 
 import type { Client, ClientMeta, Options as Options2, RequestResult, TDataShape } from './client';
 import { client } from './client.gen';
-import type { CreateBlogCategoryData, CreateBlogCategoryLocaleData, CreateBlogCategoryLocaleResponses, CreateBlogCategoryResponses, CreateBlogPostData, CreateBlogPostResponses, CreateBlogTagData, CreateBlogTagLocaleData, CreateBlogTagLocaleResponses, CreateBlogTagResponses, CreateContactMessageData, CreateContactMessageResponses, CreateEducationData, CreateEducationLocaleData, CreateEducationLocaleResponses, CreateEducationResponses, CreateExperienceData, CreateExperienceHighlightData, CreateExperienceHighlightResponses, CreateExperienceLocaleData, CreateExperienceLocaleResponses, CreateExperienceResponses, CreateLanguageData, CreateLanguageResponses, CreateProfileData, CreateProfileLocaleData, CreateProfileLocaleResponses, CreateProfileResponses, CreateProjectData, CreateProjectLocaleData, CreateProjectLocaleResponses, CreateProjectResponses, CreateServiceCategoryData, CreateServiceCategoryLocaleData, CreateServiceCategoryLocaleResponses, CreateServiceCategoryResponses, CreateServiceData, CreateServiceLocaleData, CreateServiceLocaleResponses, CreateServiceResponses, CreateSiteSettingsData, CreateSiteSettingsResponses, CreateSkillData, CreateSkillResponses, CreateSocialLinkData, CreateSocialLinkResponses, DeleteBlogCategoryData, DeleteBlogCategoryLocaleData, DeleteBlogCategoryLocaleResponses, DeleteBlogCategoryResponses, DeleteBlogPostData, DeleteBlogPostResponses, DeleteBlogTagData, DeleteBlogTagLocaleData, DeleteBlogTagLocaleResponses, DeleteBlogTagResponses, DeleteContactMessageData, DeleteContactMessageResponses, DeleteEducationData, DeleteEducationLocaleData, DeleteEducationLocaleResponses, DeleteEducationResponses, DeleteExperienceData, DeleteExperienceHighlightData, DeleteExperienceHighlightResponses, DeleteExperienceLocaleData, DeleteExperienceLocaleResponses, DeleteExperienceResponses, DeleteLanguageData, DeleteLanguageResponses, DeleteProfileData, DeleteProfileLocaleData, DeleteProfileLocaleResponses, DeleteProfileResponses, DeleteProjectData, DeleteProjectLocaleData, DeleteProjectLocaleResponses, DeleteProjectResponses, DeleteServiceCategoryData, DeleteServiceCategoryLocaleData, DeleteServiceCategoryLocaleResponses, DeleteServiceCategoryResponses, DeleteServiceData, DeleteServiceLocaleData, DeleteServiceLocaleResponses, DeleteServiceResponses, DeleteSiteSettingsData, DeleteSiteSettingsResponses, DeleteSkillData, DeleteSkillResponses, DeleteSocialLinkData, DeleteSocialLinkResponses, GetBlogCategoryData, GetBlogCategoryLocaleData, GetBlogCategoryLocaleResponses, GetBlogCategoryResponses, GetBlogPostData, GetBlogPostResponses, GetBlogTagData, GetBlogTagLocaleData, GetBlogTagLocaleResponses, GetBlogTagResponses, GetContactMessageData, GetContactMessageResponses, GetEducationData, GetEducationLocaleData, GetEducationLocaleResponses, GetEducationResponses, GetExperienceData, GetExperienceHighlightData, GetExperienceHighlightResponses, GetExperienceLocaleData, GetExperienceLocaleResponses, GetExperienceResponses, GetLanguageData, GetLanguageResponses, GetProfileData, GetProfileLocaleData, GetProfileLocaleResponses, GetProfileResponses, GetProjectData, GetProjectLocaleData, GetProjectLocaleResponses, GetProjectResponses, GetServiceCategoryData, GetServiceCategoryLocaleData, GetServiceCategoryLocaleResponses, GetServiceCategoryResponses, GetServiceData, GetServiceLocaleData, GetServiceLocaleResponses, GetServiceResponses, GetSiteSettingsData, GetSiteSettingsResponses, GetSkillData, GetSkillResponses, GetSocialLinkData, GetSocialLinkResponses, ListBlogCategoryData, ListBlogCategoryLocaleData, ListBlogCategoryLocaleResponses, ListBlogCategoryResponses, ListBlogPostData, ListBlogPostResponses, ListBlogTagData, ListBlogTagLocaleData, ListBlogTagLocaleResponses, ListBlogTagResponses, ListContactMessageData, ListContactMessageResponses, ListEducationData, ListEducationLocaleData, ListEducationLocaleResponses, ListEducationResponses, ListExperienceData, ListExperienceHighlightData, ListExperienceHighlightResponses, ListExperienceLocaleData, ListExperienceLocaleResponses, ListExperienceResponses, ListLanguageData, ListLanguageResponses, ListProfileData, ListProfileLocaleData, ListProfileLocaleResponses, ListProfileResponses, ListProjectData, ListProjectLocaleData, ListProjectLocaleResponses, ListProjectResponses, ListServiceCategoryData, ListServiceCategoryLocaleData, ListServiceCategoryLocaleResponses, ListServiceCategoryResponses, ListServiceData, ListServiceLocaleData, ListServiceLocaleResponses, ListServiceResponses, ListSiteSettingsData, ListSiteSettingsResponses, ListSkillData, ListSkillResponses, ListSocialLinkData, ListSocialLinkResponses, UpdateBlogCategoryData, UpdateBlogCategoryLocaleData, UpdateBlogCategoryLocaleResponses, UpdateBlogCategoryResponses, UpdateBlogPostData, UpdateBlogPostResponses, UpdateBlogTagData, UpdateBlogTagLocaleData, UpdateBlogTagLocaleResponses, UpdateBlogTagResponses, UpdateContactMessageData, UpdateContactMessageResponses, UpdateEducationData, UpdateEducationLocaleData, UpdateEducationLocaleResponses, UpdateEducationResponses, UpdateExperienceData, UpdateExperienceHighlightData, UpdateExperienceHighlightResponses, UpdateExperienceLocaleData, UpdateExperienceLocaleResponses, UpdateExperienceResponses, UpdateLanguageData, UpdateLanguageResponses, UpdateProfileData, UpdateProfileLocaleData, UpdateProfileLocaleResponses, UpdateProfileResponses, UpdateProjectData, UpdateProjectLocaleData, UpdateProjectLocaleResponses, UpdateProjectResponses, UpdateServiceCategoryData, UpdateServiceCategoryLocaleData, UpdateServiceCategoryLocaleResponses, UpdateServiceCategoryResponses, UpdateServiceData, UpdateServiceLocaleData, UpdateServiceLocaleResponses, UpdateServiceResponses, UpdateSiteSettingsData, UpdateSiteSettingsResponses, UpdateSkillData, UpdateSkillResponses, UpdateSocialLinkData, UpdateSocialLinkResponses } from './types.gen';
+import type { BlogcategoryCountData, BlogcategoryCountErrors, BlogcategoryCountResponses, BlogcategoryCreateData, BlogcategoryCreateErrors, BlogcategoryCreateResponses, BlogcategoryDbTableRowListData, BlogcategoryDbTableRowListResponses, BlogcategoryDeleteData, BlogcategoryDeleteResponses, BlogcategorylocaleCountData, BlogcategorylocaleCountErrors, BlogcategorylocaleCountResponses, BlogcategorylocaleCreateData, BlogcategorylocaleCreateErrors, BlogcategorylocaleCreateResponses, BlogcategorylocaleDbTableRowListData, BlogcategorylocaleDbTableRowListResponses, BlogcategorylocaleDeleteData, BlogcategorylocaleDeleteResponses, BlogcategorylocaleReadData, BlogcategorylocaleReadResponses, BlogcategorylocaleUpdateData, BlogcategorylocaleUpdateErrors, BlogcategorylocaleUpdateResponses, BlogcategoryReadData, BlogcategoryReadResponses, BlogcategoryUpdateData, BlogcategoryUpdateErrors, BlogcategoryUpdateResponses, BlogpostCountData, BlogpostCountErrors, BlogpostCountResponses, BlogpostCreateData, BlogpostCreateErrors, BlogpostCreateResponses, BlogpostDbTableRowListData, BlogpostDbTableRowListResponses, BlogpostDeleteData, BlogpostDeleteResponses, BlogpostReadData, BlogpostReadResponses, BlogpostUpdateData, BlogpostUpdateErrors, BlogpostUpdateResponses, BlogtagCountData, BlogtagCountErrors, BlogtagCountResponses, BlogtagCreateData, BlogtagCreateErrors, BlogtagCreateResponses, BlogtagDbTableRowListData, BlogtagDbTableRowListResponses, BlogtagDeleteData, BlogtagDeleteResponses, BlogtaglocaleCountData, BlogtaglocaleCountErrors, BlogtaglocaleCountResponses, BlogtaglocaleCreateData, BlogtaglocaleCreateErrors, BlogtaglocaleCreateResponses, BlogtaglocaleDbTableRowListData, BlogtaglocaleDbTableRowListResponses, BlogtaglocaleDeleteData, BlogtaglocaleDeleteResponses, BlogtaglocaleReadData, BlogtaglocaleReadResponses, BlogtaglocaleUpdateData, BlogtaglocaleUpdateErrors, BlogtaglocaleUpdateResponses, BlogtagReadData, BlogtagReadResponses, BlogtagUpdateData, BlogtagUpdateErrors, BlogtagUpdateResponses, ContactmessageCountData, ContactmessageCountErrors, ContactmessageCountResponses, ContactmessageCreateData, ContactmessageCreateErrors, ContactmessageCreateResponses, ContactmessageDbTableRowListData, ContactmessageDbTableRowListResponses, ContactmessageDeleteData, ContactmessageDeleteResponses, ContactmessageReadData, ContactmessageReadResponses, ContactmessageUpdateData, ContactmessageUpdateErrors, ContactmessageUpdateResponses, EducationCountData, EducationCountErrors, EducationCountResponses, EducationCreateData, EducationCreateErrors, EducationCreateResponses, EducationDbTableRowListData, EducationDbTableRowListResponses, EducationDeleteData, EducationDeleteResponses, EducationlocaleCountData, EducationlocaleCountErrors, EducationlocaleCountResponses, EducationlocaleCreateData, EducationlocaleCreateErrors, EducationlocaleCreateResponses, EducationlocaleDbTableRowListData, EducationlocaleDbTableRowListResponses, EducationlocaleDeleteData, EducationlocaleDeleteResponses, EducationlocaleReadData, EducationlocaleReadResponses, EducationlocaleUpdateData, EducationlocaleUpdateErrors, EducationlocaleUpdateResponses, EducationReadData, EducationReadResponses, EducationUpdateData, EducationUpdateErrors, EducationUpdateResponses, ExperienceCountData, ExperienceCountErrors, ExperienceCountResponses, ExperienceCreateData, ExperienceCreateErrors, ExperienceCreateResponses, ExperienceDbTableRowListData, ExperienceDbTableRowListResponses, ExperienceDeleteData, ExperienceDeleteResponses, ExperiencehighlightCountData, ExperiencehighlightCountErrors, ExperiencehighlightCountResponses, ExperiencehighlightCreateData, ExperiencehighlightCreateErrors, ExperiencehighlightCreateResponses, ExperiencehighlightDbTableRowListData, ExperiencehighlightDbTableRowListResponses, ExperiencehighlightDeleteData, ExperiencehighlightDeleteResponses, ExperiencehighlightReadData, ExperiencehighlightReadResponses, ExperiencehighlightUpdateData, ExperiencehighlightUpdateErrors, ExperiencehighlightUpdateResponses, ExperiencelocaleCountData, ExperiencelocaleCountErrors, ExperiencelocaleCountResponses, ExperiencelocaleCreateData, ExperiencelocaleCreateErrors, ExperiencelocaleCreateResponses, ExperiencelocaleDbTableRowListData, ExperiencelocaleDbTableRowListResponses, ExperiencelocaleDeleteData, ExperiencelocaleDeleteResponses, ExperiencelocaleReadData, ExperiencelocaleReadResponses, ExperiencelocaleUpdateData, ExperiencelocaleUpdateErrors, ExperiencelocaleUpdateResponses, ExperienceReadData, ExperienceReadResponses, ExperienceUpdateData, ExperienceUpdateErrors, ExperienceUpdateResponses, LanguageCountData, LanguageCountErrors, LanguageCountResponses, LanguageCreateData, LanguageCreateErrors, LanguageCreateResponses, LanguageDbTableRowListData, LanguageDbTableRowListResponses, LanguageDeleteData, LanguageDeleteResponses, LanguageReadData, LanguageReadResponses, LanguageUpdateData, LanguageUpdateErrors, LanguageUpdateResponses, ProfileCountData, ProfileCountErrors, ProfileCountResponses, ProfileCreateData, ProfileCreateErrors, ProfileCreateResponses, ProfileDbTableRowListData, ProfileDbTableRowListResponses, ProfileDeleteData, ProfileDeleteResponses, ProfilelocaleCountData, ProfilelocaleCountErrors, ProfilelocaleCountResponses, ProfilelocaleCreateData, ProfilelocaleCreateErrors, ProfilelocaleCreateResponses, ProfilelocaleDbTableRowListData, ProfilelocaleDbTableRowListResponses, ProfilelocaleDeleteData, ProfilelocaleDeleteResponses, ProfilelocaleReadData, ProfilelocaleReadResponses, ProfilelocaleUpdateData, ProfilelocaleUpdateErrors, ProfilelocaleUpdateResponses, ProfileReadData, ProfileReadResponses, ProfileUpdateData, ProfileUpdateErrors, ProfileUpdateResponses, ProjectCountData, ProjectCountErrors, ProjectCountResponses, ProjectCreateData, ProjectCreateErrors, ProjectCreateResponses, ProjectDbTableRowListData, ProjectDbTableRowListResponses, ProjectDeleteData, ProjectDeleteResponses, ProjectlocaleCountData, ProjectlocaleCountErrors, ProjectlocaleCountResponses, ProjectlocaleCreateData, ProjectlocaleCreateErrors, ProjectlocaleCreateResponses, ProjectlocaleDbTableRowListData, ProjectlocaleDbTableRowListResponses, ProjectlocaleDeleteData, ProjectlocaleDeleteResponses, ProjectlocaleReadData, ProjectlocaleReadResponses, ProjectlocaleUpdateData, ProjectlocaleUpdateErrors, ProjectlocaleUpdateResponses, ProjectReadData, ProjectReadResponses, ProjectUpdateData, ProjectUpdateErrors, ProjectUpdateResponses, ServicecategoryCountData, ServicecategoryCountErrors, ServicecategoryCountResponses, ServicecategoryCreateData, ServicecategoryCreateErrors, ServicecategoryCreateResponses, ServicecategoryDbTableRowListData, ServicecategoryDbTableRowListResponses, ServicecategoryDeleteData, ServicecategoryDeleteResponses, ServicecategorylocaleCountData, ServicecategorylocaleCountErrors, ServicecategorylocaleCountResponses, ServicecategorylocaleCreateData, ServicecategorylocaleCreateErrors, ServicecategorylocaleCreateResponses, ServicecategorylocaleDbTableRowListData, ServicecategorylocaleDbTableRowListResponses, ServicecategorylocaleDeleteData, ServicecategorylocaleDeleteResponses, ServicecategorylocaleReadData, ServicecategorylocaleReadResponses, ServicecategorylocaleUpdateData, ServicecategorylocaleUpdateErrors, ServicecategorylocaleUpdateResponses, ServicecategoryReadData, ServicecategoryReadResponses, ServicecategoryUpdateData, ServicecategoryUpdateErrors, ServicecategoryUpdateResponses, ServiceCountData, ServiceCountErrors, ServiceCountResponses, ServiceCreateData, ServiceCreateErrors, ServiceCreateResponses, ServiceDbTableRowListData, ServiceDbTableRowListResponses, ServiceDeleteData, ServiceDeleteResponses, ServicelocaleCountData, ServicelocaleCountErrors, ServicelocaleCountResponses, ServicelocaleCreateData, ServicelocaleCreateErrors, ServicelocaleCreateResponses, ServicelocaleDbTableRowListData, ServicelocaleDbTableRowListResponses, ServicelocaleDeleteData, ServicelocaleDeleteResponses, ServicelocaleReadData, ServicelocaleReadResponses, ServicelocaleUpdateData, ServicelocaleUpdateErrors, ServicelocaleUpdateResponses, ServiceReadData, ServiceReadResponses, ServiceUpdateData, ServiceUpdateErrors, ServiceUpdateResponses, SitesettingsCountData, SitesettingsCountErrors, SitesettingsCountResponses, SitesettingsCreateData, SitesettingsCreateErrors, SitesettingsCreateResponses, SitesettingsDbTableRowListData, SitesettingsDbTableRowListResponses, SitesettingsDeleteData, SitesettingsDeleteResponses, SitesettingsReadData, SitesettingsReadResponses, SitesettingsUpdateData, SitesettingsUpdateErrors, SitesettingsUpdateResponses, SkillCountData, SkillCountErrors, SkillCountResponses, SkillCreateData, SkillCreateErrors, SkillCreateResponses, SkillDbTableRowListData, SkillDbTableRowListResponses, SkillDeleteData, SkillDeleteResponses, SkillReadData, SkillReadResponses, SkillUpdateData, SkillUpdateErrors, SkillUpdateResponses, SociallinkCountData, SociallinkCountErrors, SociallinkCountResponses, SociallinkCreateData, SociallinkCreateErrors, SociallinkCreateResponses, SociallinkDbTableRowListData, SociallinkDbTableRowListResponses, SociallinkDeleteData, SociallinkDeleteResponses, SociallinkReadData, SociallinkReadResponses, SociallinkUpdateData, SociallinkUpdateErrors, SociallinkUpdateResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean, TResponse = unknown> = Options2<TData, ThrowOnError, TResponse> & {
     /**
@@ -19,1312 +19,1795 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
 };
 
 /**
- * Delete SiteSettings record(s)
+ * SiteSettings delete
+ *
+ * Delete a row by using the **primary key** column value.
  */
-export const deleteSiteSettings = <ThrowOnError extends boolean = false>(options: Options<DeleteSiteSettingsData, ThrowOnError>): RequestResult<DeleteSiteSettingsResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteSiteSettingsResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sitesettingsDelete = <ThrowOnError extends boolean = false>(options?: Options<SitesettingsDeleteData, ThrowOnError>): RequestResult<SitesettingsDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<SitesettingsDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List SiteSettings
+ * SiteSettings list
+ *
+ * List of all rows from SiteSettings table and response data fields can be filtered based on query params.
  */
-export const listSiteSettings = <ThrowOnError extends boolean = false>(options?: Options<ListSiteSettingsData, ThrowOnError>): RequestResult<ListSiteSettingsResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListSiteSettingsResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sitesettingsDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<SitesettingsDbTableRowListData, ThrowOnError>): RequestResult<SitesettingsDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<SitesettingsDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records',
     ...options
 });
 
 /**
- * Update SiteSettings record(s)
+ * SiteSettings update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateSiteSettings = <ThrowOnError extends boolean = false>(options: Options<UpdateSiteSettingsData, ThrowOnError>): RequestResult<UpdateSiteSettingsResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateSiteSettingsResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sitesettingsUpdate = <ThrowOnError extends boolean = false>(options?: Options<SitesettingsUpdateData, ThrowOnError>): RequestResult<SitesettingsUpdateResponses, SitesettingsUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<SitesettingsUpdateResponses, SitesettingsUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create SiteSettings record(s)
+ * SiteSettings create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createSiteSettings = <ThrowOnError extends boolean = false>(options: Options<CreateSiteSettingsData, ThrowOnError>): RequestResult<CreateSiteSettingsResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateSiteSettingsResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sitesettingsCreate = <ThrowOnError extends boolean = false>(options?: Options<SitesettingsCreateData, ThrowOnError>): RequestResult<SitesettingsCreateResponses, SitesettingsCreateErrors, ThrowOnError> => (options?.client ?? client).post<SitesettingsCreateResponses, SitesettingsCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get SiteSettings by id
+ * SiteSettings read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getSiteSettings = <ThrowOnError extends boolean = false>(options: Options<GetSiteSettingsData, ThrowOnError>): RequestResult<GetSiteSettingsResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetSiteSettingsResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sitesettingsRead = <ThrowOnError extends boolean = false>(options: Options<SitesettingsReadData, ThrowOnError>): RequestResult<SitesettingsReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<SitesettingsReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Profile record(s)
+ * SiteSettings count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteProfile = <ThrowOnError extends boolean = false>(options: Options<DeleteProfileData, ThrowOnError>): RequestResult<DeleteProfileResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteProfileResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sitesettingsCount = <ThrowOnError extends boolean = false>(options?: Options<SitesettingsCountData, ThrowOnError>): RequestResult<SitesettingsCountResponses, SitesettingsCountErrors, ThrowOnError> => (options?.client ?? client).get<SitesettingsCountResponses, SitesettingsCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mt5ryw6xd5p4uzh/records/count',
+    ...options
+});
+
+/**
+ * Profile delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const profileDelete = <ThrowOnError extends boolean = false>(options?: Options<ProfileDeleteData, ThrowOnError>): RequestResult<ProfileDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ProfileDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj95o6kije73ef6/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Profile
+ * Profile list
+ *
+ * List of all rows from Profile table and response data fields can be filtered based on query params.
  */
-export const listProfile = <ThrowOnError extends boolean = false>(options?: Options<ListProfileData, ThrowOnError>): RequestResult<ListProfileResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListProfileResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profileDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ProfileDbTableRowListData, ThrowOnError>): RequestResult<ProfileDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ProfileDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj95o6kije73ef6/records',
     ...options
 });
 
 /**
- * Update Profile record(s)
+ * Profile update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateProfile = <ThrowOnError extends boolean = false>(options: Options<UpdateProfileData, ThrowOnError>): RequestResult<UpdateProfileResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateProfileResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profileUpdate = <ThrowOnError extends boolean = false>(options?: Options<ProfileUpdateData, ThrowOnError>): RequestResult<ProfileUpdateResponses, ProfileUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ProfileUpdateResponses, ProfileUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj95o6kije73ef6/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Profile record(s)
+ * Profile create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createProfile = <ThrowOnError extends boolean = false>(options: Options<CreateProfileData, ThrowOnError>): RequestResult<CreateProfileResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateProfileResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profileCreate = <ThrowOnError extends boolean = false>(options?: Options<ProfileCreateData, ThrowOnError>): RequestResult<ProfileCreateResponses, ProfileCreateErrors, ThrowOnError> => (options?.client ?? client).post<ProfileCreateResponses, ProfileCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj95o6kije73ef6/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Profile by id
+ * Profile read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getProfile = <ThrowOnError extends boolean = false>(options: Options<GetProfileData, ThrowOnError>): RequestResult<GetProfileResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetProfileResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profileRead = <ThrowOnError extends boolean = false>(options: Options<ProfileReadData, ThrowOnError>): RequestResult<ProfileReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ProfileReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj95o6kije73ef6/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ProfileLocale record(s)
+ * Profile count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteProfileLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteProfileLocaleData, ThrowOnError>): RequestResult<DeleteProfileLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteProfileLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profileCount = <ThrowOnError extends boolean = false>(options?: Options<ProfileCountData, ThrowOnError>): RequestResult<ProfileCountResponses, ProfileCountErrors, ThrowOnError> => (options?.client ?? client).get<ProfileCountResponses, ProfileCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mj95o6kije73ef6/records/count',
+    ...options
+});
+
+/**
+ * ProfileLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const profilelocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<ProfilelocaleDeleteData, ThrowOnError>): RequestResult<ProfilelocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ProfilelocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj9pet753har2cw/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ProfileLocale
+ * ProfileLocale list
+ *
+ * List of all rows from ProfileLocale table and response data fields can be filtered based on query params.
  */
-export const listProfileLocale = <ThrowOnError extends boolean = false>(options?: Options<ListProfileLocaleData, ThrowOnError>): RequestResult<ListProfileLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListProfileLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profilelocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ProfilelocaleDbTableRowListData, ThrowOnError>): RequestResult<ProfilelocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ProfilelocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj9pet753har2cw/records',
     ...options
 });
 
 /**
- * Update ProfileLocale record(s)
+ * ProfileLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateProfileLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateProfileLocaleData, ThrowOnError>): RequestResult<UpdateProfileLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateProfileLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profilelocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<ProfilelocaleUpdateData, ThrowOnError>): RequestResult<ProfilelocaleUpdateResponses, ProfilelocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ProfilelocaleUpdateResponses, ProfilelocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj9pet753har2cw/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ProfileLocale record(s)
+ * ProfileLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createProfileLocale = <ThrowOnError extends boolean = false>(options: Options<CreateProfileLocaleData, ThrowOnError>): RequestResult<CreateProfileLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateProfileLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profilelocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<ProfilelocaleCreateData, ThrowOnError>): RequestResult<ProfilelocaleCreateResponses, ProfilelocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<ProfilelocaleCreateResponses, ProfilelocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj9pet753har2cw/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ProfileLocale by id
+ * ProfileLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getProfileLocale = <ThrowOnError extends boolean = false>(options: Options<GetProfileLocaleData, ThrowOnError>): RequestResult<GetProfileLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetProfileLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profilelocaleRead = <ThrowOnError extends boolean = false>(options: Options<ProfilelocaleReadData, ThrowOnError>): RequestResult<ProfilelocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ProfilelocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj9pet753har2cw/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Experience record(s)
+ * ProfileLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteExperience = <ThrowOnError extends boolean = false>(options: Options<DeleteExperienceData, ThrowOnError>): RequestResult<DeleteExperienceResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteExperienceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const profilelocaleCount = <ThrowOnError extends boolean = false>(options?: Options<ProfilelocaleCountData, ThrowOnError>): RequestResult<ProfilelocaleCountResponses, ProfilelocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<ProfilelocaleCountResponses, ProfilelocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mj9pet753har2cw/records/count',
+    ...options
+});
+
+/**
+ * Experience delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const experienceDelete = <ThrowOnError extends boolean = false>(options?: Options<ExperienceDeleteData, ThrowOnError>): RequestResult<ExperienceDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ExperienceDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Experience
+ * Experience list
+ *
+ * List of all rows from Experience table and response data fields can be filtered based on query params.
  */
-export const listExperience = <ThrowOnError extends boolean = false>(options?: Options<ListExperienceData, ThrowOnError>): RequestResult<ListExperienceResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListExperienceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experienceDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ExperienceDbTableRowListData, ThrowOnError>): RequestResult<ExperienceDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ExperienceDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records',
     ...options
 });
 
 /**
- * Update Experience record(s)
+ * Experience update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateExperience = <ThrowOnError extends boolean = false>(options: Options<UpdateExperienceData, ThrowOnError>): RequestResult<UpdateExperienceResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateExperienceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experienceUpdate = <ThrowOnError extends boolean = false>(options?: Options<ExperienceUpdateData, ThrowOnError>): RequestResult<ExperienceUpdateResponses, ExperienceUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ExperienceUpdateResponses, ExperienceUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Experience record(s)
+ * Experience create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createExperience = <ThrowOnError extends boolean = false>(options: Options<CreateExperienceData, ThrowOnError>): RequestResult<CreateExperienceResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateExperienceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experienceCreate = <ThrowOnError extends boolean = false>(options?: Options<ExperienceCreateData, ThrowOnError>): RequestResult<ExperienceCreateResponses, ExperienceCreateErrors, ThrowOnError> => (options?.client ?? client).post<ExperienceCreateResponses, ExperienceCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Experience by id
+ * Experience read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getExperience = <ThrowOnError extends boolean = false>(options: Options<GetExperienceData, ThrowOnError>): RequestResult<GetExperienceResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetExperienceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experienceRead = <ThrowOnError extends boolean = false>(options: Options<ExperienceReadData, ThrowOnError>): RequestResult<ExperienceReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ExperienceReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ExperienceLocale record(s)
+ * Experience count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteExperienceLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteExperienceLocaleData, ThrowOnError>): RequestResult<DeleteExperienceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteExperienceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experienceCount = <ThrowOnError extends boolean = false>(options?: Options<ExperienceCountData, ThrowOnError>): RequestResult<ExperienceCountResponses, ExperienceCountErrors, ThrowOnError> => (options?.client ?? client).get<ExperienceCountResponses, ExperienceCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m6hz7c6gy0uocpr/records/count',
+    ...options
+});
+
+/**
+ * ExperienceLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const experiencelocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<ExperiencelocaleDeleteData, ThrowOnError>): RequestResult<ExperiencelocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ExperiencelocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/ms7tl779p3us138/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ExperienceLocale
+ * ExperienceLocale list
+ *
+ * List of all rows from ExperienceLocale table and response data fields can be filtered based on query params.
  */
-export const listExperienceLocale = <ThrowOnError extends boolean = false>(options?: Options<ListExperienceLocaleData, ThrowOnError>): RequestResult<ListExperienceLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListExperienceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencelocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ExperiencelocaleDbTableRowListData, ThrowOnError>): RequestResult<ExperiencelocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ExperiencelocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/ms7tl779p3us138/records',
     ...options
 });
 
 /**
- * Update ExperienceLocale record(s)
+ * ExperienceLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateExperienceLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateExperienceLocaleData, ThrowOnError>): RequestResult<UpdateExperienceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateExperienceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencelocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<ExperiencelocaleUpdateData, ThrowOnError>): RequestResult<ExperiencelocaleUpdateResponses, ExperiencelocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ExperiencelocaleUpdateResponses, ExperiencelocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/ms7tl779p3us138/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ExperienceLocale record(s)
+ * ExperienceLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createExperienceLocale = <ThrowOnError extends boolean = false>(options: Options<CreateExperienceLocaleData, ThrowOnError>): RequestResult<CreateExperienceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateExperienceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencelocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<ExperiencelocaleCreateData, ThrowOnError>): RequestResult<ExperiencelocaleCreateResponses, ExperiencelocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<ExperiencelocaleCreateResponses, ExperiencelocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/ms7tl779p3us138/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ExperienceLocale by id
+ * ExperienceLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getExperienceLocale = <ThrowOnError extends boolean = false>(options: Options<GetExperienceLocaleData, ThrowOnError>): RequestResult<GetExperienceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetExperienceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencelocaleRead = <ThrowOnError extends boolean = false>(options: Options<ExperiencelocaleReadData, ThrowOnError>): RequestResult<ExperiencelocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ExperiencelocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/ms7tl779p3us138/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ExperienceHighlight record(s)
+ * ExperienceLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteExperienceHighlight = <ThrowOnError extends boolean = false>(options: Options<DeleteExperienceHighlightData, ThrowOnError>): RequestResult<DeleteExperienceHighlightResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteExperienceHighlightResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencelocaleCount = <ThrowOnError extends boolean = false>(options?: Options<ExperiencelocaleCountData, ThrowOnError>): RequestResult<ExperiencelocaleCountResponses, ExperiencelocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<ExperiencelocaleCountResponses, ExperiencelocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/ms7tl779p3us138/records/count',
+    ...options
+});
+
+/**
+ * ExperienceHighlight delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const experiencehighlightDelete = <ThrowOnError extends boolean = false>(options?: Options<ExperiencehighlightDeleteData, ThrowOnError>): RequestResult<ExperiencehighlightDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ExperiencehighlightDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvg7ly9o5s02kle/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ExperienceHighlight
+ * ExperienceHighlight list
+ *
+ * List of all rows from ExperienceHighlight table and response data fields can be filtered based on query params.
  */
-export const listExperienceHighlight = <ThrowOnError extends boolean = false>(options?: Options<ListExperienceHighlightData, ThrowOnError>): RequestResult<ListExperienceHighlightResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListExperienceHighlightResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencehighlightDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ExperiencehighlightDbTableRowListData, ThrowOnError>): RequestResult<ExperiencehighlightDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ExperiencehighlightDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvg7ly9o5s02kle/records',
     ...options
 });
 
 /**
- * Update ExperienceHighlight record(s)
+ * ExperienceHighlight update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateExperienceHighlight = <ThrowOnError extends boolean = false>(options: Options<UpdateExperienceHighlightData, ThrowOnError>): RequestResult<UpdateExperienceHighlightResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateExperienceHighlightResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencehighlightUpdate = <ThrowOnError extends boolean = false>(options?: Options<ExperiencehighlightUpdateData, ThrowOnError>): RequestResult<ExperiencehighlightUpdateResponses, ExperiencehighlightUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ExperiencehighlightUpdateResponses, ExperiencehighlightUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvg7ly9o5s02kle/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ExperienceHighlight record(s)
+ * ExperienceHighlight create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createExperienceHighlight = <ThrowOnError extends boolean = false>(options: Options<CreateExperienceHighlightData, ThrowOnError>): RequestResult<CreateExperienceHighlightResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateExperienceHighlightResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencehighlightCreate = <ThrowOnError extends boolean = false>(options?: Options<ExperiencehighlightCreateData, ThrowOnError>): RequestResult<ExperiencehighlightCreateResponses, ExperiencehighlightCreateErrors, ThrowOnError> => (options?.client ?? client).post<ExperiencehighlightCreateResponses, ExperiencehighlightCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvg7ly9o5s02kle/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ExperienceHighlight by id
+ * ExperienceHighlight read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getExperienceHighlight = <ThrowOnError extends boolean = false>(options: Options<GetExperienceHighlightData, ThrowOnError>): RequestResult<GetExperienceHighlightResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetExperienceHighlightResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencehighlightRead = <ThrowOnError extends boolean = false>(options: Options<ExperiencehighlightReadData, ThrowOnError>): RequestResult<ExperiencehighlightReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ExperiencehighlightReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvg7ly9o5s02kle/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Project record(s)
+ * ExperienceHighlight count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteProject = <ThrowOnError extends boolean = false>(options: Options<DeleteProjectData, ThrowOnError>): RequestResult<DeleteProjectResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteProjectResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const experiencehighlightCount = <ThrowOnError extends boolean = false>(options?: Options<ExperiencehighlightCountData, ThrowOnError>): RequestResult<ExperiencehighlightCountResponses, ExperiencehighlightCountErrors, ThrowOnError> => (options?.client ?? client).get<ExperiencehighlightCountResponses, ExperiencehighlightCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mvg7ly9o5s02kle/records/count',
+    ...options
+});
+
+/**
+ * Project delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const projectDelete = <ThrowOnError extends boolean = false>(options?: Options<ProjectDeleteData, ThrowOnError>): RequestResult<ProjectDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ProjectDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m0eyo7az9b8icq5/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Project
+ * Project list
+ *
+ * List of all rows from Project table and response data fields can be filtered based on query params.
  */
-export const listProject = <ThrowOnError extends boolean = false>(options?: Options<ListProjectData, ThrowOnError>): RequestResult<ListProjectResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListProjectResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ProjectDbTableRowListData, ThrowOnError>): RequestResult<ProjectDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ProjectDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m0eyo7az9b8icq5/records',
     ...options
 });
 
 /**
- * Update Project record(s)
+ * Project update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateProject = <ThrowOnError extends boolean = false>(options: Options<UpdateProjectData, ThrowOnError>): RequestResult<UpdateProjectResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateProjectResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectUpdate = <ThrowOnError extends boolean = false>(options?: Options<ProjectUpdateData, ThrowOnError>): RequestResult<ProjectUpdateResponses, ProjectUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ProjectUpdateResponses, ProjectUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m0eyo7az9b8icq5/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Project record(s)
+ * Project create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createProject = <ThrowOnError extends boolean = false>(options: Options<CreateProjectData, ThrowOnError>): RequestResult<CreateProjectResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateProjectResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectCreate = <ThrowOnError extends boolean = false>(options?: Options<ProjectCreateData, ThrowOnError>): RequestResult<ProjectCreateResponses, ProjectCreateErrors, ThrowOnError> => (options?.client ?? client).post<ProjectCreateResponses, ProjectCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m0eyo7az9b8icq5/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Project by id
+ * Project read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getProject = <ThrowOnError extends boolean = false>(options: Options<GetProjectData, ThrowOnError>): RequestResult<GetProjectResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetProjectResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectRead = <ThrowOnError extends boolean = false>(options: Options<ProjectReadData, ThrowOnError>): RequestResult<ProjectReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ProjectReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m0eyo7az9b8icq5/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ProjectLocale record(s)
+ * Project count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteProjectLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteProjectLocaleData, ThrowOnError>): RequestResult<DeleteProjectLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteProjectLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectCount = <ThrowOnError extends boolean = false>(options?: Options<ProjectCountData, ThrowOnError>): RequestResult<ProjectCountResponses, ProjectCountErrors, ThrowOnError> => (options?.client ?? client).get<ProjectCountResponses, ProjectCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m0eyo7az9b8icq5/records/count',
+    ...options
+});
+
+/**
+ * ProjectLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const projectlocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<ProjectlocaleDeleteData, ThrowOnError>): RequestResult<ProjectlocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ProjectlocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvycmtfajv61kgd/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ProjectLocale
+ * ProjectLocale list
+ *
+ * List of all rows from ProjectLocale table and response data fields can be filtered based on query params.
  */
-export const listProjectLocale = <ThrowOnError extends boolean = false>(options?: Options<ListProjectLocaleData, ThrowOnError>): RequestResult<ListProjectLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListProjectLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectlocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ProjectlocaleDbTableRowListData, ThrowOnError>): RequestResult<ProjectlocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ProjectlocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvycmtfajv61kgd/records',
     ...options
 });
 
 /**
- * Update ProjectLocale record(s)
+ * ProjectLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateProjectLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateProjectLocaleData, ThrowOnError>): RequestResult<UpdateProjectLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateProjectLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectlocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<ProjectlocaleUpdateData, ThrowOnError>): RequestResult<ProjectlocaleUpdateResponses, ProjectlocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ProjectlocaleUpdateResponses, ProjectlocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvycmtfajv61kgd/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ProjectLocale record(s)
+ * ProjectLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createProjectLocale = <ThrowOnError extends boolean = false>(options: Options<CreateProjectLocaleData, ThrowOnError>): RequestResult<CreateProjectLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateProjectLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectlocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<ProjectlocaleCreateData, ThrowOnError>): RequestResult<ProjectlocaleCreateResponses, ProjectlocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<ProjectlocaleCreateResponses, ProjectlocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvycmtfajv61kgd/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ProjectLocale by id
+ * ProjectLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getProjectLocale = <ThrowOnError extends boolean = false>(options: Options<GetProjectLocaleData, ThrowOnError>): RequestResult<GetProjectLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetProjectLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectlocaleRead = <ThrowOnError extends boolean = false>(options: Options<ProjectlocaleReadData, ThrowOnError>): RequestResult<ProjectlocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ProjectlocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvycmtfajv61kgd/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Education record(s)
+ * ProjectLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteEducation = <ThrowOnError extends boolean = false>(options: Options<DeleteEducationData, ThrowOnError>): RequestResult<DeleteEducationResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteEducationResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const projectlocaleCount = <ThrowOnError extends boolean = false>(options?: Options<ProjectlocaleCountData, ThrowOnError>): RequestResult<ProjectlocaleCountResponses, ProjectlocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<ProjectlocaleCountResponses, ProjectlocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mvycmtfajv61kgd/records/count',
+    ...options
+});
+
+/**
+ * Education delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const educationDelete = <ThrowOnError extends boolean = false>(options?: Options<EducationDeleteData, ThrowOnError>): RequestResult<EducationDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<EducationDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Education
+ * Education list
+ *
+ * List of all rows from Education table and response data fields can be filtered based on query params.
  */
-export const listEducation = <ThrowOnError extends boolean = false>(options?: Options<ListEducationData, ThrowOnError>): RequestResult<ListEducationResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListEducationResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<EducationDbTableRowListData, ThrowOnError>): RequestResult<EducationDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<EducationDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records',
     ...options
 });
 
 /**
- * Update Education record(s)
+ * Education update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateEducation = <ThrowOnError extends boolean = false>(options: Options<UpdateEducationData, ThrowOnError>): RequestResult<UpdateEducationResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateEducationResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationUpdate = <ThrowOnError extends boolean = false>(options?: Options<EducationUpdateData, ThrowOnError>): RequestResult<EducationUpdateResponses, EducationUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<EducationUpdateResponses, EducationUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Education record(s)
+ * Education create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createEducation = <ThrowOnError extends boolean = false>(options: Options<CreateEducationData, ThrowOnError>): RequestResult<CreateEducationResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateEducationResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationCreate = <ThrowOnError extends boolean = false>(options?: Options<EducationCreateData, ThrowOnError>): RequestResult<EducationCreateResponses, EducationCreateErrors, ThrowOnError> => (options?.client ?? client).post<EducationCreateResponses, EducationCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Education by id
+ * Education read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getEducation = <ThrowOnError extends boolean = false>(options: Options<GetEducationData, ThrowOnError>): RequestResult<GetEducationResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetEducationResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationRead = <ThrowOnError extends boolean = false>(options: Options<EducationReadData, ThrowOnError>): RequestResult<EducationReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<EducationReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records/{recordId}',
     ...options
 });
 
 /**
- * Delete EducationLocale record(s)
+ * Education count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteEducationLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteEducationLocaleData, ThrowOnError>): RequestResult<DeleteEducationLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteEducationLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationCount = <ThrowOnError extends boolean = false>(options?: Options<EducationCountData, ThrowOnError>): RequestResult<EducationCountResponses, EducationCountErrors, ThrowOnError> => (options?.client ?? client).get<EducationCountResponses, EducationCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m5kxnwxf9f7rkkj/records/count',
+    ...options
+});
+
+/**
+ * EducationLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const educationlocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<EducationlocaleDeleteData, ThrowOnError>): RequestResult<EducationlocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<EducationlocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/myr5jk40v3iw30s/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List EducationLocale
+ * EducationLocale list
+ *
+ * List of all rows from EducationLocale table and response data fields can be filtered based on query params.
  */
-export const listEducationLocale = <ThrowOnError extends boolean = false>(options?: Options<ListEducationLocaleData, ThrowOnError>): RequestResult<ListEducationLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListEducationLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationlocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<EducationlocaleDbTableRowListData, ThrowOnError>): RequestResult<EducationlocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<EducationlocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/myr5jk40v3iw30s/records',
     ...options
 });
 
 /**
- * Update EducationLocale record(s)
+ * EducationLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateEducationLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateEducationLocaleData, ThrowOnError>): RequestResult<UpdateEducationLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateEducationLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationlocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<EducationlocaleUpdateData, ThrowOnError>): RequestResult<EducationlocaleUpdateResponses, EducationlocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<EducationlocaleUpdateResponses, EducationlocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/myr5jk40v3iw30s/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create EducationLocale record(s)
+ * EducationLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createEducationLocale = <ThrowOnError extends boolean = false>(options: Options<CreateEducationLocaleData, ThrowOnError>): RequestResult<CreateEducationLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateEducationLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationlocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<EducationlocaleCreateData, ThrowOnError>): RequestResult<EducationlocaleCreateResponses, EducationlocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<EducationlocaleCreateResponses, EducationlocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/myr5jk40v3iw30s/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get EducationLocale by id
+ * EducationLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getEducationLocale = <ThrowOnError extends boolean = false>(options: Options<GetEducationLocaleData, ThrowOnError>): RequestResult<GetEducationLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetEducationLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationlocaleRead = <ThrowOnError extends boolean = false>(options: Options<EducationlocaleReadData, ThrowOnError>): RequestResult<EducationlocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<EducationlocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/myr5jk40v3iw30s/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Skill record(s)
+ * EducationLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteSkill = <ThrowOnError extends boolean = false>(options: Options<DeleteSkillData, ThrowOnError>): RequestResult<DeleteSkillResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteSkillResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const educationlocaleCount = <ThrowOnError extends boolean = false>(options?: Options<EducationlocaleCountData, ThrowOnError>): RequestResult<EducationlocaleCountResponses, EducationlocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<EducationlocaleCountResponses, EducationlocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/myr5jk40v3iw30s/records/count',
+    ...options
+});
+
+/**
+ * Skill delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const skillDelete = <ThrowOnError extends boolean = false>(options?: Options<SkillDeleteData, ThrowOnError>): RequestResult<SkillDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<SkillDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m7vi25il2esozvw/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Skill
+ * Skill list
+ *
+ * List of all rows from Skill table and response data fields can be filtered based on query params.
  */
-export const listSkill = <ThrowOnError extends boolean = false>(options?: Options<ListSkillData, ThrowOnError>): RequestResult<ListSkillResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListSkillResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const skillDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<SkillDbTableRowListData, ThrowOnError>): RequestResult<SkillDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<SkillDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m7vi25il2esozvw/records',
     ...options
 });
 
 /**
- * Update Skill record(s)
+ * Skill update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateSkill = <ThrowOnError extends boolean = false>(options: Options<UpdateSkillData, ThrowOnError>): RequestResult<UpdateSkillResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateSkillResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const skillUpdate = <ThrowOnError extends boolean = false>(options?: Options<SkillUpdateData, ThrowOnError>): RequestResult<SkillUpdateResponses, SkillUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<SkillUpdateResponses, SkillUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m7vi25il2esozvw/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Skill record(s)
+ * Skill create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createSkill = <ThrowOnError extends boolean = false>(options: Options<CreateSkillData, ThrowOnError>): RequestResult<CreateSkillResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateSkillResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const skillCreate = <ThrowOnError extends boolean = false>(options?: Options<SkillCreateData, ThrowOnError>): RequestResult<SkillCreateResponses, SkillCreateErrors, ThrowOnError> => (options?.client ?? client).post<SkillCreateResponses, SkillCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m7vi25il2esozvw/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Skill by id
+ * Skill read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getSkill = <ThrowOnError extends boolean = false>(options: Options<GetSkillData, ThrowOnError>): RequestResult<GetSkillResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetSkillResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const skillRead = <ThrowOnError extends boolean = false>(options: Options<SkillReadData, ThrowOnError>): RequestResult<SkillReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<SkillReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m7vi25il2esozvw/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Language record(s)
+ * Skill count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteLanguage = <ThrowOnError extends boolean = false>(options: Options<DeleteLanguageData, ThrowOnError>): RequestResult<DeleteLanguageResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteLanguageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const skillCount = <ThrowOnError extends boolean = false>(options?: Options<SkillCountData, ThrowOnError>): RequestResult<SkillCountResponses, SkillCountErrors, ThrowOnError> => (options?.client ?? client).get<SkillCountResponses, SkillCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m7vi25il2esozvw/records/count',
+    ...options
+});
+
+/**
+ * Language delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const languageDelete = <ThrowOnError extends boolean = false>(options?: Options<LanguageDeleteData, ThrowOnError>): RequestResult<LanguageDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<LanguageDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m2oqpufqtn80gsx/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Language
+ * Language list
+ *
+ * List of all rows from Language table and response data fields can be filtered based on query params.
  */
-export const listLanguage = <ThrowOnError extends boolean = false>(options?: Options<ListLanguageData, ThrowOnError>): RequestResult<ListLanguageResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListLanguageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const languageDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<LanguageDbTableRowListData, ThrowOnError>): RequestResult<LanguageDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<LanguageDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m2oqpufqtn80gsx/records',
     ...options
 });
 
 /**
- * Update Language record(s)
+ * Language update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateLanguage = <ThrowOnError extends boolean = false>(options: Options<UpdateLanguageData, ThrowOnError>): RequestResult<UpdateLanguageResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateLanguageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const languageUpdate = <ThrowOnError extends boolean = false>(options?: Options<LanguageUpdateData, ThrowOnError>): RequestResult<LanguageUpdateResponses, LanguageUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<LanguageUpdateResponses, LanguageUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m2oqpufqtn80gsx/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Language record(s)
+ * Language create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createLanguage = <ThrowOnError extends boolean = false>(options: Options<CreateLanguageData, ThrowOnError>): RequestResult<CreateLanguageResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateLanguageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const languageCreate = <ThrowOnError extends boolean = false>(options?: Options<LanguageCreateData, ThrowOnError>): RequestResult<LanguageCreateResponses, LanguageCreateErrors, ThrowOnError> => (options?.client ?? client).post<LanguageCreateResponses, LanguageCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m2oqpufqtn80gsx/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Language by id
+ * Language read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getLanguage = <ThrowOnError extends boolean = false>(options: Options<GetLanguageData, ThrowOnError>): RequestResult<GetLanguageResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetLanguageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const languageRead = <ThrowOnError extends boolean = false>(options: Options<LanguageReadData, ThrowOnError>): RequestResult<LanguageReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<LanguageReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m2oqpufqtn80gsx/records/{recordId}',
     ...options
 });
 
 /**
- * Delete SocialLink record(s)
+ * Language count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteSocialLink = <ThrowOnError extends boolean = false>(options: Options<DeleteSocialLinkData, ThrowOnError>): RequestResult<DeleteSocialLinkResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteSocialLinkResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const languageCount = <ThrowOnError extends boolean = false>(options?: Options<LanguageCountData, ThrowOnError>): RequestResult<LanguageCountResponses, LanguageCountErrors, ThrowOnError> => (options?.client ?? client).get<LanguageCountResponses, LanguageCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m2oqpufqtn80gsx/records/count',
+    ...options
+});
+
+/**
+ * SocialLink delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const sociallinkDelete = <ThrowOnError extends boolean = false>(options?: Options<SociallinkDeleteData, ThrowOnError>): RequestResult<SociallinkDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<SociallinkDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mdzh4gwchfje2y9/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List SocialLink
+ * SocialLink list
+ *
+ * List of all rows from SocialLink table and response data fields can be filtered based on query params.
  */
-export const listSocialLink = <ThrowOnError extends boolean = false>(options?: Options<ListSocialLinkData, ThrowOnError>): RequestResult<ListSocialLinkResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListSocialLinkResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sociallinkDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<SociallinkDbTableRowListData, ThrowOnError>): RequestResult<SociallinkDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<SociallinkDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mdzh4gwchfje2y9/records',
     ...options
 });
 
 /**
- * Update SocialLink record(s)
+ * SocialLink update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateSocialLink = <ThrowOnError extends boolean = false>(options: Options<UpdateSocialLinkData, ThrowOnError>): RequestResult<UpdateSocialLinkResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateSocialLinkResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sociallinkUpdate = <ThrowOnError extends boolean = false>(options?: Options<SociallinkUpdateData, ThrowOnError>): RequestResult<SociallinkUpdateResponses, SociallinkUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<SociallinkUpdateResponses, SociallinkUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mdzh4gwchfje2y9/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create SocialLink record(s)
+ * SocialLink create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createSocialLink = <ThrowOnError extends boolean = false>(options: Options<CreateSocialLinkData, ThrowOnError>): RequestResult<CreateSocialLinkResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateSocialLinkResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sociallinkCreate = <ThrowOnError extends boolean = false>(options?: Options<SociallinkCreateData, ThrowOnError>): RequestResult<SociallinkCreateResponses, SociallinkCreateErrors, ThrowOnError> => (options?.client ?? client).post<SociallinkCreateResponses, SociallinkCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mdzh4gwchfje2y9/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get SocialLink by id
+ * SocialLink read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getSocialLink = <ThrowOnError extends boolean = false>(options: Options<GetSocialLinkData, ThrowOnError>): RequestResult<GetSocialLinkResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetSocialLinkResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sociallinkRead = <ThrowOnError extends boolean = false>(options: Options<SociallinkReadData, ThrowOnError>): RequestResult<SociallinkReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<SociallinkReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mdzh4gwchfje2y9/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ServiceCategory record(s)
+ * SocialLink count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteServiceCategory = <ThrowOnError extends boolean = false>(options: Options<DeleteServiceCategoryData, ThrowOnError>): RequestResult<DeleteServiceCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteServiceCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const sociallinkCount = <ThrowOnError extends boolean = false>(options?: Options<SociallinkCountData, ThrowOnError>): RequestResult<SociallinkCountResponses, SociallinkCountErrors, ThrowOnError> => (options?.client ?? client).get<SociallinkCountResponses, SociallinkCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mdzh4gwchfje2y9/records/count',
+    ...options
+});
+
+/**
+ * ServiceCategory delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const servicecategoryDelete = <ThrowOnError extends boolean = false>(options?: Options<ServicecategoryDeleteData, ThrowOnError>): RequestResult<ServicecategoryDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ServicecategoryDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj3hrhct117jnnl/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ServiceCategory
+ * ServiceCategory list
+ *
+ * List of all rows from ServiceCategory table and response data fields can be filtered based on query params.
  */
-export const listServiceCategory = <ThrowOnError extends boolean = false>(options?: Options<ListServiceCategoryData, ThrowOnError>): RequestResult<ListServiceCategoryResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListServiceCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategoryDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ServicecategoryDbTableRowListData, ThrowOnError>): RequestResult<ServicecategoryDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ServicecategoryDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj3hrhct117jnnl/records',
     ...options
 });
 
 /**
- * Update ServiceCategory record(s)
+ * ServiceCategory update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateServiceCategory = <ThrowOnError extends boolean = false>(options: Options<UpdateServiceCategoryData, ThrowOnError>): RequestResult<UpdateServiceCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateServiceCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategoryUpdate = <ThrowOnError extends boolean = false>(options?: Options<ServicecategoryUpdateData, ThrowOnError>): RequestResult<ServicecategoryUpdateResponses, ServicecategoryUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ServicecategoryUpdateResponses, ServicecategoryUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj3hrhct117jnnl/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ServiceCategory record(s)
+ * ServiceCategory create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createServiceCategory = <ThrowOnError extends boolean = false>(options: Options<CreateServiceCategoryData, ThrowOnError>): RequestResult<CreateServiceCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateServiceCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategoryCreate = <ThrowOnError extends boolean = false>(options?: Options<ServicecategoryCreateData, ThrowOnError>): RequestResult<ServicecategoryCreateResponses, ServicecategoryCreateErrors, ThrowOnError> => (options?.client ?? client).post<ServicecategoryCreateResponses, ServicecategoryCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj3hrhct117jnnl/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ServiceCategory by id
+ * ServiceCategory read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getServiceCategory = <ThrowOnError extends boolean = false>(options: Options<GetServiceCategoryData, ThrowOnError>): RequestResult<GetServiceCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetServiceCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategoryRead = <ThrowOnError extends boolean = false>(options: Options<ServicecategoryReadData, ThrowOnError>): RequestResult<ServicecategoryReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ServicecategoryReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mj3hrhct117jnnl/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ServiceCategoryLocale record(s)
+ * ServiceCategory count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteServiceCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteServiceCategoryLocaleData, ThrowOnError>): RequestResult<DeleteServiceCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteServiceCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategoryCount = <ThrowOnError extends boolean = false>(options?: Options<ServicecategoryCountData, ThrowOnError>): RequestResult<ServicecategoryCountResponses, ServicecategoryCountErrors, ThrowOnError> => (options?.client ?? client).get<ServicecategoryCountResponses, ServicecategoryCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mj3hrhct117jnnl/records/count',
+    ...options
+});
+
+/**
+ * ServiceCategoryLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const servicecategorylocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<ServicecategorylocaleDeleteData, ThrowOnError>): RequestResult<ServicecategorylocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ServicecategorylocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m76g2r4dx1l35gf/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ServiceCategoryLocale
+ * ServiceCategoryLocale list
+ *
+ * List of all rows from ServiceCategoryLocale table and response data fields can be filtered based on query params.
  */
-export const listServiceCategoryLocale = <ThrowOnError extends boolean = false>(options?: Options<ListServiceCategoryLocaleData, ThrowOnError>): RequestResult<ListServiceCategoryLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListServiceCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategorylocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ServicecategorylocaleDbTableRowListData, ThrowOnError>): RequestResult<ServicecategorylocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ServicecategorylocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m76g2r4dx1l35gf/records',
     ...options
 });
 
 /**
- * Update ServiceCategoryLocale record(s)
+ * ServiceCategoryLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateServiceCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateServiceCategoryLocaleData, ThrowOnError>): RequestResult<UpdateServiceCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateServiceCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategorylocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<ServicecategorylocaleUpdateData, ThrowOnError>): RequestResult<ServicecategorylocaleUpdateResponses, ServicecategorylocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ServicecategorylocaleUpdateResponses, ServicecategorylocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m76g2r4dx1l35gf/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ServiceCategoryLocale record(s)
+ * ServiceCategoryLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createServiceCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<CreateServiceCategoryLocaleData, ThrowOnError>): RequestResult<CreateServiceCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateServiceCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategorylocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<ServicecategorylocaleCreateData, ThrowOnError>): RequestResult<ServicecategorylocaleCreateResponses, ServicecategorylocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<ServicecategorylocaleCreateResponses, ServicecategorylocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m76g2r4dx1l35gf/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ServiceCategoryLocale by id
+ * ServiceCategoryLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getServiceCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<GetServiceCategoryLocaleData, ThrowOnError>): RequestResult<GetServiceCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetServiceCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategorylocaleRead = <ThrowOnError extends boolean = false>(options: Options<ServicecategorylocaleReadData, ThrowOnError>): RequestResult<ServicecategorylocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ServicecategorylocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m76g2r4dx1l35gf/records/{recordId}',
     ...options
 });
 
 /**
- * Delete Service record(s)
+ * ServiceCategoryLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteService = <ThrowOnError extends boolean = false>(options: Options<DeleteServiceData, ThrowOnError>): RequestResult<DeleteServiceResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteServiceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicecategorylocaleCount = <ThrowOnError extends boolean = false>(options?: Options<ServicecategorylocaleCountData, ThrowOnError>): RequestResult<ServicecategorylocaleCountResponses, ServicecategorylocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<ServicecategorylocaleCountResponses, ServicecategorylocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m76g2r4dx1l35gf/records/count',
+    ...options
+});
+
+/**
+ * Service delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const serviceDelete = <ThrowOnError extends boolean = false>(options?: Options<ServiceDeleteData, ThrowOnError>): RequestResult<ServiceDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ServiceDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvo7hy38c52u94r/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List Service
+ * Service list
+ *
+ * List of all rows from Service table and response data fields can be filtered based on query params.
  */
-export const listService = <ThrowOnError extends boolean = false>(options?: Options<ListServiceData, ThrowOnError>): RequestResult<ListServiceResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListServiceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const serviceDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ServiceDbTableRowListData, ThrowOnError>): RequestResult<ServiceDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ServiceDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvo7hy38c52u94r/records',
     ...options
 });
 
 /**
- * Update Service record(s)
+ * Service update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateService = <ThrowOnError extends boolean = false>(options: Options<UpdateServiceData, ThrowOnError>): RequestResult<UpdateServiceResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateServiceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const serviceUpdate = <ThrowOnError extends boolean = false>(options?: Options<ServiceUpdateData, ThrowOnError>): RequestResult<ServiceUpdateResponses, ServiceUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ServiceUpdateResponses, ServiceUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvo7hy38c52u94r/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create Service record(s)
+ * Service create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createService = <ThrowOnError extends boolean = false>(options: Options<CreateServiceData, ThrowOnError>): RequestResult<CreateServiceResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateServiceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const serviceCreate = <ThrowOnError extends boolean = false>(options?: Options<ServiceCreateData, ThrowOnError>): RequestResult<ServiceCreateResponses, ServiceCreateErrors, ThrowOnError> => (options?.client ?? client).post<ServiceCreateResponses, ServiceCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvo7hy38c52u94r/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get Service by id
+ * Service read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getService = <ThrowOnError extends boolean = false>(options: Options<GetServiceData, ThrowOnError>): RequestResult<GetServiceResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetServiceResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const serviceRead = <ThrowOnError extends boolean = false>(options: Options<ServiceReadData, ThrowOnError>): RequestResult<ServiceReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ServiceReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mvo7hy38c52u94r/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ServiceLocale record(s)
+ * Service count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteServiceLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteServiceLocaleData, ThrowOnError>): RequestResult<DeleteServiceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteServiceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const serviceCount = <ThrowOnError extends boolean = false>(options?: Options<ServiceCountData, ThrowOnError>): RequestResult<ServiceCountResponses, ServiceCountErrors, ThrowOnError> => (options?.client ?? client).get<ServiceCountResponses, ServiceCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mvo7hy38c52u94r/records/count',
+    ...options
+});
+
+/**
+ * ServiceLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const servicelocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<ServicelocaleDeleteData, ThrowOnError>): RequestResult<ServicelocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ServicelocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mzbyx8j5396pqnk/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ServiceLocale
+ * ServiceLocale list
+ *
+ * List of all rows from ServiceLocale table and response data fields can be filtered based on query params.
  */
-export const listServiceLocale = <ThrowOnError extends boolean = false>(options?: Options<ListServiceLocaleData, ThrowOnError>): RequestResult<ListServiceLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListServiceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicelocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ServicelocaleDbTableRowListData, ThrowOnError>): RequestResult<ServicelocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ServicelocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mzbyx8j5396pqnk/records',
     ...options
 });
 
 /**
- * Update ServiceLocale record(s)
+ * ServiceLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateServiceLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateServiceLocaleData, ThrowOnError>): RequestResult<UpdateServiceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateServiceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicelocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<ServicelocaleUpdateData, ThrowOnError>): RequestResult<ServicelocaleUpdateResponses, ServicelocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ServicelocaleUpdateResponses, ServicelocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mzbyx8j5396pqnk/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ServiceLocale record(s)
+ * ServiceLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createServiceLocale = <ThrowOnError extends boolean = false>(options: Options<CreateServiceLocaleData, ThrowOnError>): RequestResult<CreateServiceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateServiceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicelocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<ServicelocaleCreateData, ThrowOnError>): RequestResult<ServicelocaleCreateResponses, ServicelocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<ServicelocaleCreateResponses, ServicelocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mzbyx8j5396pqnk/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ServiceLocale by id
+ * ServiceLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getServiceLocale = <ThrowOnError extends boolean = false>(options: Options<GetServiceLocaleData, ThrowOnError>): RequestResult<GetServiceLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetServiceLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicelocaleRead = <ThrowOnError extends boolean = false>(options: Options<ServicelocaleReadData, ThrowOnError>): RequestResult<ServicelocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ServicelocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mzbyx8j5396pqnk/records/{recordId}',
     ...options
 });
 
 /**
- * Delete BlogTag record(s)
+ * ServiceLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteBlogTag = <ThrowOnError extends boolean = false>(options: Options<DeleteBlogTagData, ThrowOnError>): RequestResult<DeleteBlogTagResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteBlogTagResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const servicelocaleCount = <ThrowOnError extends boolean = false>(options?: Options<ServicelocaleCountData, ThrowOnError>): RequestResult<ServicelocaleCountResponses, ServicelocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<ServicelocaleCountResponses, ServicelocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mzbyx8j5396pqnk/records/count',
+    ...options
+});
+
+/**
+ * BlogTag delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const blogtagDelete = <ThrowOnError extends boolean = false>(options?: Options<BlogtagDeleteData, ThrowOnError>): RequestResult<BlogtagDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<BlogtagDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List BlogTag
+ * BlogTag list
+ *
+ * List of all rows from BlogTag table and response data fields can be filtered based on query params.
  */
-export const listBlogTag = <ThrowOnError extends boolean = false>(options?: Options<ListBlogTagData, ThrowOnError>): RequestResult<ListBlogTagResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListBlogTagResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtagDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<BlogtagDbTableRowListData, ThrowOnError>): RequestResult<BlogtagDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<BlogtagDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records',
     ...options
 });
 
 /**
- * Update BlogTag record(s)
+ * BlogTag update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateBlogTag = <ThrowOnError extends boolean = false>(options: Options<UpdateBlogTagData, ThrowOnError>): RequestResult<UpdateBlogTagResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateBlogTagResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtagUpdate = <ThrowOnError extends boolean = false>(options?: Options<BlogtagUpdateData, ThrowOnError>): RequestResult<BlogtagUpdateResponses, BlogtagUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<BlogtagUpdateResponses, BlogtagUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create BlogTag record(s)
+ * BlogTag create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createBlogTag = <ThrowOnError extends boolean = false>(options: Options<CreateBlogTagData, ThrowOnError>): RequestResult<CreateBlogTagResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateBlogTagResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtagCreate = <ThrowOnError extends boolean = false>(options?: Options<BlogtagCreateData, ThrowOnError>): RequestResult<BlogtagCreateResponses, BlogtagCreateErrors, ThrowOnError> => (options?.client ?? client).post<BlogtagCreateResponses, BlogtagCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get BlogTag by id
+ * BlogTag read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getBlogTag = <ThrowOnError extends boolean = false>(options: Options<GetBlogTagData, ThrowOnError>): RequestResult<GetBlogTagResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetBlogTagResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtagRead = <ThrowOnError extends boolean = false>(options: Options<BlogtagReadData, ThrowOnError>): RequestResult<BlogtagReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<BlogtagReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records/{recordId}',
     ...options
 });
 
 /**
- * Delete BlogTagLocale record(s)
+ * BlogTag count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteBlogTagLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteBlogTagLocaleData, ThrowOnError>): RequestResult<DeleteBlogTagLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteBlogTagLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtagCount = <ThrowOnError extends boolean = false>(options?: Options<BlogtagCountData, ThrowOnError>): RequestResult<BlogtagCountResponses, BlogtagCountErrors, ThrowOnError> => (options?.client ?? client).get<BlogtagCountResponses, BlogtagCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mgmxeh7fx6smtxv/records/count',
+    ...options
+});
+
+/**
+ * BlogTagLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const blogtaglocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<BlogtaglocaleDeleteData, ThrowOnError>): RequestResult<BlogtaglocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<BlogtaglocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mexfths3zxg4ufx/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List BlogTagLocale
+ * BlogTagLocale list
+ *
+ * List of all rows from BlogTagLocale table and response data fields can be filtered based on query params.
  */
-export const listBlogTagLocale = <ThrowOnError extends boolean = false>(options?: Options<ListBlogTagLocaleData, ThrowOnError>): RequestResult<ListBlogTagLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListBlogTagLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtaglocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<BlogtaglocaleDbTableRowListData, ThrowOnError>): RequestResult<BlogtaglocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<BlogtaglocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mexfths3zxg4ufx/records',
     ...options
 });
 
 /**
- * Update BlogTagLocale record(s)
+ * BlogTagLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateBlogTagLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateBlogTagLocaleData, ThrowOnError>): RequestResult<UpdateBlogTagLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateBlogTagLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtaglocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<BlogtaglocaleUpdateData, ThrowOnError>): RequestResult<BlogtaglocaleUpdateResponses, BlogtaglocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<BlogtaglocaleUpdateResponses, BlogtaglocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mexfths3zxg4ufx/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create BlogTagLocale record(s)
+ * BlogTagLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createBlogTagLocale = <ThrowOnError extends boolean = false>(options: Options<CreateBlogTagLocaleData, ThrowOnError>): RequestResult<CreateBlogTagLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateBlogTagLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtaglocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<BlogtaglocaleCreateData, ThrowOnError>): RequestResult<BlogtaglocaleCreateResponses, BlogtaglocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<BlogtaglocaleCreateResponses, BlogtaglocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mexfths3zxg4ufx/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get BlogTagLocale by id
+ * BlogTagLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getBlogTagLocale = <ThrowOnError extends boolean = false>(options: Options<GetBlogTagLocaleData, ThrowOnError>): RequestResult<GetBlogTagLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetBlogTagLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtaglocaleRead = <ThrowOnError extends boolean = false>(options: Options<BlogtaglocaleReadData, ThrowOnError>): RequestResult<BlogtaglocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<BlogtaglocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mexfths3zxg4ufx/records/{recordId}',
     ...options
 });
 
 /**
- * Delete BlogCategory record(s)
+ * BlogTagLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteBlogCategory = <ThrowOnError extends boolean = false>(options: Options<DeleteBlogCategoryData, ThrowOnError>): RequestResult<DeleteBlogCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteBlogCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogtaglocaleCount = <ThrowOnError extends boolean = false>(options?: Options<BlogtaglocaleCountData, ThrowOnError>): RequestResult<BlogtaglocaleCountResponses, BlogtaglocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<BlogtaglocaleCountResponses, BlogtaglocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mexfths3zxg4ufx/records/count',
+    ...options
+});
+
+/**
+ * BlogCategory delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const blogcategoryDelete = <ThrowOnError extends boolean = false>(options?: Options<BlogcategoryDeleteData, ThrowOnError>): RequestResult<BlogcategoryDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<BlogcategoryDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5jck17x53j98kp/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List BlogCategory
+ * BlogCategory list
+ *
+ * List of all rows from BlogCategory table and response data fields can be filtered based on query params.
  */
-export const listBlogCategory = <ThrowOnError extends boolean = false>(options?: Options<ListBlogCategoryData, ThrowOnError>): RequestResult<ListBlogCategoryResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListBlogCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategoryDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<BlogcategoryDbTableRowListData, ThrowOnError>): RequestResult<BlogcategoryDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<BlogcategoryDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5jck17x53j98kp/records',
     ...options
 });
 
 /**
- * Update BlogCategory record(s)
+ * BlogCategory update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateBlogCategory = <ThrowOnError extends boolean = false>(options: Options<UpdateBlogCategoryData, ThrowOnError>): RequestResult<UpdateBlogCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateBlogCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategoryUpdate = <ThrowOnError extends boolean = false>(options?: Options<BlogcategoryUpdateData, ThrowOnError>): RequestResult<BlogcategoryUpdateResponses, BlogcategoryUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<BlogcategoryUpdateResponses, BlogcategoryUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5jck17x53j98kp/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create BlogCategory record(s)
+ * BlogCategory create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createBlogCategory = <ThrowOnError extends boolean = false>(options: Options<CreateBlogCategoryData, ThrowOnError>): RequestResult<CreateBlogCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateBlogCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategoryCreate = <ThrowOnError extends boolean = false>(options?: Options<BlogcategoryCreateData, ThrowOnError>): RequestResult<BlogcategoryCreateResponses, BlogcategoryCreateErrors, ThrowOnError> => (options?.client ?? client).post<BlogcategoryCreateResponses, BlogcategoryCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5jck17x53j98kp/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get BlogCategory by id
+ * BlogCategory read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getBlogCategory = <ThrowOnError extends boolean = false>(options: Options<GetBlogCategoryData, ThrowOnError>): RequestResult<GetBlogCategoryResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetBlogCategoryResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategoryRead = <ThrowOnError extends boolean = false>(options: Options<BlogcategoryReadData, ThrowOnError>): RequestResult<BlogcategoryReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<BlogcategoryReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m5jck17x53j98kp/records/{recordId}',
     ...options
 });
 
 /**
- * Delete BlogCategoryLocale record(s)
+ * BlogCategory count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteBlogCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<DeleteBlogCategoryLocaleData, ThrowOnError>): RequestResult<DeleteBlogCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteBlogCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategoryCount = <ThrowOnError extends boolean = false>(options?: Options<BlogcategoryCountData, ThrowOnError>): RequestResult<BlogcategoryCountResponses, BlogcategoryCountErrors, ThrowOnError> => (options?.client ?? client).get<BlogcategoryCountResponses, BlogcategoryCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m5jck17x53j98kp/records/count',
+    ...options
+});
+
+/**
+ * BlogCategoryLocale delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const blogcategorylocaleDelete = <ThrowOnError extends boolean = false>(options?: Options<BlogcategorylocaleDeleteData, ThrowOnError>): RequestResult<BlogcategorylocaleDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<BlogcategorylocaleDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mxdxijqr1hy64mm/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List BlogCategoryLocale
+ * BlogCategoryLocale list
+ *
+ * List of all rows from BlogCategoryLocale table and response data fields can be filtered based on query params.
  */
-export const listBlogCategoryLocale = <ThrowOnError extends boolean = false>(options?: Options<ListBlogCategoryLocaleData, ThrowOnError>): RequestResult<ListBlogCategoryLocaleResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListBlogCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategorylocaleDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<BlogcategorylocaleDbTableRowListData, ThrowOnError>): RequestResult<BlogcategorylocaleDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<BlogcategorylocaleDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mxdxijqr1hy64mm/records',
     ...options
 });
 
 /**
- * Update BlogCategoryLocale record(s)
+ * BlogCategoryLocale update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateBlogCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<UpdateBlogCategoryLocaleData, ThrowOnError>): RequestResult<UpdateBlogCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateBlogCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategorylocaleUpdate = <ThrowOnError extends boolean = false>(options?: Options<BlogcategorylocaleUpdateData, ThrowOnError>): RequestResult<BlogcategorylocaleUpdateResponses, BlogcategorylocaleUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<BlogcategorylocaleUpdateResponses, BlogcategorylocaleUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mxdxijqr1hy64mm/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create BlogCategoryLocale record(s)
+ * BlogCategoryLocale create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createBlogCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<CreateBlogCategoryLocaleData, ThrowOnError>): RequestResult<CreateBlogCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateBlogCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategorylocaleCreate = <ThrowOnError extends boolean = false>(options?: Options<BlogcategorylocaleCreateData, ThrowOnError>): RequestResult<BlogcategorylocaleCreateResponses, BlogcategorylocaleCreateErrors, ThrowOnError> => (options?.client ?? client).post<BlogcategorylocaleCreateResponses, BlogcategorylocaleCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mxdxijqr1hy64mm/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get BlogCategoryLocale by id
+ * BlogCategoryLocale read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getBlogCategoryLocale = <ThrowOnError extends boolean = false>(options: Options<GetBlogCategoryLocaleData, ThrowOnError>): RequestResult<GetBlogCategoryLocaleResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetBlogCategoryLocaleResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategorylocaleRead = <ThrowOnError extends boolean = false>(options: Options<BlogcategorylocaleReadData, ThrowOnError>): RequestResult<BlogcategorylocaleReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<BlogcategorylocaleReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/mxdxijqr1hy64mm/records/{recordId}',
     ...options
 });
 
 /**
- * Delete BlogPost record(s)
+ * BlogCategoryLocale count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteBlogPost = <ThrowOnError extends boolean = false>(options: Options<DeleteBlogPostData, ThrowOnError>): RequestResult<DeleteBlogPostResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteBlogPostResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogcategorylocaleCount = <ThrowOnError extends boolean = false>(options?: Options<BlogcategorylocaleCountData, ThrowOnError>): RequestResult<BlogcategorylocaleCountResponses, BlogcategorylocaleCountErrors, ThrowOnError> => (options?.client ?? client).get<BlogcategorylocaleCountResponses, BlogcategorylocaleCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/mxdxijqr1hy64mm/records/count',
+    ...options
+});
+
+/**
+ * BlogPost delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const blogpostDelete = <ThrowOnError extends boolean = false>(options?: Options<BlogpostDeleteData, ThrowOnError>): RequestResult<BlogpostDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<BlogpostDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/msd14u1seb5bcav/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List BlogPost
+ * BlogPost list
+ *
+ * List of all rows from BlogPost table and response data fields can be filtered based on query params.
  */
-export const listBlogPost = <ThrowOnError extends boolean = false>(options?: Options<ListBlogPostData, ThrowOnError>): RequestResult<ListBlogPostResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListBlogPostResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogpostDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<BlogpostDbTableRowListData, ThrowOnError>): RequestResult<BlogpostDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<BlogpostDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/msd14u1seb5bcav/records',
     ...options
 });
 
 /**
- * Update BlogPost record(s)
+ * BlogPost update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateBlogPost = <ThrowOnError extends boolean = false>(options: Options<UpdateBlogPostData, ThrowOnError>): RequestResult<UpdateBlogPostResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateBlogPostResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogpostUpdate = <ThrowOnError extends boolean = false>(options?: Options<BlogpostUpdateData, ThrowOnError>): RequestResult<BlogpostUpdateResponses, BlogpostUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<BlogpostUpdateResponses, BlogpostUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/msd14u1seb5bcav/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create BlogPost record(s)
+ * BlogPost create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createBlogPost = <ThrowOnError extends boolean = false>(options: Options<CreateBlogPostData, ThrowOnError>): RequestResult<CreateBlogPostResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateBlogPostResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogpostCreate = <ThrowOnError extends boolean = false>(options?: Options<BlogpostCreateData, ThrowOnError>): RequestResult<BlogpostCreateResponses, BlogpostCreateErrors, ThrowOnError> => (options?.client ?? client).post<BlogpostCreateResponses, BlogpostCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/msd14u1seb5bcav/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get BlogPost by id
+ * BlogPost read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getBlogPost = <ThrowOnError extends boolean = false>(options: Options<GetBlogPostData, ThrowOnError>): RequestResult<GetBlogPostResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetBlogPostResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogpostRead = <ThrowOnError extends boolean = false>(options: Options<BlogpostReadData, ThrowOnError>): RequestResult<BlogpostReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<BlogpostReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/msd14u1seb5bcav/records/{recordId}',
     ...options
 });
 
 /**
- * Delete ContactMessage record(s)
+ * BlogPost count
+ *
+ * Get rows count of a table by applying optional filters.
  */
-export const deleteContactMessage = <ThrowOnError extends boolean = false>(options: Options<DeleteContactMessageData, ThrowOnError>): RequestResult<DeleteContactMessageResponses, unknown, ThrowOnError> => (options.client ?? client).delete<DeleteContactMessageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const blogpostCount = <ThrowOnError extends boolean = false>(options?: Options<BlogpostCountData, ThrowOnError>): RequestResult<BlogpostCountResponses, BlogpostCountErrors, ThrowOnError> => (options?.client ?? client).get<BlogpostCountResponses, BlogpostCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/msd14u1seb5bcav/records/count',
+    ...options
+});
+
+/**
+ * ContactMessage delete
+ *
+ * Delete a row by using the **primary key** column value.
+ */
+export const contactmessageDelete = <ThrowOnError extends boolean = false>(options?: Options<ContactmessageDeleteData, ThrowOnError>): RequestResult<ContactmessageDeleteResponses, unknown, ThrowOnError> => (options?.client ?? client).delete<ContactmessageDeleteResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * List ContactMessage
+ * ContactMessage list
+ *
+ * List of all rows from ContactMessage table and response data fields can be filtered based on query params.
  */
-export const listContactMessage = <ThrowOnError extends boolean = false>(options?: Options<ListContactMessageData, ThrowOnError>): RequestResult<ListContactMessageResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ListContactMessageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const contactmessageDbTableRowList = <ThrowOnError extends boolean = false>(options?: Options<ContactmessageDbTableRowListData, ThrowOnError>): RequestResult<ContactmessageDbTableRowListResponses, unknown, ThrowOnError> => (options?.client ?? client).get<ContactmessageDbTableRowListResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records',
     ...options
 });
 
 /**
- * Update ContactMessage record(s)
+ * ContactMessage update
+ *
+ * Partial update row in table by providing a key value pair object where key refers to the column alias. You need to only include columns which you want to update.
  */
-export const updateContactMessage = <ThrowOnError extends boolean = false>(options: Options<UpdateContactMessageData, ThrowOnError>): RequestResult<UpdateContactMessageResponses, unknown, ThrowOnError> => (options.client ?? client).patch<UpdateContactMessageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const contactmessageUpdate = <ThrowOnError extends boolean = false>(options?: Options<ContactmessageUpdateData, ThrowOnError>): RequestResult<ContactmessageUpdateResponses, ContactmessageUpdateErrors, ThrowOnError> => (options?.client ?? client).patch<ContactmessageUpdateResponses, ContactmessageUpdateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Create ContactMessage record(s)
+ * ContactMessage create
+ *
+ * Insert a new row in table by providing a key value pair object where key refers to the column alias. All the required fields should be included with payload excluding `autoincrement` and column with default value.
  */
-export const createContactMessage = <ThrowOnError extends boolean = false>(options: Options<CreateContactMessageData, ThrowOnError>): RequestResult<CreateContactMessageResponses, unknown, ThrowOnError> => (options.client ?? client).post<CreateContactMessageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const contactmessageCreate = <ThrowOnError extends boolean = false>(options?: Options<ContactmessageCreateData, ThrowOnError>): RequestResult<ContactmessageCreateResponses, ContactmessageCreateErrors, ThrowOnError> => (options?.client ?? client).post<ContactmessageCreateResponses, ContactmessageCreateErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records',
     ...options,
     headers: {
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options?.headers
     }
 });
 
 /**
- * Get ContactMessage by id
+ * ContactMessage read
+ *
+ * Read a row data by using the **primary key** column value.
  */
-export const getContactMessage = <ThrowOnError extends boolean = false>(options: Options<GetContactMessageData, ThrowOnError>): RequestResult<GetContactMessageResponses, unknown, ThrowOnError> => (options.client ?? client).get<GetContactMessageResponses, unknown, ThrowOnError>({
-    security: [{ name: 'xc-token', type: 'apiKey' }],
+export const contactmessageRead = <ThrowOnError extends boolean = false>(options: Options<ContactmessageReadData, ThrowOnError>): RequestResult<ContactmessageReadResponses, unknown, ThrowOnError> => (options.client ?? client).get<ContactmessageReadResponses, unknown, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records/{recordId}',
+    ...options
+});
+
+/**
+ * ContactMessage count
+ *
+ * Get rows count of a table by applying optional filters.
+ */
+export const contactmessageCount = <ThrowOnError extends boolean = false>(options?: Options<ContactmessageCountData, ThrowOnError>): RequestResult<ContactmessageCountResponses, ContactmessageCountErrors, ThrowOnError> => (options?.client ?? client).get<ContactmessageCountResponses, ContactmessageCountErrors, ThrowOnError>({
+    security: [{ name: 'xc-token', type: 'apiKey' }, { scheme: 'bearer', type: 'http' }],
+    url: '/api/v2/tables/m1lfvq0kb7h7f45/records/count',
     ...options
 });

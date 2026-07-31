@@ -4,4216 +4,5082 @@ export type ClientOptions = {
     baseUrl: 'https://app.nocodb.com' | (string & {});
 };
 
-export type SiteSettingsRecord = {
+/**
+ * Paginated
+ */
+export type Paginated = {
+    pageSize?: number;
+    totalRows?: number;
+    isFirstPage?: boolean;
+    isLastPage?: boolean;
+    page?: number;
+};
+
+/**
+ * Attachment
+ */
+export type Attachment = {
+    mimetype?: string;
+    size?: number;
+    title?: string;
+    url?: string;
+    icon?: string;
+};
+
+/**
+ * Groupby
+ */
+export type Groupby = {
     /**
-     * ID
+     * count
      */
+    count?: number;
+    /**
+     * the value of the given column
+     */
+    column_name?: string;
+};
+
+/**
+ * SiteSettings Response
+ */
+export type SiteSettingsResponse = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Key?: string | null;
-    /**
-     * Checkbox
-     */
     show_blog?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_services?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_projects?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_experience?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_contact_form?: boolean | null;
-    /**
-     * Checkbox
-     */
     fa_locale_enabled?: boolean | null;
-    /**
-     * Checkbox
-     */
     maintenance_mode?: boolean | null;
-    /**
-     * Checkbox
-     */
     indexing_enabled?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_hireable?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_day_rate?: boolean | null;
-    /**
-     * Number
-     */
     day_rate_amount?: number | null;
-    /**
-     * SingleLineText
-     */
     day_rate_currency?: string | null;
-    /**
-     * URL
-     */
-    default_og_image?: string | null;
-    /**
-     * URL
-     */
-    calendly_url?: string | null;
-    /**
-     * Email
-     */
-    public_email?: string | null;
-    /**
-     * PhoneNumber
-     */
+    default_og_image?: string;
+    calendly_url?: string;
+    public_email?: string;
     public_phone?: string | null;
-    /**
-     * SingleLineText
-     */
     public_location?: string | null;
-    /**
-     * LongText
-     */
     maintenance_message_en?: string | null;
-    /**
-     * LongText
-     */
     maintenance_message_fa?: string | null;
-    [key: string]: unknown;
 };
 
-export type SiteSettingsWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * SiteSettings Request
+ */
+export type SiteSettingsRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Key?: string | null;
-    /**
-     * Checkbox
-     */
     show_blog?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_services?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_projects?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_experience?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_contact_form?: boolean | null;
-    /**
-     * Checkbox
-     */
     fa_locale_enabled?: boolean | null;
-    /**
-     * Checkbox
-     */
     maintenance_mode?: boolean | null;
-    /**
-     * Checkbox
-     */
     indexing_enabled?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_hireable?: boolean | null;
-    /**
-     * Checkbox
-     */
     show_day_rate?: boolean | null;
-    /**
-     * Number
-     */
     day_rate_amount?: number | null;
-    /**
-     * SingleLineText
-     */
     day_rate_currency?: string | null;
-    /**
-     * URL
-     */
-    default_og_image?: string | null;
-    /**
-     * URL
-     */
-    calendly_url?: string | null;
-    /**
-     * Email
-     */
-    public_email?: string | null;
-    /**
-     * PhoneNumber
-     */
+    default_og_image?: string;
+    calendly_url?: string;
+    public_email?: string;
     public_phone?: string | null;
-    /**
-     * SingleLineText
-     */
     public_location?: string | null;
-    /**
-     * LongText
-     */
     maintenance_message_en?: string | null;
-    /**
-     * LongText
-     */
     maintenance_message_fa?: string | null;
-    [key: string]: unknown;
 };
 
-export type SiteSettingsListResponse = {
-    list?: Array<SiteSettingsRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ProfileRecord = {
-    /**
-     * ID
-     */
+/**
+ * SiteSettings Id Request
+ */
+export type SiteSettingsIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Profile Response
+ */
+export type ProfileResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Slug?: string | null;
-    /**
-     * URL
-     */
-    AvatarUrl?: string | null;
-    /**
-     * URL
-     */
-    GitHub?: string | null;
-    /**
-     * URL
-     */
-    LinkedIn?: string | null;
-    /**
-     * URL
-     */
-    Twine?: string | null;
-    /**
-     * Checkbox
-     */
+    AvatarUrl?: string;
+    GitHub?: string;
+    LinkedIn?: string;
+    Twine?: string;
     Hireable?: boolean | null;
-    /**
-     * SingleLineText
-     */
     TotalExperience?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProfileWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Profile Request
+ */
+export type ProfileRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Slug?: string | null;
-    /**
-     * URL
-     */
-    AvatarUrl?: string | null;
-    /**
-     * URL
-     */
-    GitHub?: string | null;
-    /**
-     * URL
-     */
-    LinkedIn?: string | null;
-    /**
-     * URL
-     */
-    Twine?: string | null;
-    /**
-     * Checkbox
-     */
+    AvatarUrl?: string;
+    GitHub?: string;
+    LinkedIn?: string;
+    Twine?: string;
     Hireable?: boolean | null;
-    /**
-     * SingleLineText
-     */
     TotalExperience?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProfileListResponse = {
-    list?: Array<ProfileRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ProfileLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * Profile Id Request
+ */
+export type ProfileIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * ProfileLocale Response
+ */
+export type ProfileLocaleResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ProfileId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Headline?: string | null;
-    /**
-     * LongText
-     */
     Summary?: string | null;
-    /**
-     * LongText
-     */
     Label?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProfileLocaleWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * ProfileLocale Request
+ */
+export type ProfileLocaleRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ProfileId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Headline?: string | null;
-    /**
-     * LongText
-     */
     Summary?: string | null;
-    /**
-     * LongText
-     */
     Label?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProfileLocaleListResponse = {
-    list?: Array<ProfileLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ExperienceRecord = {
-    /**
-     * ID
-     */
+/**
+ * ProfileLocale Id Request
+ */
+export type ProfileLocaleIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Experience Response
+ */
+export type ExperienceResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Company?: string | null;
-    /**
-     * URL
-     */
-    CompanyUrl?: string | null;
-    /**
-     * URL
-     */
-    Website?: string | null;
-    /**
-     * SingleLineText
-     */
+    CompanyUrl?: string;
+    Website?: string;
     RelatedCompany?: string | null;
-    /**
-     * SingleLineText
-     */
     Location?: string | null;
-    /**
-     * SingleLineText
-     */
     StartDate?: string | null;
-    /**
-     * SingleLineText
-     */
     EndDate?: string | null;
-    /**
-     * Checkbox
-     */
     Current?: boolean | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    /**
-     * LongText
-     */
     Tech?: string | null;
-    /**
-     * LongText
-     */
     DateNotes?: string | null;
-    [key: string]: unknown;
 };
 
-export type ExperienceWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Experience Request
+ */
+export type ExperienceRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Company?: string | null;
-    /**
-     * URL
-     */
-    CompanyUrl?: string | null;
-    /**
-     * URL
-     */
-    Website?: string | null;
-    /**
-     * SingleLineText
-     */
+    CompanyUrl?: string;
+    Website?: string;
     RelatedCompany?: string | null;
-    /**
-     * SingleLineText
-     */
     Location?: string | null;
-    /**
-     * SingleLineText
-     */
     StartDate?: string | null;
-    /**
-     * SingleLineText
-     */
     EndDate?: string | null;
-    /**
-     * Checkbox
-     */
     Current?: boolean | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    /**
-     * LongText
-     */
     Tech?: string | null;
-    /**
-     * LongText
-     */
     DateNotes?: string | null;
-    [key: string]: unknown;
 };
 
-export type ExperienceListResponse = {
-    list?: Array<ExperienceRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ExperienceLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * Experience Id Request
+ */
+export type ExperienceIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
-    ExperienceId?: number | null;
-    /**
-     * SingleSelect
-     */
-    Locale?: string | null;
-    /**
-     * SingleLineText
-     */
-    Title?: string | null;
-    /**
-     * LongText
-     */
-    Summary?: string | null;
-    [key: string]: unknown;
 };
 
-export type ExperienceLocaleWrite = {
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
-    ExperienceId?: number | null;
-    /**
-     * SingleSelect
-     */
-    Locale?: string | null;
-    /**
-     * SingleLineText
-     */
-    Title?: string | null;
-    /**
-     * LongText
-     */
-    Summary?: string | null;
-    [key: string]: unknown;
-};
-
-export type ExperienceLocaleListResponse = {
-    list?: Array<ExperienceLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ExperienceHighlightRecord = {
-    /**
-     * ID
-     */
+/**
+ * ExperienceLocale Response
+ */
+export type ExperienceLocaleResponse = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ExperienceId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * LongText
-     */
+    Title?: string | null;
+    Summary?: string | null;
+};
+
+/**
+ * ExperienceLocale Request
+ */
+export type ExperienceLocaleRequest = {
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
+    ExperienceId?: number | null;
+    Locale?: string | null;
+    Title?: string | null;
+    Summary?: string | null;
+};
+
+/**
+ * ExperienceLocale Id Request
+ */
+export type ExperienceLocaleIdRequest = {
+    Id?: number | null;
+};
+
+/**
+ * ExperienceHighlight Response
+ */
+export type ExperienceHighlightResponse = {
+    Id?: number | null;
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
+    ExperienceId?: number | null;
+    Locale?: string | null;
     Body?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type ExperienceHighlightWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * ExperienceHighlight Request
+ */
+export type ExperienceHighlightRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ExperienceId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * LongText
-     */
     Body?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type ExperienceHighlightListResponse = {
-    list?: Array<ExperienceHighlightRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ProjectRecord = {
-    /**
-     * ID
-     */
+/**
+ * ExperienceHighlight Id Request
+ */
+export type ExperienceHighlightIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Project Response
+ */
+export type ProjectResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Role?: string | null;
-    /**
-     * SingleLineText
-     */
     Company?: string | null;
-    /**
-     * SingleLineText
-     */
     StartDate?: string | null;
-    /**
-     * SingleLineText
-     */
     EndDate?: string | null;
-    /**
-     * Checkbox
-     */
     Current?: boolean | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    /**
-     * LongText
-     */
     Tech?: string | null;
-    /**
-     * LongText
-     */
     RelatedPosts?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProjectWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Project Request
+ */
+export type ProjectRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Role?: string | null;
-    /**
-     * SingleLineText
-     */
     Company?: string | null;
-    /**
-     * SingleLineText
-     */
     StartDate?: string | null;
-    /**
-     * SingleLineText
-     */
     EndDate?: string | null;
-    /**
-     * Checkbox
-     */
     Current?: boolean | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    /**
-     * LongText
-     */
     Tech?: string | null;
-    /**
-     * LongText
-     */
     RelatedPosts?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProjectListResponse = {
-    list?: Array<ProjectRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ProjectLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * Project Id Request
+ */
+export type ProjectIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * ProjectLocale Response
+ */
+export type ProjectLocaleResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ProjectId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * LongText
-     */
     Summary?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProjectLocaleWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * ProjectLocale Request
+ */
+export type ProjectLocaleRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ProjectId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * LongText
-     */
     Summary?: string | null;
-    [key: string]: unknown;
 };
 
-export type ProjectLocaleListResponse = {
-    list?: Array<ProjectLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type EducationRecord = {
-    /**
-     * ID
-     */
+/**
+ * ProjectLocale Id Request
+ */
+export type ProjectLocaleIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Education Response
+ */
+export type EducationResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Institution?: string | null;
-    /**
-     * URL
-     */
-    InstitutionUrl?: string | null;
-    /**
-     * SingleLineText
-     */
+    InstitutionUrl?: string;
     StartDate?: string | null;
-    /**
-     * SingleLineText
-     */
     EndDate?: string | null;
-    /**
-     * SingleLineText
-     */
     Location?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type EducationWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Education Request
+ */
+export type EducationRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Institution?: string | null;
-    /**
-     * URL
-     */
-    InstitutionUrl?: string | null;
-    /**
-     * SingleLineText
-     */
+    InstitutionUrl?: string;
     StartDate?: string | null;
-    /**
-     * SingleLineText
-     */
     EndDate?: string | null;
-    /**
-     * SingleLineText
-     */
     Location?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type EducationListResponse = {
-    list?: Array<EducationRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type EducationLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * Education Id Request
+ */
+export type EducationIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * EducationLocale Response
+ */
+export type EducationLocaleResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     EducationId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Degree?: string | null;
-    /**
-     * SingleLineText
-     */
     Field?: string | null;
-    [key: string]: unknown;
 };
 
-export type EducationLocaleWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * EducationLocale Request
+ */
+export type EducationLocaleRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     EducationId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Degree?: string | null;
-    /**
-     * SingleLineText
-     */
     Field?: string | null;
-    [key: string]: unknown;
 };
 
-export type EducationLocaleListResponse = {
-    list?: Array<EducationLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type SkillRecord = {
-    /**
-     * ID
-     */
+/**
+ * EducationLocale Id Request
+ */
+export type EducationLocaleIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Skill Response
+ */
+export type SkillResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * Number
-     */
     Level?: number | null;
-    /**
-     * SingleSelect
-     */
     Group?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type SkillWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Skill Request
+ */
+export type SkillRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * Number
-     */
     Level?: number | null;
-    /**
-     * SingleSelect
-     */
     Group?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type SkillListResponse = {
-    list?: Array<SkillRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type LanguageRecord = {
-    /**
-     * ID
-     */
+/**
+ * Skill Id Request
+ */
+export type SkillIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Language Response
+ */
+export type LanguageResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Proficiency?: string | null;
-    /**
-     * Number
-     */
     Level?: number | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type LanguageWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Language Request
+ */
+export type LanguageRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Proficiency?: string | null;
-    /**
-     * Number
-     */
     Level?: number | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type LanguageListResponse = {
-    list?: Array<LanguageRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type SocialLinkRecord = {
-    /**
-     * ID
-     */
+/**
+ * Language Id Request
+ */
+export type LanguageIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * SocialLink Response
+ */
+export type SocialLinkResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Label?: string | null;
-    /**
-     * URL
-     */
-    Url?: string | null;
-    /**
-     * Number
-     */
+    Url?: string;
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type SocialLinkWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * SocialLink Request
+ */
+export type SocialLinkRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Label?: string | null;
-    /**
-     * URL
-     */
-    Url?: string | null;
-    /**
-     * Number
-     */
+    Url?: string;
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type SocialLinkListResponse = {
-    list?: Array<SocialLinkRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ServiceCategoryRecord = {
-    /**
-     * ID
-     */
+/**
+ * SocialLink Id Request
+ */
+export type SocialLinkIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
-    Key?: string | null;
-    /**
-     * Number
-     */
-    Sort?: number | null;
-    /**
-     * Checkbox
-     */
-    Active?: boolean | null;
-    [key: string]: unknown;
 };
 
-export type ServiceCategoryWrite = {
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
-    Key?: string | null;
-    /**
-     * Number
-     */
-    Sort?: number | null;
-    /**
-     * Checkbox
-     */
-    Active?: boolean | null;
-    [key: string]: unknown;
-};
-
-export type ServiceCategoryListResponse = {
-    list?: Array<ServiceCategoryRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ServiceCategoryLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * ServiceCategory Response
+ */
+export type ServiceCategoryResponse = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
+    Key?: string | null;
+    Sort?: number | null;
+    Active?: boolean | null;
+};
+
+/**
+ * ServiceCategory Request
+ */
+export type ServiceCategoryRequest = {
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
+    Key?: string | null;
+    Sort?: number | null;
+    Active?: boolean | null;
+};
+
+/**
+ * ServiceCategory Id Request
+ */
+export type ServiceCategoryIdRequest = {
+    Id?: number | null;
+};
+
+/**
+ * ServiceCategoryLocale Response
+ */
+export type ServiceCategoryLocaleResponse = {
+    Id?: number | null;
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
     CategoryId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Title?: string | null;
-    /**
-     * LongText
-     */
     Description?: string | null;
-    [key: string]: unknown;
 };
 
-export type ServiceCategoryLocaleWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * ServiceCategoryLocale Request
+ */
+export type ServiceCategoryLocaleRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     CategoryId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Title?: string | null;
-    /**
-     * LongText
-     */
     Description?: string | null;
-    [key: string]: unknown;
 };
 
-export type ServiceCategoryLocaleListResponse = {
-    list?: Array<ServiceCategoryLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ServiceRecord = {
-    /**
-     * ID
-     */
+/**
+ * ServiceCategoryLocale Id Request
+ */
+export type ServiceCategoryLocaleIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * Service Response
+ */
+export type ServiceResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     CategoryId?: number | null;
-    /**
-     * SingleLineText
-     */
     Key?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    /**
-     * Checkbox
-     */
     Active?: boolean | null;
-    /**
-     * SingleSelect
-     */
     CtaType?: string | null;
-    [key: string]: unknown;
 };
 
-export type ServiceWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * Service Request
+ */
+export type ServiceRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     CategoryId?: number | null;
-    /**
-     * SingleLineText
-     */
     Key?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    /**
-     * Checkbox
-     */
     Active?: boolean | null;
-    /**
-     * SingleSelect
-     */
     CtaType?: string | null;
-    [key: string]: unknown;
 };
 
-export type ServiceListResponse = {
-    list?: Array<ServiceRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ServiceLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * Service Id Request
+ */
+export type ServiceIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * ServiceLocale Response
+ */
+export type ServiceLocaleResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ServiceId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Title?: string | null;
-    /**
-     * LongText
-     */
     Summary?: string | null;
-    /**
-     * LongText
-     */
     BulletsMarkdown?: string | null;
-    [key: string]: unknown;
 };
 
-export type ServiceLocaleWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * ServiceLocale Request
+ */
+export type ServiceLocaleRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     ServiceId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Title?: string | null;
-    /**
-     * LongText
-     */
     Summary?: string | null;
-    /**
-     * LongText
-     */
     BulletsMarkdown?: string | null;
-    [key: string]: unknown;
 };
 
-export type ServiceLocaleListResponse = {
-    list?: Array<ServiceLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type BlogTagRecord = {
-    /**
-     * ID
-     */
+/**
+ * ServiceLocale Id Request
+ */
+export type ServiceLocaleIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
-    Slug?: string | null;
-    [key: string]: unknown;
 };
 
-export type BlogTagWrite = {
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
-    Slug?: string | null;
-    [key: string]: unknown;
-};
-
-export type BlogTagListResponse = {
-    list?: Array<BlogTagRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type BlogTagLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * BlogTag Response
+ */
+export type BlogTagResponse = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
+    Slug?: string | null;
+};
+
+/**
+ * BlogTag Request
+ */
+export type BlogTagRequest = {
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
+    Slug?: string | null;
+};
+
+/**
+ * BlogTag Id Request
+ */
+export type BlogTagIdRequest = {
+    Id?: number | null;
+};
+
+/**
+ * BlogTagLocale Response
+ */
+export type BlogTagLocaleResponse = {
+    Id?: number | null;
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
     TagId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    [key: string]: unknown;
 };
 
-export type BlogTagLocaleWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * BlogTagLocale Request
+ */
+export type BlogTagLocaleRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
     TagId?: number | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    [key: string]: unknown;
 };
 
-export type BlogTagLocaleListResponse = {
-    list?: Array<BlogTagLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type BlogCategoryRecord = {
-    /**
-     * ID
-     */
+/**
+ * BlogTagLocale Id Request
+ */
+export type BlogTagLocaleIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * BlogCategory Response
+ */
+export type BlogCategoryResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Slug?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type BlogCategoryWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * BlogCategory Request
+ */
+export type BlogCategoryRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Slug?: string | null;
-    /**
-     * Number
-     */
     Sort?: number | null;
-    [key: string]: unknown;
 };
 
-export type BlogCategoryListResponse = {
-    list?: Array<BlogCategoryRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type BlogCategoryLocaleRecord = {
-    /**
-     * ID
-     */
+/**
+ * BlogCategory Id Request
+ */
+export type BlogCategoryIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
-    CategoryId?: number | null;
-    /**
-     * SingleSelect
-     */
-    Locale?: string | null;
-    /**
-     * SingleLineText
-     */
-    Name?: string | null;
-    [key: string]: unknown;
 };
 
-export type BlogCategoryLocaleWrite = {
-    /**
-     * DateTime
-     */
-    CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
-    UpdatedAt1?: string | null;
-    /**
-     * Number
-     */
-    CategoryId?: number | null;
-    /**
-     * SingleSelect
-     */
-    Locale?: string | null;
-    /**
-     * SingleLineText
-     */
-    Name?: string | null;
-    [key: string]: unknown;
-};
-
-export type BlogCategoryLocaleListResponse = {
-    list?: Array<BlogCategoryLocaleRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type BlogPostRecord = {
-    /**
-     * ID
-     */
+/**
+ * BlogCategoryLocale Response
+ */
+export type BlogCategoryLocaleResponse = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
+    CategoryId?: number | null;
+    Locale?: string | null;
+    Name?: string | null;
+};
+
+/**
+ * BlogCategoryLocale Request
+ */
+export type BlogCategoryLocaleRequest = {
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
+    CategoryId?: number | null;
+    Locale?: string | null;
+    Name?: string | null;
+};
+
+/**
+ * BlogCategoryLocale Id Request
+ */
+export type BlogCategoryLocaleIdRequest = {
+    Id?: number | null;
+};
+
+/**
+ * BlogPost Response
+ */
+export type BlogPostResponse = {
+    Id?: number | null;
+    CreatedAt1?: string | null;
+    UpdatedAt1?: string | null;
     Slug?: string | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleSelect
-     */
     Status?: string | null;
-    /**
-     * DateTime
-     */
     PublishedAt?: string | null;
-    /**
-     * SingleLineText
-     */
     Title?: string | null;
-    /**
-     * LongText
-     */
     Excerpt?: string | null;
-    /**
-     * LongText
-     */
     BodyMarkdown?: string | null;
-    /**
-     * SingleLineText
-     */
     SeoTitle?: string | null;
-    /**
-     * LongText
-     */
     SeoDescription?: string | null;
-    /**
-     * URL
-     */
-    OgImage?: string | null;
-    /**
-     * Number
-     */
+    OgImage?: string;
     CategoryId?: number | null;
-    /**
-     * LongText
-     */
     TagSlugs?: string | null;
-    /**
-     * LongText
-     */
     RelatedSlugs?: string | null;
-    [key: string]: unknown;
 };
 
-export type BlogPostWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * BlogPost Request
+ */
+export type BlogPostRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Slug?: string | null;
-    /**
-     * SingleSelect
-     */
     Locale?: string | null;
-    /**
-     * SingleSelect
-     */
     Status?: string | null;
-    /**
-     * DateTime
-     */
     PublishedAt?: string | null;
-    /**
-     * SingleLineText
-     */
     Title?: string | null;
-    /**
-     * LongText
-     */
     Excerpt?: string | null;
-    /**
-     * LongText
-     */
     BodyMarkdown?: string | null;
-    /**
-     * SingleLineText
-     */
     SeoTitle?: string | null;
-    /**
-     * LongText
-     */
     SeoDescription?: string | null;
-    /**
-     * URL
-     */
-    OgImage?: string | null;
-    /**
-     * Number
-     */
+    OgImage?: string;
     CategoryId?: number | null;
-    /**
-     * LongText
-     */
     TagSlugs?: string | null;
-    /**
-     * LongText
-     */
     RelatedSlugs?: string | null;
-    [key: string]: unknown;
 };
 
-export type BlogPostListResponse = {
-    list?: Array<BlogPostRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
-};
-
-export type ContactMessageRecord = {
-    /**
-     * ID
-     */
+/**
+ * BlogPost Id Request
+ */
+export type BlogPostIdRequest = {
     Id?: number | null;
-    /**
-     * DateTime
-     */
+};
+
+/**
+ * ContactMessage Response
+ */
+export type ContactMessageResponse = {
+    Id?: number | null;
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Contact?: string | null;
-    /**
-     * LongText
-     */
     Message?: string | null;
-    /**
-     * SingleSelect
-     */
     Status?: string | null;
-    /**
-     * Checkbox
-     */
     TurnstileOk?: boolean | null;
-    /**
-     * SingleLineText
-     */
     IpHash?: string | null;
-    [key: string]: unknown;
 };
 
-export type ContactMessageWrite = {
-    /**
-     * DateTime
-     */
+/**
+ * ContactMessage Request
+ */
+export type ContactMessageRequest = {
     CreatedAt1?: string | null;
-    /**
-     * DateTime
-     */
     UpdatedAt1?: string | null;
-    /**
-     * SingleLineText
-     */
     Name?: string | null;
-    /**
-     * SingleLineText
-     */
     Contact?: string | null;
-    /**
-     * LongText
-     */
     Message?: string | null;
-    /**
-     * SingleSelect
-     */
     Status?: string | null;
-    /**
-     * Checkbox
-     */
     TurnstileOk?: boolean | null;
-    /**
-     * SingleLineText
-     */
     IpHash?: string | null;
-    [key: string]: unknown;
 };
 
-export type ContactMessageListResponse = {
-    list?: Array<ContactMessageRecord>;
-    pageInfo?: {
-        totalRows?: number;
-        page?: number;
-        pageSize?: number;
-        isFirstPage?: boolean;
-        isLastPage?: boolean;
-        [key: string]: unknown;
-    };
+/**
+ * ContactMessage Id Request
+ */
+export type ContactMessageIdRequest = {
+    Id?: number | null;
 };
 
-export type DeleteSiteSettingsData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type SitesettingsDeleteData = {
+    body?: SiteSettingsIdRequest | Array<SiteSettingsIdRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records';
 };
 
-export type DeleteSiteSettingsResponses = {
+export type SitesettingsDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type SitesettingsDbTableRowListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw3157v0n0ogrr53 - SiteSettings
+         */
+        viewId?: 'vw3157v0n0ogrr53';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
+    };
+    url: '/api/v2/tables/mt5ryw6xd5p4uzh/records';
+};
+
+export type SitesettingsDbTableRowListResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        list?: Array<SiteSettingsResponse>;
+        pageInfo?: Paginated;
     };
 };
 
-export type DeleteSiteSettingsResponse = DeleteSiteSettingsResponses[keyof DeleteSiteSettingsResponses];
+export type SitesettingsDbTableRowListResponse = SitesettingsDbTableRowListResponses[keyof SitesettingsDbTableRowListResponses];
 
-export type ListSiteSettingsData = {
-    body?: never;
-    path?: never;
-    query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
-        fields?: string;
-    };
-    url: '/api/v2/tables/mt5ryw6xd5p4uzh/records';
-};
-
-export type ListSiteSettingsResponses = {
-    /**
-     * OK
-     */
-    200: SiteSettingsListResponse;
-};
-
-export type ListSiteSettingsResponse = ListSiteSettingsResponses[keyof ListSiteSettingsResponses];
-
-export type UpdateSiteSettingsData = {
-    body: (SiteSettingsWrite & {
-        Id: number;
-    }) | Array<SiteSettingsWrite & {
-        Id: number;
-    }>;
+export type SitesettingsUpdateData = {
+    body?: SiteSettingsRequest | Array<SiteSettingsRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records';
 };
 
-export type UpdateSiteSettingsResponses = {
+export type SitesettingsUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SitesettingsUpdateError = SitesettingsUpdateErrors[keyof SitesettingsUpdateErrors];
+
+export type SitesettingsUpdateResponses = {
     /**
      * OK
      */
-    200: SiteSettingsRecord | Array<SiteSettingsRecord>;
+    200: unknown;
 };
 
-export type UpdateSiteSettingsResponse = UpdateSiteSettingsResponses[keyof UpdateSiteSettingsResponses];
-
-export type CreateSiteSettingsData = {
-    body: SiteSettingsWrite | Array<SiteSettingsWrite>;
+export type SitesettingsCreateData = {
+    body?: SiteSettingsRequest | Array<SiteSettingsRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records';
 };
 
-export type CreateSiteSettingsResponses = {
+export type SitesettingsCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SitesettingsCreateError = SitesettingsCreateErrors[keyof SitesettingsCreateErrors];
+
+export type SitesettingsCreateResponses = {
     /**
      * OK
      */
-    200: SiteSettingsRecord | Array<SiteSettingsRecord>;
+    200: SiteSettingsResponse;
 };
 
-export type CreateSiteSettingsResponse = CreateSiteSettingsResponses[keyof CreateSiteSettingsResponses];
+export type SitesettingsCreateResponse = SitesettingsCreateResponses[keyof SitesettingsCreateResponses];
 
-export type GetSiteSettingsData = {
+export type SitesettingsReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mt5ryw6xd5p4uzh/records/{recordId}';
 };
 
-export type GetSiteSettingsResponses = {
+export type SitesettingsReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: SiteSettingsRecord;
+    201: SiteSettingsResponse;
 };
 
-export type GetSiteSettingsResponse = GetSiteSettingsResponses[keyof GetSiteSettingsResponses];
+export type SitesettingsReadResponse = SitesettingsReadResponses[keyof SitesettingsReadResponses];
 
-export type DeleteProfileData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type SitesettingsCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mj95o6kije73ef6/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw3157v0n0ogrr53 - SiteSettings
+         */
+        viewId?: 'vw3157v0n0ogrr53';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mt5ryw6xd5p4uzh/records/count';
 };
 
-export type DeleteProfileResponses = {
+export type SitesettingsCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SitesettingsCountError = SitesettingsCountErrors[keyof SitesettingsCountErrors];
+
+export type SitesettingsCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteProfileResponse = DeleteProfileResponses[keyof DeleteProfileResponses];
+export type SitesettingsCountResponse = SitesettingsCountResponses[keyof SitesettingsCountResponses];
 
-export type ListProfileData = {
+export type ProfileDeleteData = {
+    body?: ProfileIdRequest | Array<ProfileIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mj95o6kije73ef6/records';
+};
+
+export type ProfileDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ProfileDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwtmrhcs6smrjpsg - Profile
+         */
+        viewId?: 'vwtmrhcs6smrjpsg';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mj95o6kije73ef6/records';
 };
 
-export type ListProfileResponses = {
+export type ProfileDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ProfileListResponse;
+    200: {
+        list?: Array<ProfileResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListProfileResponse = ListProfileResponses[keyof ListProfileResponses];
+export type ProfileDbTableRowListResponse = ProfileDbTableRowListResponses[keyof ProfileDbTableRowListResponses];
 
-export type UpdateProfileData = {
-    body: (ProfileWrite & {
-        Id: number;
-    }) | Array<ProfileWrite & {
-        Id: number;
-    }>;
+export type ProfileUpdateData = {
+    body?: ProfileRequest | Array<ProfileRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mj95o6kije73ef6/records';
 };
 
-export type UpdateProfileResponses = {
+export type ProfileUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProfileUpdateError = ProfileUpdateErrors[keyof ProfileUpdateErrors];
+
+export type ProfileUpdateResponses = {
     /**
      * OK
      */
-    200: ProfileRecord | Array<ProfileRecord>;
+    200: unknown;
 };
 
-export type UpdateProfileResponse = UpdateProfileResponses[keyof UpdateProfileResponses];
-
-export type CreateProfileData = {
-    body: ProfileWrite | Array<ProfileWrite>;
+export type ProfileCreateData = {
+    body?: ProfileRequest | Array<ProfileRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mj95o6kije73ef6/records';
 };
 
-export type CreateProfileResponses = {
+export type ProfileCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProfileCreateError = ProfileCreateErrors[keyof ProfileCreateErrors];
+
+export type ProfileCreateResponses = {
     /**
      * OK
      */
-    200: ProfileRecord | Array<ProfileRecord>;
+    200: ProfileResponse;
 };
 
-export type CreateProfileResponse = CreateProfileResponses[keyof CreateProfileResponses];
+export type ProfileCreateResponse = ProfileCreateResponses[keyof ProfileCreateResponses];
 
-export type GetProfileData = {
+export type ProfileReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mj95o6kije73ef6/records/{recordId}';
 };
 
-export type GetProfileResponses = {
+export type ProfileReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ProfileRecord;
+    201: ProfileResponse;
 };
 
-export type GetProfileResponse = GetProfileResponses[keyof GetProfileResponses];
+export type ProfileReadResponse = ProfileReadResponses[keyof ProfileReadResponses];
 
-export type DeleteProfileLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ProfileCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mj9pet753har2cw/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwtmrhcs6smrjpsg - Profile
+         */
+        viewId?: 'vwtmrhcs6smrjpsg';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mj95o6kije73ef6/records/count';
 };
 
-export type DeleteProfileLocaleResponses = {
+export type ProfileCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProfileCountError = ProfileCountErrors[keyof ProfileCountErrors];
+
+export type ProfileCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteProfileLocaleResponse = DeleteProfileLocaleResponses[keyof DeleteProfileLocaleResponses];
+export type ProfileCountResponse = ProfileCountResponses[keyof ProfileCountResponses];
 
-export type ListProfileLocaleData = {
+export type ProfilelocaleDeleteData = {
+    body?: ProfileLocaleIdRequest | Array<ProfileLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mj9pet753har2cw/records';
+};
+
+export type ProfilelocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ProfilelocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw0vc34cdy8hqqbu - ProfileLocale
+         */
+        viewId?: 'vw0vc34cdy8hqqbu';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mj9pet753har2cw/records';
 };
 
-export type ListProfileLocaleResponses = {
+export type ProfilelocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ProfileLocaleListResponse;
+    200: {
+        list?: Array<ProfileLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListProfileLocaleResponse = ListProfileLocaleResponses[keyof ListProfileLocaleResponses];
+export type ProfilelocaleDbTableRowListResponse = ProfilelocaleDbTableRowListResponses[keyof ProfilelocaleDbTableRowListResponses];
 
-export type UpdateProfileLocaleData = {
-    body: (ProfileLocaleWrite & {
-        Id: number;
-    }) | Array<ProfileLocaleWrite & {
-        Id: number;
-    }>;
+export type ProfilelocaleUpdateData = {
+    body?: ProfileLocaleRequest | Array<ProfileLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mj9pet753har2cw/records';
 };
 
-export type UpdateProfileLocaleResponses = {
+export type ProfilelocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProfilelocaleUpdateError = ProfilelocaleUpdateErrors[keyof ProfilelocaleUpdateErrors];
+
+export type ProfilelocaleUpdateResponses = {
     /**
      * OK
      */
-    200: ProfileLocaleRecord | Array<ProfileLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateProfileLocaleResponse = UpdateProfileLocaleResponses[keyof UpdateProfileLocaleResponses];
-
-export type CreateProfileLocaleData = {
-    body: ProfileLocaleWrite | Array<ProfileLocaleWrite>;
+export type ProfilelocaleCreateData = {
+    body?: ProfileLocaleRequest | Array<ProfileLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mj9pet753har2cw/records';
 };
 
-export type CreateProfileLocaleResponses = {
+export type ProfilelocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProfilelocaleCreateError = ProfilelocaleCreateErrors[keyof ProfilelocaleCreateErrors];
+
+export type ProfilelocaleCreateResponses = {
     /**
      * OK
      */
-    200: ProfileLocaleRecord | Array<ProfileLocaleRecord>;
+    200: ProfileLocaleResponse;
 };
 
-export type CreateProfileLocaleResponse = CreateProfileLocaleResponses[keyof CreateProfileLocaleResponses];
+export type ProfilelocaleCreateResponse = ProfilelocaleCreateResponses[keyof ProfilelocaleCreateResponses];
 
-export type GetProfileLocaleData = {
+export type ProfilelocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mj9pet753har2cw/records/{recordId}';
 };
 
-export type GetProfileLocaleResponses = {
+export type ProfilelocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ProfileLocaleRecord;
+    201: ProfileLocaleResponse;
 };
 
-export type GetProfileLocaleResponse = GetProfileLocaleResponses[keyof GetProfileLocaleResponses];
+export type ProfilelocaleReadResponse = ProfilelocaleReadResponses[keyof ProfilelocaleReadResponses];
 
-export type DeleteExperienceData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ProfilelocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m6hz7c6gy0uocpr/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw0vc34cdy8hqqbu - ProfileLocale
+         */
+        viewId?: 'vw0vc34cdy8hqqbu';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mj9pet753har2cw/records/count';
 };
 
-export type DeleteExperienceResponses = {
+export type ProfilelocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProfilelocaleCountError = ProfilelocaleCountErrors[keyof ProfilelocaleCountErrors];
+
+export type ProfilelocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteExperienceResponse = DeleteExperienceResponses[keyof DeleteExperienceResponses];
+export type ProfilelocaleCountResponse = ProfilelocaleCountResponses[keyof ProfilelocaleCountResponses];
 
-export type ListExperienceData = {
+export type ExperienceDeleteData = {
+    body?: ExperienceIdRequest | Array<ExperienceIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m6hz7c6gy0uocpr/records';
+};
+
+export type ExperienceDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ExperienceDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwvg2rxoit1se3c8 - Experience
+         */
+        viewId?: 'vwvg2rxoit1se3c8';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records';
 };
 
-export type ListExperienceResponses = {
+export type ExperienceDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ExperienceListResponse;
+    200: {
+        list?: Array<ExperienceResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListExperienceResponse = ListExperienceResponses[keyof ListExperienceResponses];
+export type ExperienceDbTableRowListResponse = ExperienceDbTableRowListResponses[keyof ExperienceDbTableRowListResponses];
 
-export type UpdateExperienceData = {
-    body: (ExperienceWrite & {
-        Id: number;
-    }) | Array<ExperienceWrite & {
-        Id: number;
-    }>;
+export type ExperienceUpdateData = {
+    body?: ExperienceRequest | Array<ExperienceRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records';
 };
 
-export type UpdateExperienceResponses = {
+export type ExperienceUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperienceUpdateError = ExperienceUpdateErrors[keyof ExperienceUpdateErrors];
+
+export type ExperienceUpdateResponses = {
     /**
      * OK
      */
-    200: ExperienceRecord | Array<ExperienceRecord>;
+    200: unknown;
 };
 
-export type UpdateExperienceResponse = UpdateExperienceResponses[keyof UpdateExperienceResponses];
-
-export type CreateExperienceData = {
-    body: ExperienceWrite | Array<ExperienceWrite>;
+export type ExperienceCreateData = {
+    body?: ExperienceRequest | Array<ExperienceRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records';
 };
 
-export type CreateExperienceResponses = {
+export type ExperienceCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperienceCreateError = ExperienceCreateErrors[keyof ExperienceCreateErrors];
+
+export type ExperienceCreateResponses = {
     /**
      * OK
      */
-    200: ExperienceRecord | Array<ExperienceRecord>;
+    200: ExperienceResponse;
 };
 
-export type CreateExperienceResponse = CreateExperienceResponses[keyof CreateExperienceResponses];
+export type ExperienceCreateResponse = ExperienceCreateResponses[keyof ExperienceCreateResponses];
 
-export type GetExperienceData = {
+export type ExperienceReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m6hz7c6gy0uocpr/records/{recordId}';
 };
 
-export type GetExperienceResponses = {
+export type ExperienceReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ExperienceRecord;
+    201: ExperienceResponse;
 };
 
-export type GetExperienceResponse = GetExperienceResponses[keyof GetExperienceResponses];
+export type ExperienceReadResponse = ExperienceReadResponses[keyof ExperienceReadResponses];
 
-export type DeleteExperienceLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ExperienceCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/ms7tl779p3us138/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwvg2rxoit1se3c8 - Experience
+         */
+        viewId?: 'vwvg2rxoit1se3c8';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m6hz7c6gy0uocpr/records/count';
 };
 
-export type DeleteExperienceLocaleResponses = {
+export type ExperienceCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperienceCountError = ExperienceCountErrors[keyof ExperienceCountErrors];
+
+export type ExperienceCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteExperienceLocaleResponse = DeleteExperienceLocaleResponses[keyof DeleteExperienceLocaleResponses];
+export type ExperienceCountResponse = ExperienceCountResponses[keyof ExperienceCountResponses];
 
-export type ListExperienceLocaleData = {
+export type ExperiencelocaleDeleteData = {
+    body?: ExperienceLocaleIdRequest | Array<ExperienceLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/ms7tl779p3us138/records';
+};
+
+export type ExperiencelocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ExperiencelocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vws1fp7c80j26whg - ExperienceLocale
+         */
+        viewId?: 'vws1fp7c80j26whg';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/ms7tl779p3us138/records';
 };
 
-export type ListExperienceLocaleResponses = {
+export type ExperiencelocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ExperienceLocaleListResponse;
+    200: {
+        list?: Array<ExperienceLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListExperienceLocaleResponse = ListExperienceLocaleResponses[keyof ListExperienceLocaleResponses];
+export type ExperiencelocaleDbTableRowListResponse = ExperiencelocaleDbTableRowListResponses[keyof ExperiencelocaleDbTableRowListResponses];
 
-export type UpdateExperienceLocaleData = {
-    body: (ExperienceLocaleWrite & {
-        Id: number;
-    }) | Array<ExperienceLocaleWrite & {
-        Id: number;
-    }>;
+export type ExperiencelocaleUpdateData = {
+    body?: ExperienceLocaleRequest | Array<ExperienceLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/ms7tl779p3us138/records';
 };
 
-export type UpdateExperienceLocaleResponses = {
+export type ExperiencelocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperiencelocaleUpdateError = ExperiencelocaleUpdateErrors[keyof ExperiencelocaleUpdateErrors];
+
+export type ExperiencelocaleUpdateResponses = {
     /**
      * OK
      */
-    200: ExperienceLocaleRecord | Array<ExperienceLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateExperienceLocaleResponse = UpdateExperienceLocaleResponses[keyof UpdateExperienceLocaleResponses];
-
-export type CreateExperienceLocaleData = {
-    body: ExperienceLocaleWrite | Array<ExperienceLocaleWrite>;
+export type ExperiencelocaleCreateData = {
+    body?: ExperienceLocaleRequest | Array<ExperienceLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/ms7tl779p3us138/records';
 };
 
-export type CreateExperienceLocaleResponses = {
+export type ExperiencelocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperiencelocaleCreateError = ExperiencelocaleCreateErrors[keyof ExperiencelocaleCreateErrors];
+
+export type ExperiencelocaleCreateResponses = {
     /**
      * OK
      */
-    200: ExperienceLocaleRecord | Array<ExperienceLocaleRecord>;
+    200: ExperienceLocaleResponse;
 };
 
-export type CreateExperienceLocaleResponse = CreateExperienceLocaleResponses[keyof CreateExperienceLocaleResponses];
+export type ExperiencelocaleCreateResponse = ExperiencelocaleCreateResponses[keyof ExperiencelocaleCreateResponses];
 
-export type GetExperienceLocaleData = {
+export type ExperiencelocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/ms7tl779p3us138/records/{recordId}';
 };
 
-export type GetExperienceLocaleResponses = {
+export type ExperiencelocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ExperienceLocaleRecord;
+    201: ExperienceLocaleResponse;
 };
 
-export type GetExperienceLocaleResponse = GetExperienceLocaleResponses[keyof GetExperienceLocaleResponses];
+export type ExperiencelocaleReadResponse = ExperiencelocaleReadResponses[keyof ExperiencelocaleReadResponses];
 
-export type DeleteExperienceHighlightData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ExperiencelocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mvg7ly9o5s02kle/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vws1fp7c80j26whg - ExperienceLocale
+         */
+        viewId?: 'vws1fp7c80j26whg';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/ms7tl779p3us138/records/count';
 };
 
-export type DeleteExperienceHighlightResponses = {
+export type ExperiencelocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperiencelocaleCountError = ExperiencelocaleCountErrors[keyof ExperiencelocaleCountErrors];
+
+export type ExperiencelocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteExperienceHighlightResponse = DeleteExperienceHighlightResponses[keyof DeleteExperienceHighlightResponses];
+export type ExperiencelocaleCountResponse = ExperiencelocaleCountResponses[keyof ExperiencelocaleCountResponses];
 
-export type ListExperienceHighlightData = {
+export type ExperiencehighlightDeleteData = {
+    body?: ExperienceHighlightIdRequest | Array<ExperienceHighlightIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mvg7ly9o5s02kle/records';
+};
+
+export type ExperiencehighlightDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ExperiencehighlightDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwa4sx64mfb0vsb7 - ExperienceHighlight
+         */
+        viewId?: 'vwa4sx64mfb0vsb7';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mvg7ly9o5s02kle/records';
 };
 
-export type ListExperienceHighlightResponses = {
+export type ExperiencehighlightDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ExperienceHighlightListResponse;
+    200: {
+        list?: Array<ExperienceHighlightResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListExperienceHighlightResponse = ListExperienceHighlightResponses[keyof ListExperienceHighlightResponses];
+export type ExperiencehighlightDbTableRowListResponse = ExperiencehighlightDbTableRowListResponses[keyof ExperiencehighlightDbTableRowListResponses];
 
-export type UpdateExperienceHighlightData = {
-    body: (ExperienceHighlightWrite & {
-        Id: number;
-    }) | Array<ExperienceHighlightWrite & {
-        Id: number;
-    }>;
+export type ExperiencehighlightUpdateData = {
+    body?: ExperienceHighlightRequest | Array<ExperienceHighlightRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mvg7ly9o5s02kle/records';
 };
 
-export type UpdateExperienceHighlightResponses = {
+export type ExperiencehighlightUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperiencehighlightUpdateError = ExperiencehighlightUpdateErrors[keyof ExperiencehighlightUpdateErrors];
+
+export type ExperiencehighlightUpdateResponses = {
     /**
      * OK
      */
-    200: ExperienceHighlightRecord | Array<ExperienceHighlightRecord>;
+    200: unknown;
 };
 
-export type UpdateExperienceHighlightResponse = UpdateExperienceHighlightResponses[keyof UpdateExperienceHighlightResponses];
-
-export type CreateExperienceHighlightData = {
-    body: ExperienceHighlightWrite | Array<ExperienceHighlightWrite>;
+export type ExperiencehighlightCreateData = {
+    body?: ExperienceHighlightRequest | Array<ExperienceHighlightRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mvg7ly9o5s02kle/records';
 };
 
-export type CreateExperienceHighlightResponses = {
+export type ExperiencehighlightCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperiencehighlightCreateError = ExperiencehighlightCreateErrors[keyof ExperiencehighlightCreateErrors];
+
+export type ExperiencehighlightCreateResponses = {
     /**
      * OK
      */
-    200: ExperienceHighlightRecord | Array<ExperienceHighlightRecord>;
+    200: ExperienceHighlightResponse;
 };
 
-export type CreateExperienceHighlightResponse = CreateExperienceHighlightResponses[keyof CreateExperienceHighlightResponses];
+export type ExperiencehighlightCreateResponse = ExperiencehighlightCreateResponses[keyof ExperiencehighlightCreateResponses];
 
-export type GetExperienceHighlightData = {
+export type ExperiencehighlightReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mvg7ly9o5s02kle/records/{recordId}';
 };
 
-export type GetExperienceHighlightResponses = {
+export type ExperiencehighlightReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ExperienceHighlightRecord;
+    201: ExperienceHighlightResponse;
 };
 
-export type GetExperienceHighlightResponse = GetExperienceHighlightResponses[keyof GetExperienceHighlightResponses];
+export type ExperiencehighlightReadResponse = ExperiencehighlightReadResponses[keyof ExperiencehighlightReadResponses];
 
-export type DeleteProjectData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ExperiencehighlightCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m0eyo7az9b8icq5/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwa4sx64mfb0vsb7 - ExperienceHighlight
+         */
+        viewId?: 'vwa4sx64mfb0vsb7';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mvg7ly9o5s02kle/records/count';
 };
 
-export type DeleteProjectResponses = {
+export type ExperiencehighlightCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ExperiencehighlightCountError = ExperiencehighlightCountErrors[keyof ExperiencehighlightCountErrors];
+
+export type ExperiencehighlightCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteProjectResponse = DeleteProjectResponses[keyof DeleteProjectResponses];
+export type ExperiencehighlightCountResponse = ExperiencehighlightCountResponses[keyof ExperiencehighlightCountResponses];
 
-export type ListProjectData = {
+export type ProjectDeleteData = {
+    body?: ProjectIdRequest | Array<ProjectIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m0eyo7az9b8icq5/records';
+};
+
+export type ProjectDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ProjectDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwrhbpcxoo4yxqhi - Project
+         */
+        viewId?: 'vwrhbpcxoo4yxqhi';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m0eyo7az9b8icq5/records';
 };
 
-export type ListProjectResponses = {
+export type ProjectDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ProjectListResponse;
+    200: {
+        list?: Array<ProjectResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListProjectResponse = ListProjectResponses[keyof ListProjectResponses];
+export type ProjectDbTableRowListResponse = ProjectDbTableRowListResponses[keyof ProjectDbTableRowListResponses];
 
-export type UpdateProjectData = {
-    body: (ProjectWrite & {
-        Id: number;
-    }) | Array<ProjectWrite & {
-        Id: number;
-    }>;
+export type ProjectUpdateData = {
+    body?: ProjectRequest | Array<ProjectRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m0eyo7az9b8icq5/records';
 };
 
-export type UpdateProjectResponses = {
+export type ProjectUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProjectUpdateError = ProjectUpdateErrors[keyof ProjectUpdateErrors];
+
+export type ProjectUpdateResponses = {
     /**
      * OK
      */
-    200: ProjectRecord | Array<ProjectRecord>;
+    200: unknown;
 };
 
-export type UpdateProjectResponse = UpdateProjectResponses[keyof UpdateProjectResponses];
-
-export type CreateProjectData = {
-    body: ProjectWrite | Array<ProjectWrite>;
+export type ProjectCreateData = {
+    body?: ProjectRequest | Array<ProjectRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m0eyo7az9b8icq5/records';
 };
 
-export type CreateProjectResponses = {
+export type ProjectCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProjectCreateError = ProjectCreateErrors[keyof ProjectCreateErrors];
+
+export type ProjectCreateResponses = {
     /**
      * OK
      */
-    200: ProjectRecord | Array<ProjectRecord>;
+    200: ProjectResponse;
 };
 
-export type CreateProjectResponse = CreateProjectResponses[keyof CreateProjectResponses];
+export type ProjectCreateResponse = ProjectCreateResponses[keyof ProjectCreateResponses];
 
-export type GetProjectData = {
+export type ProjectReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m0eyo7az9b8icq5/records/{recordId}';
 };
 
-export type GetProjectResponses = {
+export type ProjectReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ProjectRecord;
+    201: ProjectResponse;
 };
 
-export type GetProjectResponse = GetProjectResponses[keyof GetProjectResponses];
+export type ProjectReadResponse = ProjectReadResponses[keyof ProjectReadResponses];
 
-export type DeleteProjectLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ProjectCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mvycmtfajv61kgd/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwrhbpcxoo4yxqhi - Project
+         */
+        viewId?: 'vwrhbpcxoo4yxqhi';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m0eyo7az9b8icq5/records/count';
 };
 
-export type DeleteProjectLocaleResponses = {
+export type ProjectCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProjectCountError = ProjectCountErrors[keyof ProjectCountErrors];
+
+export type ProjectCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteProjectLocaleResponse = DeleteProjectLocaleResponses[keyof DeleteProjectLocaleResponses];
+export type ProjectCountResponse = ProjectCountResponses[keyof ProjectCountResponses];
 
-export type ListProjectLocaleData = {
+export type ProjectlocaleDeleteData = {
+    body?: ProjectLocaleIdRequest | Array<ProjectLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mvycmtfajv61kgd/records';
+};
+
+export type ProjectlocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ProjectlocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw6su5km23m29sbc - ProjectLocale
+         */
+        viewId?: 'vw6su5km23m29sbc';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mvycmtfajv61kgd/records';
 };
 
-export type ListProjectLocaleResponses = {
+export type ProjectlocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ProjectLocaleListResponse;
+    200: {
+        list?: Array<ProjectLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListProjectLocaleResponse = ListProjectLocaleResponses[keyof ListProjectLocaleResponses];
+export type ProjectlocaleDbTableRowListResponse = ProjectlocaleDbTableRowListResponses[keyof ProjectlocaleDbTableRowListResponses];
 
-export type UpdateProjectLocaleData = {
-    body: (ProjectLocaleWrite & {
-        Id: number;
-    }) | Array<ProjectLocaleWrite & {
-        Id: number;
-    }>;
+export type ProjectlocaleUpdateData = {
+    body?: ProjectLocaleRequest | Array<ProjectLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mvycmtfajv61kgd/records';
 };
 
-export type UpdateProjectLocaleResponses = {
+export type ProjectlocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProjectlocaleUpdateError = ProjectlocaleUpdateErrors[keyof ProjectlocaleUpdateErrors];
+
+export type ProjectlocaleUpdateResponses = {
     /**
      * OK
      */
-    200: ProjectLocaleRecord | Array<ProjectLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateProjectLocaleResponse = UpdateProjectLocaleResponses[keyof UpdateProjectLocaleResponses];
-
-export type CreateProjectLocaleData = {
-    body: ProjectLocaleWrite | Array<ProjectLocaleWrite>;
+export type ProjectlocaleCreateData = {
+    body?: ProjectLocaleRequest | Array<ProjectLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mvycmtfajv61kgd/records';
 };
 
-export type CreateProjectLocaleResponses = {
+export type ProjectlocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProjectlocaleCreateError = ProjectlocaleCreateErrors[keyof ProjectlocaleCreateErrors];
+
+export type ProjectlocaleCreateResponses = {
     /**
      * OK
      */
-    200: ProjectLocaleRecord | Array<ProjectLocaleRecord>;
+    200: ProjectLocaleResponse;
 };
 
-export type CreateProjectLocaleResponse = CreateProjectLocaleResponses[keyof CreateProjectLocaleResponses];
+export type ProjectlocaleCreateResponse = ProjectlocaleCreateResponses[keyof ProjectlocaleCreateResponses];
 
-export type GetProjectLocaleData = {
+export type ProjectlocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mvycmtfajv61kgd/records/{recordId}';
 };
 
-export type GetProjectLocaleResponses = {
+export type ProjectlocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ProjectLocaleRecord;
+    201: ProjectLocaleResponse;
 };
 
-export type GetProjectLocaleResponse = GetProjectLocaleResponses[keyof GetProjectLocaleResponses];
+export type ProjectlocaleReadResponse = ProjectlocaleReadResponses[keyof ProjectlocaleReadResponses];
 
-export type DeleteEducationData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ProjectlocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m5kxnwxf9f7rkkj/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw6su5km23m29sbc - ProjectLocale
+         */
+        viewId?: 'vw6su5km23m29sbc';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mvycmtfajv61kgd/records/count';
 };
 
-export type DeleteEducationResponses = {
+export type ProjectlocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ProjectlocaleCountError = ProjectlocaleCountErrors[keyof ProjectlocaleCountErrors];
+
+export type ProjectlocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteEducationResponse = DeleteEducationResponses[keyof DeleteEducationResponses];
+export type ProjectlocaleCountResponse = ProjectlocaleCountResponses[keyof ProjectlocaleCountResponses];
 
-export type ListEducationData = {
+export type EducationDeleteData = {
+    body?: EducationIdRequest | Array<EducationIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m5kxnwxf9f7rkkj/records';
+};
+
+export type EducationDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type EducationDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwn60voh6kvxp1jd - Education
+         */
+        viewId?: 'vwn60voh6kvxp1jd';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records';
 };
 
-export type ListEducationResponses = {
+export type EducationDbTableRowListResponses = {
     /**
      * OK
      */
-    200: EducationListResponse;
+    200: {
+        list?: Array<EducationResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListEducationResponse = ListEducationResponses[keyof ListEducationResponses];
+export type EducationDbTableRowListResponse = EducationDbTableRowListResponses[keyof EducationDbTableRowListResponses];
 
-export type UpdateEducationData = {
-    body: (EducationWrite & {
-        Id: number;
-    }) | Array<EducationWrite & {
-        Id: number;
-    }>;
+export type EducationUpdateData = {
+    body?: EducationRequest | Array<EducationRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records';
 };
 
-export type UpdateEducationResponses = {
+export type EducationUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type EducationUpdateError = EducationUpdateErrors[keyof EducationUpdateErrors];
+
+export type EducationUpdateResponses = {
     /**
      * OK
      */
-    200: EducationRecord | Array<EducationRecord>;
+    200: unknown;
 };
 
-export type UpdateEducationResponse = UpdateEducationResponses[keyof UpdateEducationResponses];
-
-export type CreateEducationData = {
-    body: EducationWrite | Array<EducationWrite>;
+export type EducationCreateData = {
+    body?: EducationRequest | Array<EducationRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records';
 };
 
-export type CreateEducationResponses = {
+export type EducationCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type EducationCreateError = EducationCreateErrors[keyof EducationCreateErrors];
+
+export type EducationCreateResponses = {
     /**
      * OK
      */
-    200: EducationRecord | Array<EducationRecord>;
+    200: EducationResponse;
 };
 
-export type CreateEducationResponse = CreateEducationResponses[keyof CreateEducationResponses];
+export type EducationCreateResponse = EducationCreateResponses[keyof EducationCreateResponses];
 
-export type GetEducationData = {
+export type EducationReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m5kxnwxf9f7rkkj/records/{recordId}';
 };
 
-export type GetEducationResponses = {
+export type EducationReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: EducationRecord;
+    201: EducationResponse;
 };
 
-export type GetEducationResponse = GetEducationResponses[keyof GetEducationResponses];
+export type EducationReadResponse = EducationReadResponses[keyof EducationReadResponses];
 
-export type DeleteEducationLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type EducationCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/myr5jk40v3iw30s/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwn60voh6kvxp1jd - Education
+         */
+        viewId?: 'vwn60voh6kvxp1jd';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m5kxnwxf9f7rkkj/records/count';
 };
 
-export type DeleteEducationLocaleResponses = {
+export type EducationCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type EducationCountError = EducationCountErrors[keyof EducationCountErrors];
+
+export type EducationCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteEducationLocaleResponse = DeleteEducationLocaleResponses[keyof DeleteEducationLocaleResponses];
+export type EducationCountResponse = EducationCountResponses[keyof EducationCountResponses];
 
-export type ListEducationLocaleData = {
+export type EducationlocaleDeleteData = {
+    body?: EducationLocaleIdRequest | Array<EducationLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/myr5jk40v3iw30s/records';
+};
+
+export type EducationlocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type EducationlocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwz3wsxaqpweskgb - EducationLocale
+         */
+        viewId?: 'vwz3wsxaqpweskgb';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/myr5jk40v3iw30s/records';
 };
 
-export type ListEducationLocaleResponses = {
+export type EducationlocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: EducationLocaleListResponse;
+    200: {
+        list?: Array<EducationLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListEducationLocaleResponse = ListEducationLocaleResponses[keyof ListEducationLocaleResponses];
+export type EducationlocaleDbTableRowListResponse = EducationlocaleDbTableRowListResponses[keyof EducationlocaleDbTableRowListResponses];
 
-export type UpdateEducationLocaleData = {
-    body: (EducationLocaleWrite & {
-        Id: number;
-    }) | Array<EducationLocaleWrite & {
-        Id: number;
-    }>;
+export type EducationlocaleUpdateData = {
+    body?: EducationLocaleRequest | Array<EducationLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/myr5jk40v3iw30s/records';
 };
 
-export type UpdateEducationLocaleResponses = {
+export type EducationlocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type EducationlocaleUpdateError = EducationlocaleUpdateErrors[keyof EducationlocaleUpdateErrors];
+
+export type EducationlocaleUpdateResponses = {
     /**
      * OK
      */
-    200: EducationLocaleRecord | Array<EducationLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateEducationLocaleResponse = UpdateEducationLocaleResponses[keyof UpdateEducationLocaleResponses];
-
-export type CreateEducationLocaleData = {
-    body: EducationLocaleWrite | Array<EducationLocaleWrite>;
+export type EducationlocaleCreateData = {
+    body?: EducationLocaleRequest | Array<EducationLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/myr5jk40v3iw30s/records';
 };
 
-export type CreateEducationLocaleResponses = {
+export type EducationlocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type EducationlocaleCreateError = EducationlocaleCreateErrors[keyof EducationlocaleCreateErrors];
+
+export type EducationlocaleCreateResponses = {
     /**
      * OK
      */
-    200: EducationLocaleRecord | Array<EducationLocaleRecord>;
+    200: EducationLocaleResponse;
 };
 
-export type CreateEducationLocaleResponse = CreateEducationLocaleResponses[keyof CreateEducationLocaleResponses];
+export type EducationlocaleCreateResponse = EducationlocaleCreateResponses[keyof EducationlocaleCreateResponses];
 
-export type GetEducationLocaleData = {
+export type EducationlocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/myr5jk40v3iw30s/records/{recordId}';
 };
 
-export type GetEducationLocaleResponses = {
+export type EducationlocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: EducationLocaleRecord;
+    201: EducationLocaleResponse;
 };
 
-export type GetEducationLocaleResponse = GetEducationLocaleResponses[keyof GetEducationLocaleResponses];
+export type EducationlocaleReadResponse = EducationlocaleReadResponses[keyof EducationlocaleReadResponses];
 
-export type DeleteSkillData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type EducationlocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m7vi25il2esozvw/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwz3wsxaqpweskgb - EducationLocale
+         */
+        viewId?: 'vwz3wsxaqpweskgb';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/myr5jk40v3iw30s/records/count';
 };
 
-export type DeleteSkillResponses = {
+export type EducationlocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type EducationlocaleCountError = EducationlocaleCountErrors[keyof EducationlocaleCountErrors];
+
+export type EducationlocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteSkillResponse = DeleteSkillResponses[keyof DeleteSkillResponses];
+export type EducationlocaleCountResponse = EducationlocaleCountResponses[keyof EducationlocaleCountResponses];
 
-export type ListSkillData = {
+export type SkillDeleteData = {
+    body?: SkillIdRequest | Array<SkillIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m7vi25il2esozvw/records';
+};
+
+export type SkillDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type SkillDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwwwim5snoow8dc5 - Skill
+         */
+        viewId?: 'vwwwim5snoow8dc5';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m7vi25il2esozvw/records';
 };
 
-export type ListSkillResponses = {
+export type SkillDbTableRowListResponses = {
     /**
      * OK
      */
-    200: SkillListResponse;
+    200: {
+        list?: Array<SkillResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListSkillResponse = ListSkillResponses[keyof ListSkillResponses];
+export type SkillDbTableRowListResponse = SkillDbTableRowListResponses[keyof SkillDbTableRowListResponses];
 
-export type UpdateSkillData = {
-    body: (SkillWrite & {
-        Id: number;
-    }) | Array<SkillWrite & {
-        Id: number;
-    }>;
+export type SkillUpdateData = {
+    body?: SkillRequest | Array<SkillRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m7vi25il2esozvw/records';
 };
 
-export type UpdateSkillResponses = {
+export type SkillUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SkillUpdateError = SkillUpdateErrors[keyof SkillUpdateErrors];
+
+export type SkillUpdateResponses = {
     /**
      * OK
      */
-    200: SkillRecord | Array<SkillRecord>;
+    200: unknown;
 };
 
-export type UpdateSkillResponse = UpdateSkillResponses[keyof UpdateSkillResponses];
-
-export type CreateSkillData = {
-    body: SkillWrite | Array<SkillWrite>;
+export type SkillCreateData = {
+    body?: SkillRequest | Array<SkillRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m7vi25il2esozvw/records';
 };
 
-export type CreateSkillResponses = {
+export type SkillCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SkillCreateError = SkillCreateErrors[keyof SkillCreateErrors];
+
+export type SkillCreateResponses = {
     /**
      * OK
      */
-    200: SkillRecord | Array<SkillRecord>;
+    200: SkillResponse;
 };
 
-export type CreateSkillResponse = CreateSkillResponses[keyof CreateSkillResponses];
+export type SkillCreateResponse = SkillCreateResponses[keyof SkillCreateResponses];
 
-export type GetSkillData = {
+export type SkillReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m7vi25il2esozvw/records/{recordId}';
 };
 
-export type GetSkillResponses = {
+export type SkillReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: SkillRecord;
+    201: SkillResponse;
 };
 
-export type GetSkillResponse = GetSkillResponses[keyof GetSkillResponses];
+export type SkillReadResponse = SkillReadResponses[keyof SkillReadResponses];
 
-export type DeleteLanguageData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type SkillCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m2oqpufqtn80gsx/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwwwim5snoow8dc5 - Skill
+         */
+        viewId?: 'vwwwim5snoow8dc5';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m7vi25il2esozvw/records/count';
 };
 
-export type DeleteLanguageResponses = {
+export type SkillCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SkillCountError = SkillCountErrors[keyof SkillCountErrors];
+
+export type SkillCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteLanguageResponse = DeleteLanguageResponses[keyof DeleteLanguageResponses];
+export type SkillCountResponse = SkillCountResponses[keyof SkillCountResponses];
 
-export type ListLanguageData = {
+export type LanguageDeleteData = {
+    body?: LanguageIdRequest | Array<LanguageIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m2oqpufqtn80gsx/records';
+};
+
+export type LanguageDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type LanguageDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwygzwxik6gom14d - Language
+         */
+        viewId?: 'vwygzwxik6gom14d';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m2oqpufqtn80gsx/records';
 };
 
-export type ListLanguageResponses = {
+export type LanguageDbTableRowListResponses = {
     /**
      * OK
      */
-    200: LanguageListResponse;
+    200: {
+        list?: Array<LanguageResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListLanguageResponse = ListLanguageResponses[keyof ListLanguageResponses];
+export type LanguageDbTableRowListResponse = LanguageDbTableRowListResponses[keyof LanguageDbTableRowListResponses];
 
-export type UpdateLanguageData = {
-    body: (LanguageWrite & {
-        Id: number;
-    }) | Array<LanguageWrite & {
-        Id: number;
-    }>;
+export type LanguageUpdateData = {
+    body?: LanguageRequest | Array<LanguageRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m2oqpufqtn80gsx/records';
 };
 
-export type UpdateLanguageResponses = {
+export type LanguageUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type LanguageUpdateError = LanguageUpdateErrors[keyof LanguageUpdateErrors];
+
+export type LanguageUpdateResponses = {
     /**
      * OK
      */
-    200: LanguageRecord | Array<LanguageRecord>;
+    200: unknown;
 };
 
-export type UpdateLanguageResponse = UpdateLanguageResponses[keyof UpdateLanguageResponses];
-
-export type CreateLanguageData = {
-    body: LanguageWrite | Array<LanguageWrite>;
+export type LanguageCreateData = {
+    body?: LanguageRequest | Array<LanguageRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m2oqpufqtn80gsx/records';
 };
 
-export type CreateLanguageResponses = {
+export type LanguageCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type LanguageCreateError = LanguageCreateErrors[keyof LanguageCreateErrors];
+
+export type LanguageCreateResponses = {
     /**
      * OK
      */
-    200: LanguageRecord | Array<LanguageRecord>;
+    200: LanguageResponse;
 };
 
-export type CreateLanguageResponse = CreateLanguageResponses[keyof CreateLanguageResponses];
+export type LanguageCreateResponse = LanguageCreateResponses[keyof LanguageCreateResponses];
 
-export type GetLanguageData = {
+export type LanguageReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m2oqpufqtn80gsx/records/{recordId}';
 };
 
-export type GetLanguageResponses = {
+export type LanguageReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: LanguageRecord;
+    201: LanguageResponse;
 };
 
-export type GetLanguageResponse = GetLanguageResponses[keyof GetLanguageResponses];
+export type LanguageReadResponse = LanguageReadResponses[keyof LanguageReadResponses];
 
-export type DeleteSocialLinkData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type LanguageCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mdzh4gwchfje2y9/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwygzwxik6gom14d - Language
+         */
+        viewId?: 'vwygzwxik6gom14d';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m2oqpufqtn80gsx/records/count';
 };
 
-export type DeleteSocialLinkResponses = {
+export type LanguageCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type LanguageCountError = LanguageCountErrors[keyof LanguageCountErrors];
+
+export type LanguageCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteSocialLinkResponse = DeleteSocialLinkResponses[keyof DeleteSocialLinkResponses];
+export type LanguageCountResponse = LanguageCountResponses[keyof LanguageCountResponses];
 
-export type ListSocialLinkData = {
+export type SociallinkDeleteData = {
+    body?: SocialLinkIdRequest | Array<SocialLinkIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mdzh4gwchfje2y9/records';
+};
+
+export type SociallinkDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type SociallinkDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw8bm7e3xlczzmip - SocialLink
+         */
+        viewId?: 'vw8bm7e3xlczzmip';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mdzh4gwchfje2y9/records';
 };
 
-export type ListSocialLinkResponses = {
+export type SociallinkDbTableRowListResponses = {
     /**
      * OK
      */
-    200: SocialLinkListResponse;
+    200: {
+        list?: Array<SocialLinkResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListSocialLinkResponse = ListSocialLinkResponses[keyof ListSocialLinkResponses];
+export type SociallinkDbTableRowListResponse = SociallinkDbTableRowListResponses[keyof SociallinkDbTableRowListResponses];
 
-export type UpdateSocialLinkData = {
-    body: (SocialLinkWrite & {
-        Id: number;
-    }) | Array<SocialLinkWrite & {
-        Id: number;
-    }>;
+export type SociallinkUpdateData = {
+    body?: SocialLinkRequest | Array<SocialLinkRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mdzh4gwchfje2y9/records';
 };
 
-export type UpdateSocialLinkResponses = {
+export type SociallinkUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SociallinkUpdateError = SociallinkUpdateErrors[keyof SociallinkUpdateErrors];
+
+export type SociallinkUpdateResponses = {
     /**
      * OK
      */
-    200: SocialLinkRecord | Array<SocialLinkRecord>;
+    200: unknown;
 };
 
-export type UpdateSocialLinkResponse = UpdateSocialLinkResponses[keyof UpdateSocialLinkResponses];
-
-export type CreateSocialLinkData = {
-    body: SocialLinkWrite | Array<SocialLinkWrite>;
+export type SociallinkCreateData = {
+    body?: SocialLinkRequest | Array<SocialLinkRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mdzh4gwchfje2y9/records';
 };
 
-export type CreateSocialLinkResponses = {
+export type SociallinkCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SociallinkCreateError = SociallinkCreateErrors[keyof SociallinkCreateErrors];
+
+export type SociallinkCreateResponses = {
     /**
      * OK
      */
-    200: SocialLinkRecord | Array<SocialLinkRecord>;
+    200: SocialLinkResponse;
 };
 
-export type CreateSocialLinkResponse = CreateSocialLinkResponses[keyof CreateSocialLinkResponses];
+export type SociallinkCreateResponse = SociallinkCreateResponses[keyof SociallinkCreateResponses];
 
-export type GetSocialLinkData = {
+export type SociallinkReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mdzh4gwchfje2y9/records/{recordId}';
 };
 
-export type GetSocialLinkResponses = {
+export type SociallinkReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: SocialLinkRecord;
+    201: SocialLinkResponse;
 };
 
-export type GetSocialLinkResponse = GetSocialLinkResponses[keyof GetSocialLinkResponses];
+export type SociallinkReadResponse = SociallinkReadResponses[keyof SociallinkReadResponses];
 
-export type DeleteServiceCategoryData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type SociallinkCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mj3hrhct117jnnl/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw8bm7e3xlczzmip - SocialLink
+         */
+        viewId?: 'vw8bm7e3xlczzmip';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mdzh4gwchfje2y9/records/count';
 };
 
-export type DeleteServiceCategoryResponses = {
+export type SociallinkCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type SociallinkCountError = SociallinkCountErrors[keyof SociallinkCountErrors];
+
+export type SociallinkCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteServiceCategoryResponse = DeleteServiceCategoryResponses[keyof DeleteServiceCategoryResponses];
+export type SociallinkCountResponse = SociallinkCountResponses[keyof SociallinkCountResponses];
 
-export type ListServiceCategoryData = {
+export type ServicecategoryDeleteData = {
+    body?: ServiceCategoryIdRequest | Array<ServiceCategoryIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mj3hrhct117jnnl/records';
+};
+
+export type ServicecategoryDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ServicecategoryDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw11itxqpym6wpda - ServiceCategory
+         */
+        viewId?: 'vw11itxqpym6wpda';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mj3hrhct117jnnl/records';
 };
 
-export type ListServiceCategoryResponses = {
+export type ServicecategoryDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ServiceCategoryListResponse;
+    200: {
+        list?: Array<ServiceCategoryResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListServiceCategoryResponse = ListServiceCategoryResponses[keyof ListServiceCategoryResponses];
+export type ServicecategoryDbTableRowListResponse = ServicecategoryDbTableRowListResponses[keyof ServicecategoryDbTableRowListResponses];
 
-export type UpdateServiceCategoryData = {
-    body: (ServiceCategoryWrite & {
-        Id: number;
-    }) | Array<ServiceCategoryWrite & {
-        Id: number;
-    }>;
+export type ServicecategoryUpdateData = {
+    body?: ServiceCategoryRequest | Array<ServiceCategoryRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mj3hrhct117jnnl/records';
 };
 
-export type UpdateServiceCategoryResponses = {
+export type ServicecategoryUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicecategoryUpdateError = ServicecategoryUpdateErrors[keyof ServicecategoryUpdateErrors];
+
+export type ServicecategoryUpdateResponses = {
     /**
      * OK
      */
-    200: ServiceCategoryRecord | Array<ServiceCategoryRecord>;
+    200: unknown;
 };
 
-export type UpdateServiceCategoryResponse = UpdateServiceCategoryResponses[keyof UpdateServiceCategoryResponses];
-
-export type CreateServiceCategoryData = {
-    body: ServiceCategoryWrite | Array<ServiceCategoryWrite>;
+export type ServicecategoryCreateData = {
+    body?: ServiceCategoryRequest | Array<ServiceCategoryRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mj3hrhct117jnnl/records';
 };
 
-export type CreateServiceCategoryResponses = {
+export type ServicecategoryCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicecategoryCreateError = ServicecategoryCreateErrors[keyof ServicecategoryCreateErrors];
+
+export type ServicecategoryCreateResponses = {
     /**
      * OK
      */
-    200: ServiceCategoryRecord | Array<ServiceCategoryRecord>;
+    200: ServiceCategoryResponse;
 };
 
-export type CreateServiceCategoryResponse = CreateServiceCategoryResponses[keyof CreateServiceCategoryResponses];
+export type ServicecategoryCreateResponse = ServicecategoryCreateResponses[keyof ServicecategoryCreateResponses];
 
-export type GetServiceCategoryData = {
+export type ServicecategoryReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mj3hrhct117jnnl/records/{recordId}';
 };
 
-export type GetServiceCategoryResponses = {
+export type ServicecategoryReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ServiceCategoryRecord;
+    201: ServiceCategoryResponse;
 };
 
-export type GetServiceCategoryResponse = GetServiceCategoryResponses[keyof GetServiceCategoryResponses];
+export type ServicecategoryReadResponse = ServicecategoryReadResponses[keyof ServicecategoryReadResponses];
 
-export type DeleteServiceCategoryLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ServicecategoryCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m76g2r4dx1l35gf/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw11itxqpym6wpda - ServiceCategory
+         */
+        viewId?: 'vw11itxqpym6wpda';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mj3hrhct117jnnl/records/count';
 };
 
-export type DeleteServiceCategoryLocaleResponses = {
+export type ServicecategoryCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicecategoryCountError = ServicecategoryCountErrors[keyof ServicecategoryCountErrors];
+
+export type ServicecategoryCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteServiceCategoryLocaleResponse = DeleteServiceCategoryLocaleResponses[keyof DeleteServiceCategoryLocaleResponses];
+export type ServicecategoryCountResponse = ServicecategoryCountResponses[keyof ServicecategoryCountResponses];
 
-export type ListServiceCategoryLocaleData = {
+export type ServicecategorylocaleDeleteData = {
+    body?: ServiceCategoryLocaleIdRequest | Array<ServiceCategoryLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m76g2r4dx1l35gf/records';
+};
+
+export type ServicecategorylocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ServicecategorylocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwo033dsp6ubl4oj - ServiceCategoryLocale
+         */
+        viewId?: 'vwo033dsp6ubl4oj';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m76g2r4dx1l35gf/records';
 };
 
-export type ListServiceCategoryLocaleResponses = {
+export type ServicecategorylocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ServiceCategoryLocaleListResponse;
+    200: {
+        list?: Array<ServiceCategoryLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListServiceCategoryLocaleResponse = ListServiceCategoryLocaleResponses[keyof ListServiceCategoryLocaleResponses];
+export type ServicecategorylocaleDbTableRowListResponse = ServicecategorylocaleDbTableRowListResponses[keyof ServicecategorylocaleDbTableRowListResponses];
 
-export type UpdateServiceCategoryLocaleData = {
-    body: (ServiceCategoryLocaleWrite & {
-        Id: number;
-    }) | Array<ServiceCategoryLocaleWrite & {
-        Id: number;
-    }>;
+export type ServicecategorylocaleUpdateData = {
+    body?: ServiceCategoryLocaleRequest | Array<ServiceCategoryLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m76g2r4dx1l35gf/records';
 };
 
-export type UpdateServiceCategoryLocaleResponses = {
+export type ServicecategorylocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicecategorylocaleUpdateError = ServicecategorylocaleUpdateErrors[keyof ServicecategorylocaleUpdateErrors];
+
+export type ServicecategorylocaleUpdateResponses = {
     /**
      * OK
      */
-    200: ServiceCategoryLocaleRecord | Array<ServiceCategoryLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateServiceCategoryLocaleResponse = UpdateServiceCategoryLocaleResponses[keyof UpdateServiceCategoryLocaleResponses];
-
-export type CreateServiceCategoryLocaleData = {
-    body: ServiceCategoryLocaleWrite | Array<ServiceCategoryLocaleWrite>;
+export type ServicecategorylocaleCreateData = {
+    body?: ServiceCategoryLocaleRequest | Array<ServiceCategoryLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m76g2r4dx1l35gf/records';
 };
 
-export type CreateServiceCategoryLocaleResponses = {
+export type ServicecategorylocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicecategorylocaleCreateError = ServicecategorylocaleCreateErrors[keyof ServicecategorylocaleCreateErrors];
+
+export type ServicecategorylocaleCreateResponses = {
     /**
      * OK
      */
-    200: ServiceCategoryLocaleRecord | Array<ServiceCategoryLocaleRecord>;
+    200: ServiceCategoryLocaleResponse;
 };
 
-export type CreateServiceCategoryLocaleResponse = CreateServiceCategoryLocaleResponses[keyof CreateServiceCategoryLocaleResponses];
+export type ServicecategorylocaleCreateResponse = ServicecategorylocaleCreateResponses[keyof ServicecategorylocaleCreateResponses];
 
-export type GetServiceCategoryLocaleData = {
+export type ServicecategorylocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m76g2r4dx1l35gf/records/{recordId}';
 };
 
-export type GetServiceCategoryLocaleResponses = {
+export type ServicecategorylocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ServiceCategoryLocaleRecord;
+    201: ServiceCategoryLocaleResponse;
 };
 
-export type GetServiceCategoryLocaleResponse = GetServiceCategoryLocaleResponses[keyof GetServiceCategoryLocaleResponses];
+export type ServicecategorylocaleReadResponse = ServicecategorylocaleReadResponses[keyof ServicecategorylocaleReadResponses];
 
-export type DeleteServiceData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ServicecategorylocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mvo7hy38c52u94r/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwo033dsp6ubl4oj - ServiceCategoryLocale
+         */
+        viewId?: 'vwo033dsp6ubl4oj';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m76g2r4dx1l35gf/records/count';
 };
 
-export type DeleteServiceResponses = {
+export type ServicecategorylocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicecategorylocaleCountError = ServicecategorylocaleCountErrors[keyof ServicecategorylocaleCountErrors];
+
+export type ServicecategorylocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteServiceResponse = DeleteServiceResponses[keyof DeleteServiceResponses];
+export type ServicecategorylocaleCountResponse = ServicecategorylocaleCountResponses[keyof ServicecategorylocaleCountResponses];
 
-export type ListServiceData = {
+export type ServiceDeleteData = {
+    body?: ServiceIdRequest | Array<ServiceIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mvo7hy38c52u94r/records';
+};
+
+export type ServiceDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ServiceDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwi2bel6f1e6kvlb - Service
+         */
+        viewId?: 'vwi2bel6f1e6kvlb';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mvo7hy38c52u94r/records';
 };
 
-export type ListServiceResponses = {
+export type ServiceDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ServiceListResponse;
+    200: {
+        list?: Array<ServiceResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListServiceResponse = ListServiceResponses[keyof ListServiceResponses];
+export type ServiceDbTableRowListResponse = ServiceDbTableRowListResponses[keyof ServiceDbTableRowListResponses];
 
-export type UpdateServiceData = {
-    body: (ServiceWrite & {
-        Id: number;
-    }) | Array<ServiceWrite & {
-        Id: number;
-    }>;
+export type ServiceUpdateData = {
+    body?: ServiceRequest | Array<ServiceRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mvo7hy38c52u94r/records';
 };
 
-export type UpdateServiceResponses = {
+export type ServiceUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServiceUpdateError = ServiceUpdateErrors[keyof ServiceUpdateErrors];
+
+export type ServiceUpdateResponses = {
     /**
      * OK
      */
-    200: ServiceRecord | Array<ServiceRecord>;
+    200: unknown;
 };
 
-export type UpdateServiceResponse = UpdateServiceResponses[keyof UpdateServiceResponses];
-
-export type CreateServiceData = {
-    body: ServiceWrite | Array<ServiceWrite>;
+export type ServiceCreateData = {
+    body?: ServiceRequest | Array<ServiceRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mvo7hy38c52u94r/records';
 };
 
-export type CreateServiceResponses = {
+export type ServiceCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServiceCreateError = ServiceCreateErrors[keyof ServiceCreateErrors];
+
+export type ServiceCreateResponses = {
     /**
      * OK
      */
-    200: ServiceRecord | Array<ServiceRecord>;
+    200: ServiceResponse;
 };
 
-export type CreateServiceResponse = CreateServiceResponses[keyof CreateServiceResponses];
+export type ServiceCreateResponse = ServiceCreateResponses[keyof ServiceCreateResponses];
 
-export type GetServiceData = {
+export type ServiceReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mvo7hy38c52u94r/records/{recordId}';
 };
 
-export type GetServiceResponses = {
+export type ServiceReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ServiceRecord;
+    201: ServiceResponse;
 };
 
-export type GetServiceResponse = GetServiceResponses[keyof GetServiceResponses];
+export type ServiceReadResponse = ServiceReadResponses[keyof ServiceReadResponses];
 
-export type DeleteServiceLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ServiceCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mzbyx8j5396pqnk/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwi2bel6f1e6kvlb - Service
+         */
+        viewId?: 'vwi2bel6f1e6kvlb';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mvo7hy38c52u94r/records/count';
 };
 
-export type DeleteServiceLocaleResponses = {
+export type ServiceCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServiceCountError = ServiceCountErrors[keyof ServiceCountErrors];
+
+export type ServiceCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteServiceLocaleResponse = DeleteServiceLocaleResponses[keyof DeleteServiceLocaleResponses];
+export type ServiceCountResponse = ServiceCountResponses[keyof ServiceCountResponses];
 
-export type ListServiceLocaleData = {
+export type ServicelocaleDeleteData = {
+    body?: ServiceLocaleIdRequest | Array<ServiceLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mzbyx8j5396pqnk/records';
+};
+
+export type ServicelocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ServicelocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwev868a8dug2ft3 - ServiceLocale
+         */
+        viewId?: 'vwev868a8dug2ft3';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mzbyx8j5396pqnk/records';
 };
 
-export type ListServiceLocaleResponses = {
+export type ServicelocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ServiceLocaleListResponse;
+    200: {
+        list?: Array<ServiceLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListServiceLocaleResponse = ListServiceLocaleResponses[keyof ListServiceLocaleResponses];
+export type ServicelocaleDbTableRowListResponse = ServicelocaleDbTableRowListResponses[keyof ServicelocaleDbTableRowListResponses];
 
-export type UpdateServiceLocaleData = {
-    body: (ServiceLocaleWrite & {
-        Id: number;
-    }) | Array<ServiceLocaleWrite & {
-        Id: number;
-    }>;
+export type ServicelocaleUpdateData = {
+    body?: ServiceLocaleRequest | Array<ServiceLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mzbyx8j5396pqnk/records';
 };
 
-export type UpdateServiceLocaleResponses = {
+export type ServicelocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicelocaleUpdateError = ServicelocaleUpdateErrors[keyof ServicelocaleUpdateErrors];
+
+export type ServicelocaleUpdateResponses = {
     /**
      * OK
      */
-    200: ServiceLocaleRecord | Array<ServiceLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateServiceLocaleResponse = UpdateServiceLocaleResponses[keyof UpdateServiceLocaleResponses];
-
-export type CreateServiceLocaleData = {
-    body: ServiceLocaleWrite | Array<ServiceLocaleWrite>;
+export type ServicelocaleCreateData = {
+    body?: ServiceLocaleRequest | Array<ServiceLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mzbyx8j5396pqnk/records';
 };
 
-export type CreateServiceLocaleResponses = {
+export type ServicelocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicelocaleCreateError = ServicelocaleCreateErrors[keyof ServicelocaleCreateErrors];
+
+export type ServicelocaleCreateResponses = {
     /**
      * OK
      */
-    200: ServiceLocaleRecord | Array<ServiceLocaleRecord>;
+    200: ServiceLocaleResponse;
 };
 
-export type CreateServiceLocaleResponse = CreateServiceLocaleResponses[keyof CreateServiceLocaleResponses];
+export type ServicelocaleCreateResponse = ServicelocaleCreateResponses[keyof ServicelocaleCreateResponses];
 
-export type GetServiceLocaleData = {
+export type ServicelocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mzbyx8j5396pqnk/records/{recordId}';
 };
 
-export type GetServiceLocaleResponses = {
+export type ServicelocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: ServiceLocaleRecord;
+    201: ServiceLocaleResponse;
 };
 
-export type GetServiceLocaleResponse = GetServiceLocaleResponses[keyof GetServiceLocaleResponses];
+export type ServicelocaleReadResponse = ServicelocaleReadResponses[keyof ServicelocaleReadResponses];
 
-export type DeleteBlogTagData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type ServicelocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mgmxeh7fx6smtxv/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwev868a8dug2ft3 - ServiceLocale
+         */
+        viewId?: 'vwev868a8dug2ft3';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mzbyx8j5396pqnk/records/count';
 };
 
-export type DeleteBlogTagResponses = {
+export type ServicelocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ServicelocaleCountError = ServicelocaleCountErrors[keyof ServicelocaleCountErrors];
+
+export type ServicelocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteBlogTagResponse = DeleteBlogTagResponses[keyof DeleteBlogTagResponses];
+export type ServicelocaleCountResponse = ServicelocaleCountResponses[keyof ServicelocaleCountResponses];
 
-export type ListBlogTagData = {
+export type BlogtagDeleteData = {
+    body?: BlogTagIdRequest | Array<BlogTagIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mgmxeh7fx6smtxv/records';
+};
+
+export type BlogtagDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type BlogtagDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwsr7i2qgn6qho5l - BlogTag
+         */
+        viewId?: 'vwsr7i2qgn6qho5l';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records';
 };
 
-export type ListBlogTagResponses = {
+export type BlogtagDbTableRowListResponses = {
     /**
      * OK
      */
-    200: BlogTagListResponse;
+    200: {
+        list?: Array<BlogTagResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListBlogTagResponse = ListBlogTagResponses[keyof ListBlogTagResponses];
+export type BlogtagDbTableRowListResponse = BlogtagDbTableRowListResponses[keyof BlogtagDbTableRowListResponses];
 
-export type UpdateBlogTagData = {
-    body: (BlogTagWrite & {
-        Id: number;
-    }) | Array<BlogTagWrite & {
-        Id: number;
-    }>;
+export type BlogtagUpdateData = {
+    body?: BlogTagRequest | Array<BlogTagRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records';
 };
 
-export type UpdateBlogTagResponses = {
+export type BlogtagUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogtagUpdateError = BlogtagUpdateErrors[keyof BlogtagUpdateErrors];
+
+export type BlogtagUpdateResponses = {
     /**
      * OK
      */
-    200: BlogTagRecord | Array<BlogTagRecord>;
+    200: unknown;
 };
 
-export type UpdateBlogTagResponse = UpdateBlogTagResponses[keyof UpdateBlogTagResponses];
-
-export type CreateBlogTagData = {
-    body: BlogTagWrite | Array<BlogTagWrite>;
+export type BlogtagCreateData = {
+    body?: BlogTagRequest | Array<BlogTagRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records';
 };
 
-export type CreateBlogTagResponses = {
+export type BlogtagCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogtagCreateError = BlogtagCreateErrors[keyof BlogtagCreateErrors];
+
+export type BlogtagCreateResponses = {
     /**
      * OK
      */
-    200: BlogTagRecord | Array<BlogTagRecord>;
+    200: BlogTagResponse;
 };
 
-export type CreateBlogTagResponse = CreateBlogTagResponses[keyof CreateBlogTagResponses];
+export type BlogtagCreateResponse = BlogtagCreateResponses[keyof BlogtagCreateResponses];
 
-export type GetBlogTagData = {
+export type BlogtagReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mgmxeh7fx6smtxv/records/{recordId}';
 };
 
-export type GetBlogTagResponses = {
+export type BlogtagReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: BlogTagRecord;
+    201: BlogTagResponse;
 };
 
-export type GetBlogTagResponse = GetBlogTagResponses[keyof GetBlogTagResponses];
+export type BlogtagReadResponse = BlogtagReadResponses[keyof BlogtagReadResponses];
 
-export type DeleteBlogTagLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type BlogtagCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mexfths3zxg4ufx/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwsr7i2qgn6qho5l - BlogTag
+         */
+        viewId?: 'vwsr7i2qgn6qho5l';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mgmxeh7fx6smtxv/records/count';
 };
 
-export type DeleteBlogTagLocaleResponses = {
+export type BlogtagCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogtagCountError = BlogtagCountErrors[keyof BlogtagCountErrors];
+
+export type BlogtagCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteBlogTagLocaleResponse = DeleteBlogTagLocaleResponses[keyof DeleteBlogTagLocaleResponses];
+export type BlogtagCountResponse = BlogtagCountResponses[keyof BlogtagCountResponses];
 
-export type ListBlogTagLocaleData = {
+export type BlogtaglocaleDeleteData = {
+    body?: BlogTagLocaleIdRequest | Array<BlogTagLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mexfths3zxg4ufx/records';
+};
+
+export type BlogtaglocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type BlogtaglocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwtmbiclmpjsu7lb - BlogTagLocale
+         */
+        viewId?: 'vwtmbiclmpjsu7lb';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mexfths3zxg4ufx/records';
 };
 
-export type ListBlogTagLocaleResponses = {
+export type BlogtaglocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: BlogTagLocaleListResponse;
+    200: {
+        list?: Array<BlogTagLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListBlogTagLocaleResponse = ListBlogTagLocaleResponses[keyof ListBlogTagLocaleResponses];
+export type BlogtaglocaleDbTableRowListResponse = BlogtaglocaleDbTableRowListResponses[keyof BlogtaglocaleDbTableRowListResponses];
 
-export type UpdateBlogTagLocaleData = {
-    body: (BlogTagLocaleWrite & {
-        Id: number;
-    }) | Array<BlogTagLocaleWrite & {
-        Id: number;
-    }>;
+export type BlogtaglocaleUpdateData = {
+    body?: BlogTagLocaleRequest | Array<BlogTagLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mexfths3zxg4ufx/records';
 };
 
-export type UpdateBlogTagLocaleResponses = {
+export type BlogtaglocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogtaglocaleUpdateError = BlogtaglocaleUpdateErrors[keyof BlogtaglocaleUpdateErrors];
+
+export type BlogtaglocaleUpdateResponses = {
     /**
      * OK
      */
-    200: BlogTagLocaleRecord | Array<BlogTagLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateBlogTagLocaleResponse = UpdateBlogTagLocaleResponses[keyof UpdateBlogTagLocaleResponses];
-
-export type CreateBlogTagLocaleData = {
-    body: BlogTagLocaleWrite | Array<BlogTagLocaleWrite>;
+export type BlogtaglocaleCreateData = {
+    body?: BlogTagLocaleRequest | Array<BlogTagLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mexfths3zxg4ufx/records';
 };
 
-export type CreateBlogTagLocaleResponses = {
+export type BlogtaglocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogtaglocaleCreateError = BlogtaglocaleCreateErrors[keyof BlogtaglocaleCreateErrors];
+
+export type BlogtaglocaleCreateResponses = {
     /**
      * OK
      */
-    200: BlogTagLocaleRecord | Array<BlogTagLocaleRecord>;
+    200: BlogTagLocaleResponse;
 };
 
-export type CreateBlogTagLocaleResponse = CreateBlogTagLocaleResponses[keyof CreateBlogTagLocaleResponses];
+export type BlogtaglocaleCreateResponse = BlogtaglocaleCreateResponses[keyof BlogtaglocaleCreateResponses];
 
-export type GetBlogTagLocaleData = {
+export type BlogtaglocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mexfths3zxg4ufx/records/{recordId}';
 };
 
-export type GetBlogTagLocaleResponses = {
+export type BlogtaglocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: BlogTagLocaleRecord;
+    201: BlogTagLocaleResponse;
 };
 
-export type GetBlogTagLocaleResponse = GetBlogTagLocaleResponses[keyof GetBlogTagLocaleResponses];
+export type BlogtaglocaleReadResponse = BlogtaglocaleReadResponses[keyof BlogtaglocaleReadResponses];
 
-export type DeleteBlogCategoryData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type BlogtaglocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m5jck17x53j98kp/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwtmbiclmpjsu7lb - BlogTagLocale
+         */
+        viewId?: 'vwtmbiclmpjsu7lb';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mexfths3zxg4ufx/records/count';
 };
 
-export type DeleteBlogCategoryResponses = {
+export type BlogtaglocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogtaglocaleCountError = BlogtaglocaleCountErrors[keyof BlogtaglocaleCountErrors];
+
+export type BlogtaglocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteBlogCategoryResponse = DeleteBlogCategoryResponses[keyof DeleteBlogCategoryResponses];
+export type BlogtaglocaleCountResponse = BlogtaglocaleCountResponses[keyof BlogtaglocaleCountResponses];
 
-export type ListBlogCategoryData = {
+export type BlogcategoryDeleteData = {
+    body?: BlogCategoryIdRequest | Array<BlogCategoryIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m5jck17x53j98kp/records';
+};
+
+export type BlogcategoryDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type BlogcategoryDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw22q4dg8o357k8p - BlogCategory
+         */
+        viewId?: 'vw22q4dg8o357k8p';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m5jck17x53j98kp/records';
 };
 
-export type ListBlogCategoryResponses = {
+export type BlogcategoryDbTableRowListResponses = {
     /**
      * OK
      */
-    200: BlogCategoryListResponse;
+    200: {
+        list?: Array<BlogCategoryResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListBlogCategoryResponse = ListBlogCategoryResponses[keyof ListBlogCategoryResponses];
+export type BlogcategoryDbTableRowListResponse = BlogcategoryDbTableRowListResponses[keyof BlogcategoryDbTableRowListResponses];
 
-export type UpdateBlogCategoryData = {
-    body: (BlogCategoryWrite & {
-        Id: number;
-    }) | Array<BlogCategoryWrite & {
-        Id: number;
-    }>;
+export type BlogcategoryUpdateData = {
+    body?: BlogCategoryRequest | Array<BlogCategoryRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m5jck17x53j98kp/records';
 };
 
-export type UpdateBlogCategoryResponses = {
+export type BlogcategoryUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogcategoryUpdateError = BlogcategoryUpdateErrors[keyof BlogcategoryUpdateErrors];
+
+export type BlogcategoryUpdateResponses = {
     /**
      * OK
      */
-    200: BlogCategoryRecord | Array<BlogCategoryRecord>;
+    200: unknown;
 };
 
-export type UpdateBlogCategoryResponse = UpdateBlogCategoryResponses[keyof UpdateBlogCategoryResponses];
-
-export type CreateBlogCategoryData = {
-    body: BlogCategoryWrite | Array<BlogCategoryWrite>;
+export type BlogcategoryCreateData = {
+    body?: BlogCategoryRequest | Array<BlogCategoryRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m5jck17x53j98kp/records';
 };
 
-export type CreateBlogCategoryResponses = {
+export type BlogcategoryCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogcategoryCreateError = BlogcategoryCreateErrors[keyof BlogcategoryCreateErrors];
+
+export type BlogcategoryCreateResponses = {
     /**
      * OK
      */
-    200: BlogCategoryRecord | Array<BlogCategoryRecord>;
+    200: BlogCategoryResponse;
 };
 
-export type CreateBlogCategoryResponse = CreateBlogCategoryResponses[keyof CreateBlogCategoryResponses];
+export type BlogcategoryCreateResponse = BlogcategoryCreateResponses[keyof BlogcategoryCreateResponses];
 
-export type GetBlogCategoryData = {
+export type BlogcategoryReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m5jck17x53j98kp/records/{recordId}';
 };
 
-export type GetBlogCategoryResponses = {
+export type BlogcategoryReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: BlogCategoryRecord;
+    201: BlogCategoryResponse;
 };
 
-export type GetBlogCategoryResponse = GetBlogCategoryResponses[keyof GetBlogCategoryResponses];
+export type BlogcategoryReadResponse = BlogcategoryReadResponses[keyof BlogcategoryReadResponses];
 
-export type DeleteBlogCategoryLocaleData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type BlogcategoryCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/mxdxijqr1hy64mm/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw22q4dg8o357k8p - BlogCategory
+         */
+        viewId?: 'vw22q4dg8o357k8p';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m5jck17x53j98kp/records/count';
 };
 
-export type DeleteBlogCategoryLocaleResponses = {
+export type BlogcategoryCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogcategoryCountError = BlogcategoryCountErrors[keyof BlogcategoryCountErrors];
+
+export type BlogcategoryCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteBlogCategoryLocaleResponse = DeleteBlogCategoryLocaleResponses[keyof DeleteBlogCategoryLocaleResponses];
+export type BlogcategoryCountResponse = BlogcategoryCountResponses[keyof BlogcategoryCountResponses];
 
-export type ListBlogCategoryLocaleData = {
+export type BlogcategorylocaleDeleteData = {
+    body?: BlogCategoryLocaleIdRequest | Array<BlogCategoryLocaleIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/mxdxijqr1hy64mm/records';
+};
+
+export type BlogcategorylocaleDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type BlogcategorylocaleDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwnisex5i970nleu - BlogCategoryLocale
+         */
+        viewId?: 'vwnisex5i970nleu';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/mxdxijqr1hy64mm/records';
 };
 
-export type ListBlogCategoryLocaleResponses = {
+export type BlogcategorylocaleDbTableRowListResponses = {
     /**
      * OK
      */
-    200: BlogCategoryLocaleListResponse;
+    200: {
+        list?: Array<BlogCategoryLocaleResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListBlogCategoryLocaleResponse = ListBlogCategoryLocaleResponses[keyof ListBlogCategoryLocaleResponses];
+export type BlogcategorylocaleDbTableRowListResponse = BlogcategorylocaleDbTableRowListResponses[keyof BlogcategorylocaleDbTableRowListResponses];
 
-export type UpdateBlogCategoryLocaleData = {
-    body: (BlogCategoryLocaleWrite & {
-        Id: number;
-    }) | Array<BlogCategoryLocaleWrite & {
-        Id: number;
-    }>;
+export type BlogcategorylocaleUpdateData = {
+    body?: BlogCategoryLocaleRequest | Array<BlogCategoryLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mxdxijqr1hy64mm/records';
 };
 
-export type UpdateBlogCategoryLocaleResponses = {
+export type BlogcategorylocaleUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogcategorylocaleUpdateError = BlogcategorylocaleUpdateErrors[keyof BlogcategorylocaleUpdateErrors];
+
+export type BlogcategorylocaleUpdateResponses = {
     /**
      * OK
      */
-    200: BlogCategoryLocaleRecord | Array<BlogCategoryLocaleRecord>;
+    200: unknown;
 };
 
-export type UpdateBlogCategoryLocaleResponse = UpdateBlogCategoryLocaleResponses[keyof UpdateBlogCategoryLocaleResponses];
-
-export type CreateBlogCategoryLocaleData = {
-    body: BlogCategoryLocaleWrite | Array<BlogCategoryLocaleWrite>;
+export type BlogcategorylocaleCreateData = {
+    body?: BlogCategoryLocaleRequest | Array<BlogCategoryLocaleRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/mxdxijqr1hy64mm/records';
 };
 
-export type CreateBlogCategoryLocaleResponses = {
+export type BlogcategorylocaleCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogcategorylocaleCreateError = BlogcategorylocaleCreateErrors[keyof BlogcategorylocaleCreateErrors];
+
+export type BlogcategorylocaleCreateResponses = {
     /**
      * OK
      */
-    200: BlogCategoryLocaleRecord | Array<BlogCategoryLocaleRecord>;
+    200: BlogCategoryLocaleResponse;
 };
 
-export type CreateBlogCategoryLocaleResponse = CreateBlogCategoryLocaleResponses[keyof CreateBlogCategoryLocaleResponses];
+export type BlogcategorylocaleCreateResponse = BlogcategorylocaleCreateResponses[keyof BlogcategorylocaleCreateResponses];
 
-export type GetBlogCategoryLocaleData = {
+export type BlogcategorylocaleReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/mxdxijqr1hy64mm/records/{recordId}';
 };
 
-export type GetBlogCategoryLocaleResponses = {
+export type BlogcategorylocaleReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: BlogCategoryLocaleRecord;
+    201: BlogCategoryLocaleResponse;
 };
 
-export type GetBlogCategoryLocaleResponse = GetBlogCategoryLocaleResponses[keyof GetBlogCategoryLocaleResponses];
+export type BlogcategorylocaleReadResponse = BlogcategorylocaleReadResponses[keyof BlogcategorylocaleReadResponses];
 
-export type DeleteBlogPostData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type BlogcategorylocaleCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/msd14u1seb5bcav/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vwnisex5i970nleu - BlogCategoryLocale
+         */
+        viewId?: 'vwnisex5i970nleu';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/mxdxijqr1hy64mm/records/count';
 };
 
-export type DeleteBlogPostResponses = {
+export type BlogcategorylocaleCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogcategorylocaleCountError = BlogcategorylocaleCountErrors[keyof BlogcategorylocaleCountErrors];
+
+export type BlogcategorylocaleCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteBlogPostResponse = DeleteBlogPostResponses[keyof DeleteBlogPostResponses];
+export type BlogcategorylocaleCountResponse = BlogcategorylocaleCountResponses[keyof BlogcategorylocaleCountResponses];
 
-export type ListBlogPostData = {
+export type BlogpostDeleteData = {
+    body?: BlogPostIdRequest | Array<BlogPostIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/msd14u1seb5bcav/records';
+};
+
+export type BlogpostDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type BlogpostDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw5l4u24h2ax8kmk - BlogPost
+         */
+        viewId?: 'vw5l4u24h2ax8kmk';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/msd14u1seb5bcav/records';
 };
 
-export type ListBlogPostResponses = {
+export type BlogpostDbTableRowListResponses = {
     /**
      * OK
      */
-    200: BlogPostListResponse;
+    200: {
+        list?: Array<BlogPostResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListBlogPostResponse = ListBlogPostResponses[keyof ListBlogPostResponses];
+export type BlogpostDbTableRowListResponse = BlogpostDbTableRowListResponses[keyof BlogpostDbTableRowListResponses];
 
-export type UpdateBlogPostData = {
-    body: (BlogPostWrite & {
-        Id: number;
-    }) | Array<BlogPostWrite & {
-        Id: number;
-    }>;
+export type BlogpostUpdateData = {
+    body?: BlogPostRequest | Array<BlogPostRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/msd14u1seb5bcav/records';
 };
 
-export type UpdateBlogPostResponses = {
+export type BlogpostUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogpostUpdateError = BlogpostUpdateErrors[keyof BlogpostUpdateErrors];
+
+export type BlogpostUpdateResponses = {
     /**
      * OK
      */
-    200: BlogPostRecord | Array<BlogPostRecord>;
+    200: unknown;
 };
 
-export type UpdateBlogPostResponse = UpdateBlogPostResponses[keyof UpdateBlogPostResponses];
-
-export type CreateBlogPostData = {
-    body: BlogPostWrite | Array<BlogPostWrite>;
+export type BlogpostCreateData = {
+    body?: BlogPostRequest | Array<BlogPostRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/msd14u1seb5bcav/records';
 };
 
-export type CreateBlogPostResponses = {
+export type BlogpostCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogpostCreateError = BlogpostCreateErrors[keyof BlogpostCreateErrors];
+
+export type BlogpostCreateResponses = {
     /**
      * OK
      */
-    200: BlogPostRecord | Array<BlogPostRecord>;
+    200: BlogPostResponse;
 };
 
-export type CreateBlogPostResponse = CreateBlogPostResponses[keyof CreateBlogPostResponses];
+export type BlogpostCreateResponse = BlogpostCreateResponses[keyof BlogpostCreateResponses];
 
-export type GetBlogPostData = {
+export type BlogpostReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/msd14u1seb5bcav/records/{recordId}';
 };
 
-export type GetBlogPostResponses = {
+export type BlogpostReadResponses = {
     /**
-     * OK
+     * Created
      */
-    200: BlogPostRecord;
+    201: BlogPostResponse;
 };
 
-export type GetBlogPostResponse = GetBlogPostResponses[keyof GetBlogPostResponses];
+export type BlogpostReadResponse = BlogpostReadResponses[keyof BlogpostReadResponses];
 
-export type DeleteContactMessageData = {
-    body: {
-        Id: number;
-    } | Array<{
-        Id: number;
-    }>;
+export type BlogpostCountData = {
+    body?: never;
     path?: never;
-    query?: never;
-    url: '/api/v2/tables/m1lfvq0kb7h7f45/records';
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw5l4u24h2ax8kmk - BlogPost
+         */
+        viewId?: 'vw5l4u24h2ax8kmk';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/msd14u1seb5bcav/records/count';
 };
 
-export type DeleteContactMessageResponses = {
+export type BlogpostCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type BlogpostCountError = BlogpostCountErrors[keyof BlogpostCountErrors];
+
+export type BlogpostCountResponses = {
     /**
      * OK
      */
     200: {
-        [key: string]: unknown;
+        count?: number;
     };
 };
 
-export type DeleteContactMessageResponse = DeleteContactMessageResponses[keyof DeleteContactMessageResponses];
+export type BlogpostCountResponse = BlogpostCountResponses[keyof BlogpostCountResponses];
 
-export type ListContactMessageData = {
+export type ContactmessageDeleteData = {
+    body?: ContactMessageIdRequest | Array<ContactMessageIdRequest>;
+    path?: never;
+    query?: never;
+    url: '/api/v2/tables/m1lfvq0kb7h7f45/records';
+};
+
+export type ContactmessageDeleteResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type ContactmessageDbTableRowListData = {
     body?: never;
     path?: never;
     query?: {
-        limit?: number;
-        offset?: number;
-        where?: string;
-        sort?: string;
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw57gjp50vvbo9hv - ContactMessage
+         */
+        viewId?: 'vw57gjp50vvbo9hv';
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
         fields?: string;
+        /**
+         * Comma separated field names to sort rows, rows will sort in ascending order based on provided columns. To sort in descending order provide `-` prefix along with column name, like `-field`. Example : `sort=field1,-field2`
+         */
+        sort?: string;
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+        /**
+         * The `limit` parameter used for pagination, the response collection size depends on limit value with default value `25` and maximum value `1000`, which can be overridden by environment variables `NC_DB_QUERY_LIMIT_DEFAULT` and `NC_DB_QUERY_LIMIT_MAX` respectively.
+         */
+        limit?: number;
+        /**
+         * The `shuffle` parameter used for pagination, the response will be shuffled if it is set to 1.
+         */
+        shuffle?: number;
+        /**
+         * The `offset` parameter used for pagination, the value helps to select collection from a certain index.
+         */
+        offset?: number;
     };
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records';
 };
 
-export type ListContactMessageResponses = {
+export type ContactmessageDbTableRowListResponses = {
     /**
      * OK
      */
-    200: ContactMessageListResponse;
+    200: {
+        list?: Array<ContactMessageResponse>;
+        pageInfo?: Paginated;
+    };
 };
 
-export type ListContactMessageResponse = ListContactMessageResponses[keyof ListContactMessageResponses];
+export type ContactmessageDbTableRowListResponse = ContactmessageDbTableRowListResponses[keyof ContactmessageDbTableRowListResponses];
 
-export type UpdateContactMessageData = {
-    body: (ContactMessageWrite & {
-        Id: number;
-    }) | Array<ContactMessageWrite & {
-        Id: number;
-    }>;
+export type ContactmessageUpdateData = {
+    body?: ContactMessageRequest | Array<ContactMessageRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records';
 };
 
-export type UpdateContactMessageResponses = {
+export type ContactmessageUpdateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ContactmessageUpdateError = ContactmessageUpdateErrors[keyof ContactmessageUpdateErrors];
+
+export type ContactmessageUpdateResponses = {
     /**
      * OK
      */
-    200: ContactMessageRecord | Array<ContactMessageRecord>;
+    200: unknown;
 };
 
-export type UpdateContactMessageResponse = UpdateContactMessageResponses[keyof UpdateContactMessageResponses];
-
-export type CreateContactMessageData = {
-    body: ContactMessageWrite | Array<ContactMessageWrite>;
+export type ContactmessageCreateData = {
+    body?: ContactMessageRequest | Array<ContactMessageRequest>;
     path?: never;
     query?: never;
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records';
 };
 
-export type CreateContactMessageResponses = {
+export type ContactmessageCreateErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ContactmessageCreateError = ContactmessageCreateErrors[keyof ContactmessageCreateErrors];
+
+export type ContactmessageCreateResponses = {
     /**
      * OK
      */
-    200: ContactMessageRecord | Array<ContactMessageRecord>;
+    200: ContactMessageResponse;
 };
 
-export type CreateContactMessageResponse = CreateContactMessageResponses[keyof CreateContactMessageResponses];
+export type ContactmessageCreateResponse = ContactmessageCreateResponses[keyof ContactmessageCreateResponses];
 
-export type GetContactMessageData = {
+export type ContactmessageReadData = {
     body?: never;
     path: {
-        recordId: number;
+        /**
+         * Primary key of the record you want to read. If the table have composite primary key then combine them by using `___` and pass it as primary key.
+         */
+        recordId: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * Array of field names or comma separated filed names to include in the response objects. In array syntax pass it like `fields[]=field1&fields[]=field2` or alternately `fields=field1,field2`.
+         */
+        fields?: string;
+    };
     url: '/api/v2/tables/m1lfvq0kb7h7f45/records/{recordId}';
 };
 
-export type GetContactMessageResponses = {
+export type ContactmessageReadResponses = {
+    /**
+     * Created
+     */
+    201: ContactMessageResponse;
+};
+
+export type ContactmessageReadResponse = ContactmessageReadResponses[keyof ContactmessageReadResponses];
+
+export type ContactmessageCountData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * Allows you to fetch records that are currently visible within a specific view.
+         *
+         * Views:
+         * * vw57gjp50vvbo9hv - ContactMessage
+         */
+        viewId?: 'vw57gjp50vvbo9hv';
+        /**
+         * This can be used for filtering rows, which accepts complicated where conditions. For more info visit [here](https://docs.nocodb.com/developer-resources/rest-apis#comparison-operators). Example : `where=(field1,eq,value)`
+         */
+        where?: string;
+    };
+    url: '/api/v2/tables/m1lfvq0kb7h7f45/records/count';
+};
+
+export type ContactmessageCountErrors = {
+    /**
+     * BadRequest
+     */
+    400: {
+        msg: string;
+    };
+};
+
+export type ContactmessageCountError = ContactmessageCountErrors[keyof ContactmessageCountErrors];
+
+export type ContactmessageCountResponses = {
     /**
      * OK
      */
-    200: ContactMessageRecord;
+    200: {
+        count?: number;
+    };
 };
 
-export type GetContactMessageResponse = GetContactMessageResponses[keyof GetContactMessageResponses];
+export type ContactmessageCountResponse = ContactmessageCountResponses[keyof ContactmessageCountResponses];

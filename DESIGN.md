@@ -47,6 +47,7 @@ WCAG 2.2 AA target. Red CTA on paper must keep contrast; body text uses ink/slat
 | Surface | Mode | Notes |
 |---|---|---|
 | Home `/[locale]` | Experience (+ Persuade CTA) | Split Pin |
+| Contact `/[locale]/contact` | Operate (+ Persuade Calendly) | Channels column + taped message pin; Turnstile on form |
 | Other routes | inherit world | Apply SiteHeader + paper ground progressively |
 
 ## Seeds

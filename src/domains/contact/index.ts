@@ -1,4 +1,4 @@
 /**
  * Contact domain — Turnstile-gated intake → NocoDB ContactMessage.
  */
-export {};
+export { createContactMessage, type ContactIntake } from "./submit";

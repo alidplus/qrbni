@@ -1,0 +1,69 @@
+{
+  "title": "Choose the visual world — steer: more senior partner",
+  "question": "Steer applied: senior partner gravity. The roll assigned Partner Table (grounded #6). Keep it, take a challenger, re-roll, or take the category standard.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Partner Table",
+      "kicker": "THE ROLL",
+      "lineage": "two-chair advisory desk / shared problem surface / quiet deal room",
+      "thesis": "The product is the conversation across one table — calm authority, shared artifacts, a meeting that feels like the work starting.",
+      "palette": ["#1A1814", "#F3EDE3", "#8B7355", "#C4A574", "#2F5D50"],
+      "materials": ["oak grain", "cream paper briefs", "soft brass", "low lamp light"],
+      "viewport": "Warm low-lit field; brand as engraved nameplate scale; one partner-pitch headline; Calendly as the primary seat-at-the-table action; experience as documents laid across the grain below.",
+      "risk": "Can read luxury-consultant generic if specifics (stack, outcomes, Istanbul) stay vague.",
+      "hero": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-coiled-earth-tower-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-coiled-earth-tower.webp"
+    },
+    {
+      "id": "challenger-stenberg",
+      "label": "Stenberg Sheet",
+      "lineage": "1920s Stenberg cinema poster — scale, tilt, decisive type",
+      "thesis": "Senior presence as poster-scale clarity — one face of the offer, one action, no soft filler.",
+      "case": "Wins gravitas and memorability for a partner brand; fuses as huge type + decisive Calendly. Risk: too theatrical if the human voice softens.",
+      "palette": ["#E10600", "#111111", "#F5F5F0", "#1D4E89", "#C7C7C7"],
+      "materials": ["flat ink", "diagonal type bands", "photomontage scale"],
+      "viewport": "Full-bleed decisive composition; name enormous; pitch in one band; Calendly as the only button-scale object.",
+      "risk": "Poster energy can overpower bilingual/RTL calm.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-stenberg-poster-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/posters-covers-sleeves-stenberg-poster.webp"
+    },
+    {
+      "id": "challenger-pinup",
+      "label": "Redline Pin-up",
+      "lineage": "architecture critique wall — prints, tape, red pen",
+      "thesis": "Partnership as rigorous review — the senior who marks the drawing and leaves you clearer.",
+      "case": "Strong 'technical partner' identification; experience/services as annotated sheets. Warmer than lab worlds, clearer than luxury oak alone.",
+      "palette": ["#F7F4EF", "#111111", "#C1121F", "#5C6B73", "#E8E2D9"],
+      "materials": ["plotter paper", "masking tape", "red grease pencil", "push pins"],
+      "viewport": "Paper wall field; brand as title block; headline as redline note; Calendly as stamped ACTION.",
+      "risk": "Can feel academic-studio if CTAs stay quiet.",
+      "hero": "https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display.webp"
+    },
+    {
+      "id": "challenger-coil",
+      "label": "Coiled Tower",
+      "lineage": "coiled earth ceramic tower — patient build",
+      "thesis": "Long-term partnership as coils stacked in light — retainers and products built seam by seam.",
+      "case": "Good metaphor for retainers/long-term work; softer on immediate Calendly conversion clarity.",
+      "palette": ["#2B2118", "#E7D7C5", "#A67C52", "#6B4F3A", "#F0E6DA"],
+      "materials": ["thumb-smoothed clay", "late light bands", "visible seams"],
+      "viewport": "Earthen field; name low and solid; headline about building over time; Calendly as next coil.",
+      "risk": "Craft-pottery read may underplay software authority.",
+      "hero": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-coiled-earth-tower-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-coiled-earth-tower.webp"
+    }
+  ],
+  "reroll": true,
+  "steer": true,
+  "canon": true,
+  "canonCard": {
+    "label": "Category standard",
+    "thesis": "Polished dark personal site: big name, short pitch, Book a call — what senior-dev portfolios usually ship.",
+    "viewport": "Dark hero, name, one sentence, sticky CTA, then sections.",
+    "palette": ["#0A0A0A", "#FAFAFA", "#3B82F6", "#525252"],
+    "materials": ["system sans", "soft cards", "standard hero"],
+    "risk": "Safe and forgettable."
+  }
+}

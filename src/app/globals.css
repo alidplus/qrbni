@@ -1,18 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --foreground: #18181b;
+  --paper: #f7f4ef;
+  --ink: #111111;
+  --redline: #c1121f;
+  --slate: #5c6b73;
+  --tape: #e8e2d9;
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-redline: var(--redline);
+  --color-slate: var(--slate);
+  --color-tape: var(--tape);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--redline) 22%, transparent);
+}
+
+/* Pin-up paper sheet */
+.pin-sheet {
+  background: color-mix(in srgb, var(--paper) 92%, white);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--ink) 8%, transparent),
+    0 18px 40px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+.tape {
+  background: color-mix(in srgb, var(--tape) 85%, var(--ink));
+  opacity: 0.85;
+}
+
+.redline-mark {
+  color: var(--redline);
+}
+
+@keyframes pin-settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px) rotate(var(--pin-rot, -1deg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--pin-rot, -1deg));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pin-settle {
+    animation: pin-settle 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }

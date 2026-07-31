@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import {
   defaultLocale,
   isLocale,
@@ -9,14 +9,16 @@ import {
 } from "@/i18n/config";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Barlow_Condensed({
+  variable: "--font-barlow",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = Source_Sans_3({
+  variable: "--font-source",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -48,9 +50,19 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        {/*
+          THESIS: Partnership as rigorous review — the senior who marks the drawing and leaves you clearer; refuse neon résumé swagger and soft card grids.
+          OWN-WORLD: Plotter paper, title-block grotesk, masking tape, red grease-pencil marks, stamped ACTION CTA.
+          STORY: Visitor meets Ali as a technical partner, scans proof on pinned sheets, books 30 minutes.
+          FIRST VIEWPORT: Split pin — tall taped name sheet + reading column with Calendly primary; experience plots below/stack.
+          FORM: Redline Pin-up · Split Pin (comp-b) · seed f9889c92 / chosen challenger-pinup.
+          FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+        */}
+        {children}
+      </body>
     </html>
   );
 }

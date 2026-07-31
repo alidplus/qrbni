@@ -1,0 +1,36 @@
+{
+  "title": "Approve home composition — Redline Pin-up",
+  "question": "World is locked (Redline Pin-up). Which composition should we build for the home first viewport?",
+  "options": [
+    {
+      "id": "comp-a",
+      "label": "Title Block",
+      "kicker": "COMP A",
+      "thesis": "Drawing title-block header; name as sheet title; CTA as primary; experience as taped strip below.",
+      "viewport": "Horizontal title block → huge name → headline → Book 30 min → pin-up strip.",
+      "hero": ".impeccable/mocks/comp-a-titleblock.webp",
+      "risk": "Can feel form-heavy if the title block chrome crowds the name."
+    },
+    {
+      "id": "comp-b",
+      "label": "Split Pin",
+      "kicker": "COMP B",
+      "thesis": "Tall taped sheet owns the left; reading column and CTA own the right — partner critique desk energy.",
+      "viewport": "Left pinned sheet with name; right column headline + Book 30 min + stacked plots.",
+      "hero": ".impeccable/mocks/comp-b-split-pin.webp",
+      "risk": "Mobile must restack carefully or the left pin collapses."
+    },
+    {
+      "id": "comp-c",
+      "label": "Wall Clearing",
+      "kicker": "COMP C",
+      "thesis": "Dense paper wall behind; clear foreground clearing for name, pitch, red ACTION stamp.",
+      "viewport": "Atmospheric wall → clear center identity → stamped Calendly.",
+      "hero": ".impeccable/mocks/comp-c-wall-clearing.webp",
+      "risk": "Background density can fight WCAG if not quieted."
+    }
+  ],
+  "reroll": false,
+  "steer": true,
+  "canon": false
+}

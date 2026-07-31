@@ -240,11 +240,11 @@ export function HomeSplitPin({ locale, experiences }: Props) {
                       </p>
                     ) : null}
                     {entry.summary ? (
-                      <p className="mt-3 max-w-prose text-sm leading-relaxed text-slate line-clamp-2">
+                      <p className="mt-3 max-w-prose text-base leading-relaxed text-slate line-clamp-2">
                         {entry.summary}
                       </p>
                     ) : entry.location ? (
-                      <p className="mt-2 text-sm text-slate">{entry.location}</p>
+                      <p className="mt-2 text-base text-slate">{entry.location}</p>
                     ) : null}
                     <span
                       aria-hidden

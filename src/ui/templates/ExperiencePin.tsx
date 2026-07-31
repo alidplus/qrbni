@@ -198,7 +198,7 @@ export function ExperiencePin({ locale, entries }: Props) {
                   ) : null}
 
                   {entry.highlights.length > 0 ? (
-                    <ul className="mt-4 space-y-1.5 text-sm text-ink/90">
+                    <ul className="mt-4 space-y-2 text-base text-ink/90">
                       {entry.highlights.map((h) => (
                         <li key={h} className="flex gap-2">
                           <span aria-hidden className="shrink-0 text-redline">

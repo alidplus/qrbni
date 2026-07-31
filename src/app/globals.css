@@ -9,6 +9,10 @@
   --paper-sheet: color-mix(in srgb, var(--paper) 88%, white);
   --background: var(--paper);
   --foreground: var(--ink);
+  /* Body type tokens (wired into text-sm/base/lg). Display xl+ unchanged. */
+  --body-sm: 1rem; /* 16px — was 14px */
+  --body-base: 1.125rem; /* 18px — was 16px */
+  --body-lg: 1.25rem; /* 20px — was 18px */
 }
 
 @theme inline {
@@ -21,17 +25,29 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+
+  /* Body scale — titles (xl+) stay default; reading copy steps up. */
+  --text-sm: var(--body-sm);
+  --text-sm--line-height: 1.55;
+  --text-base: var(--body-base);
+  --text-base--line-height: 1.7;
+  --text-lg: var(--body-lg);
+  --text-lg--line-height: 1.75;
 }
 
 /*
   FA: Vazirmatn for body + display.
   @theme inline inlines var(--font-barlow/--font-source) into .font-display/.font-sans,
   so remap those next/font variables — overriding --font-sans/--font-display alone is a no-op.
+  Slightly larger body tokens — Vazirmatn reads a touch smaller at the same px.
 */
 html[lang="fa"],
 html[data-locale="fa"] {
   --font-barlow: var(--font-vazirmatn);
   --font-source: var(--font-vazirmatn);
+  --body-sm: 1.0625rem; /* 17px */
+  --body-base: 1.1875rem; /* 19px */
+  --body-lg: 1.3125rem; /* 21px */
 }
 
 ::selection {

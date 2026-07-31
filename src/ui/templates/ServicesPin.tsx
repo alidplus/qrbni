@@ -176,7 +176,7 @@ export function ServicesPin({ locale, catalog }: Props) {
                             </p>
                           ) : null}
                           {svc.bullets.length > 0 ? (
-                            <ul className="mt-4 space-y-1.5 text-sm text-ink/90">
+                            <ul className="mt-4 space-y-2 text-base text-ink/90">
                               {svc.bullets.map((b) => (
                                 <li key={b} className="flex gap-2">
                                   <span aria-hidden className="text-redline">

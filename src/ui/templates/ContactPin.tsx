@@ -165,7 +165,7 @@ export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
             <h2 className="font-display text-2xl font-semibold uppercase tracking-[-0.02em] text-ink">
               {t.formTitle}
             </h2>
-            <p className="mt-2 max-w-prose text-sm leading-relaxed text-slate">
+            <p className="mt-2 max-w-prose text-base leading-relaxed text-slate">
               {t.formHint}
             </p>
             <div className="mt-8">

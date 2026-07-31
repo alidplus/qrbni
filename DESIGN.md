@@ -23,9 +23,9 @@ Light scene: desk / pin-up wall under indoor ambient light. Not dark-mode defaul
 ## Typography
 
 - **Display (EN):** Barlow Condensed — title blocks, name, CTAs, section labels
-- **Body (EN):** Source Sans 3 — supporting copy
-- **FA (`lang="fa"`):** [Vazirmatn](https://fonts.google.com/specimen/Vazirmatn) for both body and display (RTL-friendly)
-- No eyebrow kickers. Headings carry weight alone.
+- **Body (EN):** Source Sans 3 — supporting copy at bumped body scale (`text-base` ≈ 18px; `text-lg` ≈ 20px)
+- **FA (`lang="fa"`):** [Vazirmatn](https://fonts.google.com/specimen/Vazirmatn) for both body and display (RTL-friendly); body tokens ~1px larger than EN for optical parity
+- No eyebrow kickers. Headings carry weight alone. Display sizes (`text-xl`+) unchanged.
 
 ## Components
 

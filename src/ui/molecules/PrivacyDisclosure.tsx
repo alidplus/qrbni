@@ -64,7 +64,7 @@ export function PrivacyDisclosure({ locale, defaultOpen = false }: Props) {
           {t.title}
         </span>
       </summary>
-      <div className="mt-4 space-y-3 text-sm leading-relaxed text-slate">
+      <div className="mt-4 space-y-3 text-base leading-relaxed text-slate">
         {t.paragraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}

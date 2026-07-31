@@ -101,69 +101,24 @@ export function HomeSplitPin({ locale, experiences }: Props) {
     <PinWall>
       <SiteHeader locale={locale} />
 
+      {/*
+        Mobile: reading column first (pitch + Book above the fold).
+        Desktop: portrait stays col 1 (sticky), reading col 2 — via col-start, not DOM order.
+      */}
       <main className="flex flex-1 flex-col lg:grid lg:grid-cols-[minmax(320px,0.88fr)_minmax(0,1.22fr)] lg:items-start">
-        {/* Left — portrait assembly sheet (comp-b) */}
-        <section
-          aria-label={t.name}
-          className="relative flex justify-center px-5 py-10 sm:px-10 lg:sticky lg:top-0 lg:min-h-[calc(100vh-3.25rem)] lg:items-center lg:border-e lg:border-ink/12 lg:px-12 lg:py-14"
-        >
-          <PinSheet
-            className="w-full max-w-[26rem] px-6 pb-9 pt-6 sm:max-w-md sm:px-8 sm:pb-11 sm:pt-8"
-            rotate={-1.15}
-            tapes="top-bottom"
-            pins
-          >
-            <div className="flex items-start justify-between gap-3">
-              <FigLabel>{t.fig}</FigLabel>
-              <Crosshair className="mt-0.5 shrink-0 text-redline/70" size={16} />
-            </div>
-
-            <PortraitPlate className="mt-5">
-              <Image
-                src="/ali-portrait.webp"
-                alt={t.portraitAlt}
-                width={1200}
-                height={1168}
-                priority
-                sizes="(max-width: 1024px) 88vw, 26rem"
-                className="h-auto w-full object-cover object-[center_16%]"
-              />
-            </PortraitPlate>
-
-            <h1 className="mt-8 font-display text-[2.65rem] font-bold uppercase leading-[0.92] tracking-[-0.025em] text-ink sm:text-5xl lg:text-[3.35rem]">
-              {t.name}
-            </h1>
-            <p className="redline-underline mt-3.5 font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink">
-              {t.role}
-            </p>
-
-            <div className="mt-9 flex items-end justify-between gap-4 border-t border-ink/15 pt-4">
-              <TitleBlockMeta
-                className="mt-0 flex-1 border-0 pt-0"
-                rows={[
-                  { label: "Drawn", value: "A.G." },
-                  { label: "Scale", value: "Human" },
-                  { label: "Site", value: "qrbni.dev · Istanbul" },
-                ]}
-              />
-              <Crosshair className="mb-1 shrink-0" size={20} />
-            </div>
-          </PinSheet>
-        </section>
-
-        {/* Right — reading column */}
-        <section className="flex flex-col gap-11 px-5 py-10 sm:px-10 lg:px-14 lg:py-16 xl:px-16">
+        {/* Reading / Persuade — source-first for mobile Calendly */}
+        <section className="flex flex-col gap-9 px-5 pb-8 pt-8 sm:gap-11 sm:px-10 sm:pt-10 lg:col-start-2 lg:row-start-1 lg:gap-11 lg:px-14 lg:py-16 xl:px-16">
           <div
-            className="pin-settle max-w-xl space-y-6"
+            className="pin-settle max-w-xl space-y-5 sm:space-y-6"
             style={{ ["--pin-rot" as string]: "0deg" }}
           >
             <span
               aria-hidden
               className="inline-block h-2.5 w-2.5 rotate-45 bg-redline"
             />
-            <h2 className="font-display text-[1.85rem] font-semibold leading-[1.15] tracking-[-0.025em] text-ink sm:text-4xl sm:leading-[1.12]">
+            <h1 className="font-display text-[1.85rem] font-semibold leading-[1.15] tracking-[-0.025em] text-ink sm:text-4xl sm:leading-[1.12]">
               {t.pitch}
-            </h2>
+            </h1>
             <p className="max-w-prose text-base leading-relaxed text-slate sm:text-lg">
               {t.support}
             </p>
@@ -257,6 +212,57 @@ export function HomeSplitPin({ locale, experiences }: Props) {
               </ol>
             </div>
           ) : null}
+        </section>
+
+        {/* Portrait assembly — compressed on mobile; sticky artifact on lg+ */}
+        <section
+          aria-label={t.name}
+          className="relative flex justify-center px-5 pb-10 pt-2 sm:px-10 sm:pb-12 lg:col-start-1 lg:row-start-1 lg:sticky lg:top-0 lg:min-h-[calc(100vh-3.25rem)] lg:items-center lg:border-e lg:border-ink/12 lg:px-12 lg:py-14"
+        >
+          <PinSheet
+            className="w-full max-w-[17.5rem] px-5 pb-7 pt-5 sm:max-w-sm sm:px-7 sm:pb-9 sm:pt-7 lg:max-w-[26rem] lg:px-8 lg:pb-11 lg:pt-8"
+            rotate={-1.15}
+            tapes="top-bottom"
+            pins
+          >
+            <div className="flex items-start justify-between gap-3">
+              <FigLabel>{t.fig}</FigLabel>
+              <Crosshair className="mt-0.5 shrink-0 text-redline/70" size={16} />
+            </div>
+
+            <PortraitPlate className="mt-4 sm:mt-5">
+              <Image
+                src="/ali-portrait.webp"
+                alt={t.portraitAlt}
+                width={1200}
+                height={1168}
+                priority
+                sizes="(max-width: 1024px) 70vw, 26rem"
+                className={`h-auto w-full object-cover object-[center_16%] ${
+                  locale === "fa" ? "-scale-x-100" : ""
+                }`}
+              />
+            </PortraitPlate>
+
+            <p className="mt-6 font-display text-[2.1rem] font-bold uppercase leading-[0.92] tracking-[-0.025em] text-ink sm:mt-8 sm:text-5xl lg:text-[3.35rem]">
+              {t.name}
+            </p>
+            <p className="redline-underline mt-3 font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink sm:mt-3.5">
+              {t.role}
+            </p>
+
+            <div className="mt-6 flex items-end justify-between gap-4 border-t border-ink/15 pt-4 sm:mt-9">
+              <TitleBlockMeta
+                className="mt-0 flex-1 border-0 pt-0"
+                rows={[
+                  { label: "Drawn", value: "A.G." },
+                  { label: "Scale", value: "Human" },
+                  { label: "Site", value: "qrbni.dev · Istanbul" },
+                ]}
+              />
+              <Crosshair className="mb-1 shrink-0" size={20} />
+            </div>
+          </PinSheet>
         </section>
       </main>
     </PinWall>

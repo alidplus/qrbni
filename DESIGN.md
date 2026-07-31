@@ -59,7 +59,7 @@ WCAG 2.2 AA target. Red CTA on paper must keep contrast; body text uses ink/slat
 
 | Surface | Mode | Notes |
 |---|---|---|
-| Home `/[locale]` | Experience (+ Persuade CTA) | Split Pin |
+| Home `/[locale]` | Experience (+ Persuade CTA) | Split Pin — mobile: pitch+Book first, compressed Fig. 01 after; FA portrait mirrored |
 | Contact `/[locale]/contact` | Operate (+ Persuade Calendly) | Channels PinSheet + Message pin; solid BookCta primary; form submit ink outline (doesn’t compete) |
 | Services `/[locale]/services` | Persuade | Category walls (Fig. labels) + taped offering sheets; page BookCta solid; per-offering CTAs unchanged |
 | Experience `/[locale]/experience` | Experience | Critique timeline rail + stacked role plates (Fig. NN); real highlights |

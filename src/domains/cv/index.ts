@@ -1,1 +1,6 @@
-export { getSiteSettings, listExperiences } from "./queries";
+export {
+  getSiteSettings,
+  listExperiences,
+  listExperienceTimeline,
+  type ExperienceEntry,
+} from "./queries";

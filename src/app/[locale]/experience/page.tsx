@@ -1,47 +1,37 @@
-import { listExperiences } from "@/domains/cv";
-import { isLocale } from "@/i18n/config";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { isLocale, type Locale } from "@/i18n/config";
+import { listExperienceTimeline } from "@/domains/cv";
+import { ExperiencePin } from "@/ui/templates/ExperiencePin";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export default async function ExperienceSmokePage({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale: Locale = isLocale(raw) ? raw : "en";
+  return {
+    title: locale === "fa" ? "سوابق" : "Experience",
+    description:
+      locale === "fa"
+        ? "سوابق حرفه‌ای علی قربانی."
+        : "Professional experience — Ali Ghorbani.",
+    alternates: {
+      languages: { en: "/en/experience", fa: "/fa/experience" },
+      canonical: `/${locale}/experience`,
+    },
+  };
+}
+
+export default async function ExperiencePage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  let rows: Awaited<ReturnType<typeof listExperiences>> = [];
-  let err: string | null = null;
+  let entries: Awaited<ReturnType<typeof listExperienceTimeline>> = [];
   try {
-    rows = await listExperiences(10);
-  } catch (e) {
-    err = e instanceof Error ? e.message : "Failed to load experience";
+    entries = await listExperienceTimeline(locale);
+  } catch {
+    entries = [];
   }
 
-  return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16">
-      <Link href={`/${locale}`} className="text-sm text-zinc-500 hover:text-zinc-800">
-        ← Home
-      </Link>
-      <h1 className="mt-6 text-3xl font-semibold tracking-tight">
-        {locale === "fa" ? "سوابق (SDK)" : "Experience (SDK smoke)"}
-      </h1>
-      {err ? (
-        <p className="mt-4 text-sm text-red-600">{err}</p>
-      ) : (
-        <ul className="mt-8 space-y-4">
-          {rows.map((row) => (
-            <li key={String(row.Id)} className="border-b border-zinc-200 pb-3">
-              <p className="font-medium text-zinc-900">{row.Company}</p>
-              <p className="text-sm text-zinc-500">
-                {[row.StartDate, row.EndDate || (row.Current ? "present" : null)]
-                  .filter(Boolean)
-                  .join(" – ")}
-                {row.Location ? ` · ${row.Location}` : ""}
-              </p>
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
-  );
+  return <ExperiencePin locale={locale} entries={entries} />;
 }

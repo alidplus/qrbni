@@ -49,6 +49,7 @@ WCAG 2.2 AA target. Red CTA on paper must keep contrast; body text uses ink/slat
 | Home `/[locale]` | Experience (+ Persuade CTA) | Split Pin |
 | Contact `/[locale]/contact` | Operate (+ Persuade Calendly) | Channels column + taped message pin; Turnstile on form |
 | Services `/[locale]/services` | Persuade | Category sections + taped offering sheets; Calendly/contact CTAs |
+| Experience `/[locale]/experience` | Experience | Timeline of taped role sheets (title, highlights, tech) |
 | Blog `/[locale]/blog` | Read | Index pin sheets; empty “draft wall” until published |
 | Privacy `/[locale]/privacy` | Read | Single notice pin sheet |
 | Other routes | inherit world | Apply SiteHeader + paper ground progressively |

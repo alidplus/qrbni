@@ -27,6 +27,7 @@ type Copy = {
   contact: string;
   present: string;
   viewExperience: string;
+  openRole: string;
   portraitAlt: string;
 };
 
@@ -51,12 +52,13 @@ const copy: Record<Locale, Copy> = {
       </>
     ),
     experience: "Experience",
-    selectedExperience: "Selected experience",
+    selectedExperience: "Selected delivery",
     services: "Services",
     blog: "Blog",
     contact: "Contact",
     present: "present",
-    viewExperience: "View experience",
+    viewExperience: "Full timeline",
+    openRole: "Open full timeline",
     portraitAlt: "Pencil portrait of Ali Ghorbani",
   },
   fa: {
@@ -78,12 +80,13 @@ const copy: Record<Locale, Copy> = {
       </>
     ),
     experience: "سوابق",
-    selectedExperience: "گزیده سوابق",
+    selectedExperience: "گزیده تحویل",
     services: "خدمات",
     blog: "بلاگ",
     contact: "تماس",
     present: "اکنون",
-    viewExperience: "مشاهده سوابق",
+    viewExperience: "خط‌زمان کامل",
+    openRole: "مشاهده خط‌زمان کامل",
     portraitAlt: "پرتره مدادی علی قربانی",
   },
 };
@@ -93,9 +96,15 @@ type Props = {
   experiences: ExperienceEntry[];
 };
 
+/** Prefer a real highlight (outcome) over résumé-title framing. */
+function deliveryLine(entry: ExperienceEntry): string | null {
+  return entry.highlights[0] ?? entry.summary ?? null;
+}
+
 export function HomeSplitPin({ locale, experiences }: Props) {
   const t = copy[locale];
   const selected = experiences.slice(0, 3);
+  const timelineHref = `/${locale}/experience`;
 
   return (
     <PinWall>
@@ -122,11 +131,12 @@ export function HomeSplitPin({ locale, experiences }: Props) {
             <p className="max-w-prose text-base leading-relaxed text-slate sm:text-lg">
               {t.support}
             </p>
+            {/* Distill: one secondary Contact beside Book — not also in Sections */}
             <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1">
               <BookCta locale={locale} />
               <Link
                 href={`/${locale}/contact`}
-                className="redline-underline font-display text-sm font-semibold uppercase tracking-[0.14em] text-ink hover:text-redline"
+                className="font-display text-sm font-semibold uppercase tracking-[0.14em] text-slate underline decoration-ink/25 underline-offset-4 hover:text-ink hover:decoration-ink/50"
               >
                 {t.contact}
               </Link>
@@ -137,7 +147,7 @@ export function HomeSplitPin({ locale, experiences }: Props) {
             aria-label={locale === "fa" ? "بخش‌ها" : "Sections"}
             className="flex flex-wrap gap-x-6 gap-y-2 border-y border-ink/12 py-4 font-display text-xs font-semibold uppercase tracking-[0.18em] text-slate"
           >
-            <Link className="hover:text-ink" href={`/${locale}/experience`}>
+            <Link className="hover:text-ink" href={timelineHref}>
               {t.experience}
             </Link>
             <Link className="hover:text-ink" href={`/${locale}/services`}>
@@ -146,69 +156,79 @@ export function HomeSplitPin({ locale, experiences }: Props) {
             <Link className="hover:text-ink" href={`/${locale}/blog`}>
               {t.blog}
             </Link>
-            <Link className="hover:text-ink" href={`/${locale}/contact`}>
-              {t.contact}
-            </Link>
           </nav>
 
           {selected.length > 0 ? (
             <div>
               <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
-                <h3 className="redline-underline font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink">
+                <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink">
                   {t.selectedExperience}
-                </h3>
+                </h2>
                 <Link
-                  href={`/${locale}/experience`}
+                  href={timelineHref}
                   className="font-display text-xs font-semibold uppercase tracking-[0.14em] text-redline hover:underline"
                 >
                   {t.viewExperience} →
                 </Link>
               </div>
               <ol className="space-y-4">
-                {selected.map((entry, i) => (
-                  <PinSheet
-                    key={entry.id}
-                    as="li"
-                    className="px-5 py-5 sm:px-6"
-                    rotate={i % 2 === 0 ? 0.45 : -0.55}
-                    settleDelayMs={100 + i * 90}
-                    tapes="strip"
-                    registration={false}
-                    insetRule={false}
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2 pe-6">
-                      <p className="font-display text-lg font-semibold uppercase tracking-[0.03em] text-ink">
-                        {entry.company}
-                      </p>
-                      <p className="font-display text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate">
-                        {[
-                          entry.startDate,
-                          entry.endDate || (entry.current ? t.present : null),
-                        ]
-                          .filter(Boolean)
-                          .join(" – ")}
-                      </p>
-                    </div>
-                    {entry.title ? (
-                      <p className="mt-1.5 font-display text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-slate">
-                        {entry.title}
-                      </p>
-                    ) : null}
-                    {entry.summary ? (
-                      <p className="mt-3 max-w-prose text-base leading-relaxed text-slate line-clamp-2">
-                        {entry.summary}
-                      </p>
-                    ) : entry.location ? (
-                      <p className="mt-2 text-base text-slate">{entry.location}</p>
-                    ) : null}
-                    <span
-                      aria-hidden
-                      className="redline-mark absolute end-4 top-4 font-display text-sm font-bold"
-                    >
-                      /
-                    </span>
-                  </PinSheet>
-                ))}
+                {selected.map((entry, i) => {
+                  const proof = deliveryLine(entry);
+                  const range = [
+                    entry.startDate,
+                    entry.endDate || (entry.current ? t.present : null),
+                  ]
+                    .filter(Boolean)
+                    .join(" – ");
+
+                  return (
+                    <li key={entry.id}>
+                      <Link
+                        href={timelineHref}
+                        aria-label={`${t.openRole}: ${entry.company}`}
+                        className="group block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-redline"
+                      >
+                        <PinSheet
+                          as="div"
+                          className="px-5 py-5 transition-[box-shadow,transform] group-hover:-translate-y-0.5 sm:px-6"
+                          rotate={i % 2 === 0 ? 0.45 : -0.55}
+                          settleDelayMs={100 + i * 90}
+                          tapes="strip"
+                          registration={false}
+                          insetRule={false}
+                        >
+                          <div className="flex flex-wrap items-baseline justify-between gap-2">
+                            <p className="font-display text-lg font-semibold uppercase tracking-[0.03em] text-ink group-hover:text-redline">
+                              {entry.company}
+                            </p>
+                            {range ? (
+                              <p className="font-display text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate">
+                                {range}
+                              </p>
+                            ) : null}
+                          </div>
+
+                          {proof ? (
+                            <p className="mt-3 max-w-prose text-base leading-relaxed text-slate line-clamp-2">
+                              {proof}
+                            </p>
+                          ) : entry.location ? (
+                            <p className="mt-2 text-base text-slate">
+                              {entry.location}
+                            </p>
+                          ) : null}
+
+                          {/* Job title demoted — real highlight leads the partner story */}
+                          {entry.title ? (
+                            <p className="mt-3 font-display text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-ink/45">
+                              {entry.title}
+                            </p>
+                          ) : null}
+                        </PinSheet>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ol>
             </div>
           ) : null}

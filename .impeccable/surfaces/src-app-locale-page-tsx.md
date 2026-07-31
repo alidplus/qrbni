@@ -20,6 +20,10 @@ Redline Pin-up world. Composition: Split Pin (comp-b). Memorable moment: tall ta
 
 **FA:** portrait image mirrored (`scaleX(-1)`).
 
+**Selected delivery:** strips lead with company + real highlight/summary (not IC title); whole strip links to `/experience`. Job title muted if present.
+
+**CTA distill:** solid BookCta + one secondary Contact beside it; Contact omitted from Sections nav.
+
 ## Constraints
 WCAG 2.2 AA; EN/FA RTL; no fabricated claims; NocoDB experience strip when available.
 

@@ -13,7 +13,7 @@ const cornerClass: Record<NonNullable<Props["corners"]>[number], string> = {
 
 /** Title-block registration corners in redline. */
 export function RegistrationMarks({
-  corners = ["start-bottom", "end-bottom"],
+  corners = ["start-top", "end-top", "start-bottom", "end-bottom"],
   className = "",
 }: Props) {
   return (

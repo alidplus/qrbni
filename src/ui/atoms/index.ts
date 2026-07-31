@@ -6,3 +6,5 @@ export { Tape } from "./Tape";
 export { PushPin } from "./PushPin";
 export { RegistrationMarks } from "./RegistrationMarks";
 export { RedlineEm, TitleBlockMeta, FigLabel } from "./TitleBlock";
+export { Crosshair } from "./Crosshair";
+export { PortraitPlate } from "./PortraitPlate";

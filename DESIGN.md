@@ -6,7 +6,7 @@
 
 **Redline Pin-up** — architecture critique wall: plotter paper, title-block grotesk, masking tape, red grease-pencil marks, stamped ACTION. Partnership as rigorous review.
 
-**Home composition:** Split Pin (`comp-b`) — tall taped name sheet with Fig. 01 portrait (`/ali-portrait.webp`) + reading column with Calendly primary; experience as stacked pin sheets.
+**Home composition:** Split Pin (`comp-b`) — sticky portrait-assembly sheet (Fig. 01, pins, construction plate, title block) + reading column with redline emphasis on real product words + selected experience strips from NocoDB.
 
 ## Palette
 

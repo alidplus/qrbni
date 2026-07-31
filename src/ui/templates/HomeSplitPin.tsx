@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Locale } from "@/i18n/config";
-import type { ExperienceResponse } from "@/generated/nocodb";
+import type { ExperienceEntry } from "@/domains/cv";
 import {
+  Crosshair,
   FigLabel,
   PinSheet,
   PinWall,
+  PortraitPlate,
+  RedlineEm,
   TitleBlockMeta,
 } from "@/ui/atoms";
 import { BookCta, SiteHeader } from "@/ui/organisms/SiteHeader";
@@ -14,9 +18,10 @@ type Copy = {
   name: string;
   role: string;
   fig: string;
-  pitch: string;
-  support: string;
+  pitch: ReactNode;
+  support: ReactNode;
   experience: string;
+  selectedExperience: string;
   services: string;
   blog: string;
   contact: string;
@@ -30,10 +35,23 @@ const copy: Record<Locale, Copy> = {
     name: "Ali Ghorbani",
     role: "Technical Partner",
     fig: "Fig. 01 · Portrait assembly",
-    pitch: "I help startups and businesses design, build, and scale reliable web products.",
-    support:
-      "Senior technical partner — architecture, delivery, and long-term product work. Not ticket hours.",
+    pitch: (
+      <>
+        I help startups and businesses <RedlineEm>design</RedlineEm>,{" "}
+        <RedlineEm>build</RedlineEm>, and <RedlineEm>scale</RedlineEm> reliable
+        web products.
+      </>
+    ),
+    support: (
+      <>
+        Senior technical partner —{" "}
+        <span className="redline-underline">architecture</span>,{" "}
+        <span className="redline-underline">delivery</span>, and long-term
+        product work. Not ticket hours.
+      </>
+    ),
     experience: "Experience",
+    selectedExperience: "Selected experience",
     services: "Services",
     blog: "Blog",
     contact: "Contact",
@@ -45,11 +63,22 @@ const copy: Record<Locale, Copy> = {
     name: "علی قربانی",
     role: "شریک فنی",
     fig: "شکل ۰۱ · مونتاژ پرتره",
-    pitch:
-      "به استارتاپ‌ها و کسب‌وکارها کمک می‌کنم محصولات وب قابل‌اعتماد طراحی، پیاده‌سازی و مقیاس‌پذیر کنند.",
-    support:
-      "شریک فنی ارشد — معماری، تحویل محصول و همکاری بلندمدت. نه فروش ساعت کاری.",
+    pitch: (
+      <>
+        به استارتاپ‌ها و کسب‌وکارها کمک می‌کنم محصولات وب قابل‌اعتماد را{" "}
+        <RedlineEm>طراحی</RedlineEm>، <RedlineEm>پیاده‌سازی</RedlineEm> و{" "}
+        <RedlineEm>مقیاس‌پذیر</RedlineEm> کنند.
+      </>
+    ),
+    support: (
+      <>
+        شریک فنی ارشد — <span className="redline-underline">معماری</span>،{" "}
+        <span className="redline-underline">تحویل محصول</span> و همکاری بلندمدت.
+        نه فروش ساعت کاری.
+      </>
+    ),
     experience: "سوابق",
+    selectedExperience: "گزیده سوابق",
     services: "خدمات",
     blog: "بلاگ",
     contact: "تماس",
@@ -61,87 +90,84 @@ const copy: Record<Locale, Copy> = {
 
 type Props = {
   locale: Locale;
-  experiences: ExperienceResponse[];
+  experiences: ExperienceEntry[];
 };
 
 export function HomeSplitPin({ locale, experiences }: Props) {
   const t = copy[locale];
+  const selected = experiences.slice(0, 3);
 
   return (
     <PinWall>
       <SiteHeader locale={locale} />
 
-      <main className="flex flex-1 flex-col lg:grid lg:grid-cols-[minmax(300px,0.92fr)_minmax(0,1.18fr)] lg:items-stretch">
+      <main className="flex flex-1 flex-col lg:grid lg:grid-cols-[minmax(320px,0.88fr)_minmax(0,1.22fr)] lg:items-start">
+        {/* Left — portrait assembly sheet (comp-b) */}
         <section
           aria-label={t.name}
-          className="relative flex items-start justify-center px-6 py-12 sm:px-10 lg:border-e lg:border-ink/10 lg:px-12 lg:py-16"
+          className="relative flex justify-center px-5 py-10 sm:px-10 lg:sticky lg:top-0 lg:min-h-[calc(100vh-3.25rem)] lg:items-center lg:border-e lg:border-ink/12 lg:px-12 lg:py-14"
         >
           <PinSheet
-            className="w-full max-w-md px-6 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-8"
-            rotate={-1.1}
+            className="w-full max-w-[26rem] px-6 pb-9 pt-6 sm:max-w-md sm:px-8 sm:pb-11 sm:pt-8"
+            rotate={-1.15}
             tapes="top-bottom"
             pins
           >
-            <FigLabel>{t.fig}</FigLabel>
+            <div className="flex items-start justify-between gap-3">
+              <FigLabel>{t.fig}</FigLabel>
+              <Crosshair className="mt-0.5 shrink-0 text-redline/70" size={16} />
+            </div>
 
-            <div className="portrait-frame construction-frame relative mt-5 overflow-hidden">
+            <PortraitPlate className="mt-5">
               <Image
                 src="/ali-portrait.webp"
                 alt={t.portraitAlt}
                 width={1200}
                 height={1168}
                 priority
-                sizes="(max-width: 1024px) 90vw, 28rem"
-                className="h-auto w-full object-cover object-[center_18%]"
+                sizes="(max-width: 1024px) 88vw, 26rem"
+                className="h-auto w-full object-cover object-[center_16%]"
               />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-y-4 start-2 w-px bg-ink/15"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-y-4 end-2 w-px bg-ink/15"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute start-3 end-3 top-3 h-px bg-ink/10"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute start-3 end-3 bottom-3 h-px bg-ink/10"
-              />
-            </div>
+            </PortraitPlate>
 
-            <h1 className="mt-7 font-display text-4xl font-bold uppercase leading-[0.95] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+            <h1 className="mt-8 font-display text-[2.65rem] font-bold uppercase leading-[0.92] tracking-[-0.025em] text-ink sm:text-5xl lg:text-[3.35rem]">
               {t.name}
             </h1>
-            <p className="redline-underline mt-3 font-display text-sm font-semibold uppercase tracking-[0.14em] text-ink">
+            <p className="redline-underline mt-3.5 font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink">
               {t.role}
             </p>
 
-            <TitleBlockMeta
-              className="mt-8"
-              rows={[
-                { label: "Drawn", value: "A.G." },
-                { label: "Scale", value: "Human" },
-                { label: "Site", value: "qrbni.dev · Istanbul" },
-              ]}
-            />
+            <div className="mt-9 flex items-end justify-between gap-4 border-t border-ink/15 pt-4">
+              <TitleBlockMeta
+                className="mt-0 flex-1 border-0 pt-0"
+                rows={[
+                  { label: "Drawn", value: "A.G." },
+                  { label: "Scale", value: "Human" },
+                  { label: "Site", value: "qrbni.dev · Istanbul" },
+                ]}
+              />
+              <Crosshair className="mb-1 shrink-0" size={20} />
+            </div>
           </PinSheet>
         </section>
 
-        <section className="flex flex-col justify-center gap-10 px-6 py-12 sm:px-10 lg:px-14 lg:py-20">
+        {/* Right — reading column */}
+        <section className="flex flex-col gap-11 px-5 py-10 sm:px-10 lg:px-14 lg:py-16 xl:px-16">
           <div
-            className="pin-settle max-w-xl space-y-5"
+            className="pin-settle max-w-xl space-y-6"
             style={{ ["--pin-rot" as string]: "0deg" }}
           >
-            <h2 className="font-display text-3xl font-semibold leading-tight tracking-[-0.02em] text-ink sm:text-4xl">
+            <span
+              aria-hidden
+              className="inline-block h-2.5 w-2.5 rotate-45 bg-redline"
+            />
+            <h2 className="font-display text-[1.85rem] font-semibold leading-[1.15] tracking-[-0.025em] text-ink sm:text-4xl sm:leading-[1.12]">
               {t.pitch}
             </h2>
             <p className="max-w-prose text-base leading-relaxed text-slate sm:text-lg">
               {t.support}
             </p>
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1">
               <BookCta locale={locale} />
               <Link
                 href={`/${locale}/contact`}
@@ -154,30 +180,30 @@ export function HomeSplitPin({ locale, experiences }: Props) {
 
           <nav
             aria-label={locale === "fa" ? "بخش‌ها" : "Sections"}
-            className="flex flex-wrap gap-x-5 gap-y-2 font-display text-xs font-semibold uppercase tracking-[0.16em] text-slate"
+            className="flex flex-wrap gap-x-6 gap-y-2 border-y border-ink/12 py-4 font-display text-xs font-semibold uppercase tracking-[0.18em] text-slate"
           >
-            <Link className="hover:text-redline" href={`/${locale}/experience`}>
+            <Link
+              className="text-redline underline decoration-redline decoration-2 underline-offset-6"
+              href={`/${locale}/experience`}
+            >
               {t.experience}
             </Link>
-            <Link className="hover:text-redline" href={`/${locale}/services`}>
+            <Link className="hover:text-ink" href={`/${locale}/services`}>
               {t.services}
             </Link>
-            <Link className="hover:text-redline" href={`/${locale}/blog`}>
+            <Link className="hover:text-ink" href={`/${locale}/blog`}>
               {t.blog}
             </Link>
-            <Link
-              className="hover:text-redline"
-              href={`/${locale}/contact#privacy`}
-            >
-              {locale === "fa" ? "حریم خصوصی" : "Privacy"}
+            <Link className="hover:text-ink" href={`/${locale}/contact`}>
+              {t.contact}
             </Link>
           </nav>
 
-          {experiences.length > 0 ? (
-            <div className="border-t border-ink/15 pt-8">
-              <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
-                <h3 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink underline decoration-ink/30 underline-offset-6">
-                  {t.experience}
+          {selected.length > 0 ? (
+            <div>
+              <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+                <h3 className="redline-underline font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink">
+                  {t.selectedExperience}
                 </h3>
                 <Link
                   href={`/${locale}/experience`}
@@ -186,37 +212,46 @@ export function HomeSplitPin({ locale, experiences }: Props) {
                   {t.viewExperience} →
                 </Link>
               </div>
-              <ol className="space-y-3">
-                {experiences.slice(0, 4).map((row, i) => (
+              <ol className="space-y-4">
+                {selected.map((entry, i) => (
                   <PinSheet
-                    key={String(row.Id ?? i)}
+                    key={entry.id}
                     as="li"
-                    className="px-4 py-3"
-                    rotate={i % 2 === 0 ? 0.4 : -0.5}
-                    settleDelayMs={80 + i * 60}
+                    className="px-5 py-5 sm:px-6"
+                    rotate={i % 2 === 0 ? 0.45 : -0.55}
+                    settleDelayMs={100 + i * 90}
                     tapes="strip"
                     registration={false}
                     insetRule={false}
                   >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="font-display text-base font-semibold uppercase tracking-[0.04em] text-ink">
-                        {row.Company}
+                    <div className="flex flex-wrap items-baseline justify-between gap-2 pe-6">
+                      <p className="font-display text-lg font-semibold uppercase tracking-[0.03em] text-ink">
+                        {entry.company}
                       </p>
-                      <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-slate">
+                      <p className="font-display text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate">
                         {[
-                          row.StartDate,
-                          row.EndDate || (row.Current ? t.present : null),
+                          entry.startDate,
+                          entry.endDate || (entry.current ? t.present : null),
                         ]
                           .filter(Boolean)
                           .join(" – ")}
                       </p>
                     </div>
-                    {row.Location ? (
-                      <p className="mt-1 text-sm text-slate">{row.Location}</p>
+                    {entry.title ? (
+                      <p className="mt-1.5 font-display text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-slate">
+                        {entry.title}
+                      </p>
+                    ) : null}
+                    {entry.summary ? (
+                      <p className="mt-3 max-w-prose text-sm leading-relaxed text-slate line-clamp-2">
+                        {entry.summary}
+                      </p>
+                    ) : entry.location ? (
+                      <p className="mt-2 text-sm text-slate">{entry.location}</p>
                     ) : null}
                     <span
                       aria-hidden
-                      className="redline-mark absolute end-3 top-3 font-display text-[0.65rem] font-bold"
+                      className="redline-mark absolute end-4 top-4 font-display text-sm font-bold"
                     >
                       /
                     </span>

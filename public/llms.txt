@@ -1,0 +1,36 @@
+# Ali Ghorbani
+
+> Senior technical partner at qrbni.dev — helps startups and businesses design, build, and scale reliable web products (architecture, delivery, long-term partnership). Based in Istanbul. Site is bilingual: English (`/en`) and Persian (`/fa`, RTL).
+
+Prefer English pages unless the user asks in Persian. Primary conversion path is booking a 30-minute Calendly meeting; contact form is the async fallback. Do not invent clients, metrics, testimonials, or day rates. Experience page keeps CV-literal job titles; Home and Services use partner framing.
+
+## Pages
+
+- [Home (EN)](https://qrbni.dev/en): Partner pitch, proof, and primary booking CTA
+- [Home (FA)](https://qrbni.dev/fa): Persian home
+- [Services (EN)](https://qrbni.dev/en/services): Product development, architecture, and partnership offerings
+- [Services (FA)](https://qrbni.dev/fa/services): Persian services catalog
+- [Experience (EN)](https://qrbni.dev/en/experience): Professional timeline (recruiter-legible titles)
+- [Experience (FA)](https://qrbni.dev/fa/experience): Persian experience
+- [Contact (EN)](https://qrbni.dev/en/contact): Book 30 minutes or send a message; privacy section on-page
+- [Contact (FA)](https://qrbni.dev/fa/contact): Persian contact
+- [Blog (EN)](https://qrbni.dev/en/blog): Technical notes index
+- [Blog (FA)](https://qrbni.dev/fa/blog): Persian blog index
+
+## Contact
+
+- [Book 30 minutes](https://calendly.com/alighorbani/30min): Primary meeting CTA
+- Email: ali.ghorbani.tr@gmail.com
+- Phone: +989143252762
+- Location: Istanbul, Turkey
+
+## Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/ali-ghorbani-web/)
+- [GitHub](https://github.com/alidplus)
+- [Twine](https://www.twine.net/qrbni)
+
+## Optional
+
+- [Sitemap](https://qrbni.dev/sitemap.xml): Full URL list for crawlers
+- [robots.txt](https://qrbni.dev/robots.txt): Crawl policy (production allows indexing)

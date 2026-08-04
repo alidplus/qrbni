@@ -23,8 +23,8 @@ export const SAME_AS = [
 
 export const OG_DEFAULT = {
   url: "/og-default.png",
-  width: 1200,
-  height: 630,
+  width: 1536,
+  height: 1024,
   alt: "Ali Ghorbani — Technical Partner · qrbni.dev",
   type: "image/png",
 } as const;

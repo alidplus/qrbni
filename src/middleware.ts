@@ -45,7 +45,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   // Keep SEO metadata files out of middleware (GSC fetch quirks / Next guidance).
   matcher: [
-    "/((?!_next/static|_next/image|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/static|_next/image|favicon\\.ico|robots\\.txt|sitemap\\.xml|llms\\.txt).*)",
   ],
 };
 

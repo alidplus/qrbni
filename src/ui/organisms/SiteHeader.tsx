@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 
@@ -5,7 +6,7 @@ type Props = {
   locale: Locale;
 };
 
-/** Title-block chrome — brand + locale on the critique wall. */
+/** Title-block chrome — brand mark + locale on the critique wall. */
 export function SiteHeader({ locale }: Props) {
   const other = locale === "en" ? "fa" : "en";
 
@@ -18,9 +19,18 @@ export function SiteHeader({ locale }: Props) {
       <div className="flex items-center justify-between gap-4">
         <Link
           href={`/${locale}`}
-          className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink"
+          className="flex items-center gap-2.5 font-display text-sm font-semibold uppercase tracking-[0.16em] text-ink"
         >
-          qrbni.dev
+          <Image
+            src="/favicon.svg"
+            alt=""
+            width={22}
+            height={22}
+            priority
+            unoptimized
+            className="h-[1.35rem] w-[1.35rem] shrink-0"
+          />
+          <span>qrbni.dev</span>
         </Link>
         <div className="flex items-center gap-5">
           <p

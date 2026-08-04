@@ -1,11 +1,5 @@
-import type { Locale } from "@/i18n/config";
-
-type Props = {
-  locale: Locale;
-};
-
 /** Minimal title-block footer — brand line + Simple Analytics badge. */
-export function SiteFooter({ locale }: Props) {
+export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (

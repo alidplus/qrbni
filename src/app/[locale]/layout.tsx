@@ -21,7 +21,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <LocaleDocument locale={locale} />
       <SiteVisitBeacon locale={locale} />
       {children}
-      <SiteFooter locale={locale} />
+      <SiteFooter />
     </div>
   );
 }

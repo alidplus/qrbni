@@ -43,7 +43,10 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  // Keep SEO metadata files out of middleware (GSC fetch quirks / Next guidance).
+  matcher: [
+    "/((?!_next/static|_next/image|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+  ],
 };
 
 export function localeFromPathname(pathname: string): Locale {

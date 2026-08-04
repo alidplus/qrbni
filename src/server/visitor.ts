@@ -79,7 +79,7 @@ export function formatVisitorTelegramLines(visitor: VisitorContext): string[] {
       : visitor.country || visitor.city || undefined;
 
   return [
-    `Visitor: ${visitor.visitorId}${visitor.isNewVisitor ? " (new)" : ""}`,
+    `Visitor: ${visitor.visitorId}${visitor.isNewVisitor ? " (🆕 New)" : ""}`,
     geo ? `Geo: ${geo}` : null,
     visitor.userAgent ? `UA: ${visitor.userAgent}` : null,
   ].filter((line): line is string => Boolean(line));

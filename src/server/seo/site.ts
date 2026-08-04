@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { defaultLocale, type Locale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getSiteSettings } from "@/domains/cv";
 import { serverEnv } from "@/server/env";
 

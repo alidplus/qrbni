@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { serverEnv } from "@/server/env";
+import {
+  breadcrumbJsonLd,
+  localeAlternates,
+  pageOpenGraph,
+  pageTwitter,
+} from "@/server/seo";
+import { JsonLdScript } from "@/ui/molecules/JsonLd";
 import { ContactPin } from "@/ui/templates/ContactPin";
 
 type Props = {
@@ -17,13 +24,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale === "fa"
       ? "رزرو ۳۰ دقیقه یا ارسال پیام به علی قربانی."
       : "Book 30 minutes or send a message to Ali Ghorbani.";
+  const path = `/${locale}/contact`;
   return {
     title,
     description,
     alternates: {
-      languages: { en: "/en/contact", fa: "/fa/contact" },
-      canonical: `/${locale}/contact`,
+      languages: localeAlternates("/contact"),
+      canonical: path,
     },
+    openGraph: pageOpenGraph({ locale, title, description, path }),
+    twitter: pageTwitter({ title, description }),
   };
 }
 
@@ -36,6 +46,20 @@ export default async function ContactPage({ params, searchParams }: Props) {
   const siteKey = serverEnv.turnstileSiteKey();
 
   return (
-    <ContactPin locale={locale} siteKey={siteKey} privacyOpen={privacyOpen} />
+    <>
+      <JsonLdScript
+        data={breadcrumbJsonLd([
+          {
+            name: locale === "fa" ? "خانه" : "Home",
+            path: `/${locale}`,
+          },
+          {
+            name: locale === "fa" ? "تماس" : "Contact",
+            path: `/${locale}/contact`,
+          },
+        ])}
+      />
+      <ContactPin locale={locale} siteKey={siteKey} privacyOpen={privacyOpen} />
+    </>
   );
 }

@@ -282,10 +282,19 @@ Implement:
 - `sitemap.xml` + `robots.txt` (honor `indexing_enabled` + preview overrides)
 - JSON-LD: `Person`, services/`OfferCatalog` or `ProfessionalService`, `BlogPosting`, `BreadcrumbList`
 - Markdown blog rendering with sensible heading hygiene
-- Placeholder favicon + default OG until real assets replace them
+- Default OG share card: `public/og-default.png` (1200×630); portrait kept as secondary
 - Privacy copy lives on contact as an expandable section (`#privacy`); `/privacy` redirects there
 
 Apex only: no `www` site (redirect `www` → apex at DNS/CF if needed).
+
+### Search Console (ops checklist)
+
+1. Add a Google Search Console property for `qrbni.dev` (domain or URL-prefix).
+2. Verify ownership (DNS TXT at the registrar/Cloudflare, or HTML file under `public/`).
+3. Submit `https://qrbni.dev/sitemap.xml`.
+4. Request indexing for `/en`, `/fa`, `/en/services`, `/en/experience`.
+5. Optional: Bing Webmaster Tools with the same sitemap.
+6. Keep preview (`preview.qrbni.dev`) out of property submissions.
 
 Calendly CTA: `https://calendly.com/alighorbani/30min` (overridable via Settings).
 

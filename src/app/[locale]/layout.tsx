@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
+import { isIndexingEnabled, robotsForIndexing } from "@/server/seo";
 import { LocaleDocument } from "@/ui/molecules/LocaleDocument";
 import { SiteVisitBeacon } from "@/ui/molecules/Telemetry";
 import { SiteFooter } from "@/ui/organisms/SiteFooter";
@@ -11,6 +13,13 @@ type Props = {
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const indexing = await isIndexingEnabled();
+  return {
+    robots: robotsForIndexing(indexing),
+  };
 }
 
 export default async function LocaleLayout({ children, params }: Props) {

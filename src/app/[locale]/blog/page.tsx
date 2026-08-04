@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { listPublishedPosts } from "@/domains/blog";
+import {
+  breadcrumbJsonLd,
+  localeAlternates,
+  pageOpenGraph,
+  pageTwitter,
+} from "@/server/seo";
+import { JsonLdScript } from "@/ui/molecules/JsonLd";
 import { BlogIndexPin } from "@/ui/templates/BlogIndexPin";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -9,16 +16,21 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw } = await params;
   const locale: Locale = isLocale(raw) ? raw : "en";
+  const title = locale === "fa" ? "بلاگ" : "Blog";
+  const description =
+    locale === "fa"
+      ? "یادداشت‌های فنی علی قربانی."
+      : "Technical notes from Ali Ghorbani.";
+  const path = `/${locale}/blog`;
   return {
-    title: locale === "fa" ? "بلاگ" : "Blog",
-    description:
-      locale === "fa"
-        ? "یادداشت‌های فنی علی قربانی."
-        : "Technical notes from Ali Ghorbani.",
+    title,
+    description,
     alternates: {
-      languages: { en: "/en/blog", fa: "/fa/blog" },
-      canonical: `/${locale}/blog`,
+      languages: localeAlternates("/blog"),
+      canonical: path,
     },
+    openGraph: pageOpenGraph({ locale, title, description, path }),
+    twitter: pageTwitter({ title, description }),
   };
 }
 
@@ -33,5 +45,21 @@ export default async function BlogIndexPage({ params }: Props) {
     posts = [];
   }
 
-  return <BlogIndexPin locale={locale} posts={posts} />;
+  return (
+    <>
+      <JsonLdScript
+        data={breadcrumbJsonLd([
+          {
+            name: locale === "fa" ? "خانه" : "Home",
+            path: `/${locale}`,
+          },
+          {
+            name: locale === "fa" ? "بلاگ" : "Blog",
+            path: `/${locale}/blog`,
+          },
+        ])}
+      />
+      <BlogIndexPin locale={locale} posts={posts} />
+    </>
+  );
 }

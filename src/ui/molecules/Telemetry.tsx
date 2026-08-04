@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { PRODUCTION_HOST } from "@/config/site";
 
-export type TelemetryEvent = "site_visit" | "contact_visit" | "meeting_click";
+export type TelemetryEvent = "new_visitor" | "meeting_click";
 
 function canTrackClient(): boolean {
   if (typeof window === "undefined") return false;
@@ -42,36 +42,22 @@ export function trackTelemetry(
   }).catch(() => undefined);
 }
 
-const SESSION_SITE = "qrbni:tg:site";
-const SESSION_CONTACT = "qrbni:tg:contact";
+const SESSION_VISITOR = "qrbni:tg:visitor";
 
-/** Once per browser session on any locale page. */
+/**
+ * Probe once per browser session. Server only notifies Telegram when the
+ * visitor cookie is missing (true first visit).
+ */
 export function SiteVisitBeacon({ locale }: { locale: string }) {
   useEffect(() => {
     if (!canTrackClient()) return;
     try {
-      if (sessionStorage.getItem(SESSION_SITE)) return;
-      sessionStorage.setItem(SESSION_SITE, "1");
+      if (sessionStorage.getItem(SESSION_VISITOR)) return;
+      sessionStorage.setItem(SESSION_VISITOR, "1");
     } catch {
       // private mode — still notify
     }
-    trackTelemetry("site_visit", { locale });
-  }, [locale]);
-
-  return null;
-}
-
-/** Once per browser session when contact is opened. */
-export function ContactVisitBeacon({ locale }: { locale: string }) {
-  useEffect(() => {
-    if (!canTrackClient()) return;
-    try {
-      if (sessionStorage.getItem(SESSION_CONTACT)) return;
-      sessionStorage.setItem(SESSION_CONTACT, "1");
-    } catch {
-      // continue
-    }
-    trackTelemetry("contact_visit", { locale });
+    trackTelemetry("new_visitor", { locale });
   }, [locale]);
 
   return null;

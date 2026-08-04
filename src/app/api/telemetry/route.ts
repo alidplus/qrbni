@@ -9,7 +9,7 @@ import { visitorCookieHeader, visitorFromRequest } from "@/server/visitor";
 
 export const dynamic = "force-dynamic";
 
-const EVENTS = ["site_visit", "contact_visit", "meeting_click"] as const;
+const EVENTS = ["new_visitor", "meeting_click"] as const;
 type TelemetryEvent = (typeof EVENTS)[number];
 
 function isTelemetryEvent(value: string): value is TelemetryEvent {
@@ -52,6 +52,11 @@ export async function POST(request: Request) {
 
   const visitor = visitorFromRequest(request);
 
+  // First-visit only — returning sessions stay silent.
+  if (event === "new_visitor" && !visitor.isNewVisitor) {
+    return NextResponse.json({ ok: true, skipped: true });
+  }
+
   notifyTelegram({
     host,
     text: formatTelemetryTelegram({
@@ -65,7 +70,10 @@ export async function POST(request: Request) {
 
   const res = NextResponse.json({ ok: true });
   if (visitor.isNewVisitor) {
-    res.headers.append("Set-Cookie", visitorCookieHeader(visitor.visitorId, host));
+    res.headers.append(
+      "Set-Cookie",
+      visitorCookieHeader(visitor.visitorId, host),
+    );
   }
   return res;
 }

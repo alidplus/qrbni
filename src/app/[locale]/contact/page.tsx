@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { serverEnv } from "@/server/env";
-import { ContactVisitBeacon } from "@/ui/molecules/Telemetry";
 import { ContactPin } from "@/ui/templates/ContactPin";
 
 type Props = {
@@ -37,9 +36,6 @@ export default async function ContactPage({ params, searchParams }: Props) {
   const siteKey = serverEnv.turnstileSiteKey();
 
   return (
-    <>
-      <ContactVisitBeacon locale={locale} />
-      <ContactPin locale={locale} siteKey={siteKey} privacyOpen={privacyOpen} />
-    </>
+    <ContactPin locale={locale} siteKey={siteKey} privacyOpen={privacyOpen} />
   );
 }

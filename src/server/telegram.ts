@@ -89,15 +89,14 @@ export function formatContactTelegram(parts: {
 }
 
 export function formatTelemetryTelegram(parts: {
-  event: "site_visit" | "contact_visit" | "meeting_click";
+  event: "new_visitor" | "meeting_click";
   path?: string;
   locale?: string;
   referrer?: string;
   visitor?: VisitorContext;
 }): string {
   const titles = {
-    site_visit: "👁 Site visit",
-    contact_visit: "📄 Contact page",
+    new_visitor: "🆕 New visitor",
     meeting_click: "📅 Meeting click",
   } as const;
 

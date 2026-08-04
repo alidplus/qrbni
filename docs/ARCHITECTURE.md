@@ -67,7 +67,7 @@ Non-goals (v1): in-site CMS/admin, client-side NocoDB access, React Query / TanS
 
 **Write path (public):** Contact form → Turnstile token → Route Handler verifies Turnstile → inserts row in NocoDB Contacts. On **production** (`qrbni.dev`) also notifies Telegram (`TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`). No outbound mail in v1. Optional later: Cloudflare Email Sending to verified Gmail. Email Routing may still forward `hello@qrbni.dev` → Gmail (inbound only).
 
-**Telegram (production only):** contact form body; one site visit per browser session; contact page visit; Calendly “Book 30 min” clicks. Each message includes visitor id (`qrbni_vid` cookie), Cloudflare country/city when available, and user-agent. Preview/local never call Telegram (host gate + secrets only on production Worker).
+**Telegram (production only):** new visitors (first `qrbni_vid` mint), contact form submissions, and Calendly “Book 30 min” clicks. Page-view / contact-page beacons are not sent — Simple Analytics covers traffic. Each message includes visitor id, Cloudflare country/city when available, and user-agent. Preview/local never call Telegram (host gate + secrets only on production Worker).
 
 **Revalidate path (production only):** NocoDB webhooks → `POST https://qrbni.dev/api/revalidate` (Bearer `REVALIDATE_SECRET`) → `revalidateTag` / `revalidatePath`. CMS reads use `unstable_cache` tags (`cv`, `experience`, `services`, `blog`, `settings`). Time-based revalidate (1h) as backup.
 

@@ -8,7 +8,7 @@ type Props = {
 /** Page shell on the critique wall ground. */
 export function PinWall({ className = "", children }: Props) {
   return (
-    <div className={`pin-wall flex min-h-full flex-1 flex-col ${className}`}>
+    <div className={`pin-wall flex flex-1 flex-col ${className}`}>
       {children}
     </div>
   );

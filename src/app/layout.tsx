@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import Script from 'next/script'
 import { Barlow_Condensed, Source_Sans_3, Vazirmatn } from "next/font/google";
 import {
   defaultLocale,
@@ -78,6 +79,7 @@ export default async function RootLayout({
         */}
         {children}
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
     </html>
   );
 }

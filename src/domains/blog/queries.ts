@@ -40,6 +40,6 @@ export async function listPublishedPosts(locale: Locale): Promise<BlogListItem[]
         }));
     },
     ["blog-list", locale],
-    { tags: ["blog"], revalidate: 3600 },
+    { tags: ["blog"], revalidate: 900 },
   )();
 }

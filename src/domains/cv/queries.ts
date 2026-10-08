@@ -25,7 +25,7 @@ export async function getSiteSettings() {
       return data?.list?.[0] ?? null;
     },
     ["site-settings"],
-    { tags: ["settings"], revalidate: 3600 },
+    { tags: ["settings"], revalidate: 900 },
   )();
 }
 
@@ -40,7 +40,7 @@ export async function listExperiences(limit = 50) {
       return data?.list ?? [];
     },
     ["experiences", String(limit)],
-    { tags: ["cv", "experience"], revalidate: 3600 },
+    { tags: ["cv", "experience"], revalidate: 900 },
   )();
 }
 
@@ -136,6 +136,6 @@ export async function listExperienceTimeline(
         });
     },
     ["experience-timeline", locale, String(limit)],
-    { tags: ["cv", "experience"], revalidate: 3600 },
+    { tags: ["cv", "experience"], revalidate: 900 },
   )();
 }

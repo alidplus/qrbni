@@ -197,6 +197,22 @@ jobs:
           fi
           rm -f /tmp/worker-secrets.json
 
+      - name: Bust CMS caches after secrets
+        # Deploy can race ahead of secret sync; empty CMS HTML must not stick.
+        run: |
+          sleep 5
+          url="${{ steps.target.outputs.url }}"
+          code="$(curl -sS -o /tmp/revalidate.json -w '%{http_code}' \
+            -X POST "${url}/api/revalidate" \
+            -H "Authorization: Bearer ${REVALIDATE_SECRET}" \
+            -H "Content-Type: application/json" \
+            -d '{"tags":["cv","experience","services","blog","settings"]}')"
+          echo "revalidate ${url} HTTP ${code}"
+          cat /tmp/revalidate.json || true
+          if [ "$code" != "200" ]; then
+            echo "Warning: post-deploy revalidate failed (non-fatal)"
+          fi
+
       - name: Deployment summary
         run: |
           echo "### Deployed" >> "$GITHUB_STEP_SUMMARY"

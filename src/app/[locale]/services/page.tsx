@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { listServiceCatalog } from "@/domains/services";
+import { loadCms } from "@/server/cms";
 import {
   breadcrumbJsonLd,
   localeAlternates,
@@ -39,12 +40,11 @@ export default async function ServicesPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  let catalog: Awaited<ReturnType<typeof listServiceCatalog>> = [];
-  try {
-    catalog = await listServiceCatalog(locale);
-  } catch {
-    catalog = [];
-  }
+  const catalog = await loadCms(
+    `service-catalog:${locale}`,
+    () => listServiceCatalog(locale),
+    [],
+  );
 
   const offerings = catalog.flatMap((group) =>
     group.services.map((s) => ({

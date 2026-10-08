@@ -17,7 +17,11 @@ export {
 
 export {
   jsonLdScript,
+  PERSON_ID,
+  WEBSITE_ID,
   personJsonLd,
+  webSiteJsonLd,
+  profilePageJsonLd,
   professionalServiceJsonLd,
   blogPostingJsonLd,
   breadcrumbJsonLd,

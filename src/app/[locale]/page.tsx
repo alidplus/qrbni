@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { listExperienceTimeline } from "@/domains/cv";
+import { loadCms } from "@/server/cms";
 import {
   breadcrumbJsonLd,
   localeAlternates,
   pageOpenGraph,
   pageTwitter,
   personJsonLd,
+  profilePageJsonLd,
   siteDescription,
   siteTitle,
+  webSiteJsonLd,
 } from "@/server/seo";
 import { JsonLdScript } from "@/ui/molecules/JsonLd";
 import { HomeSplitPin } from "@/ui/templates/HomeSplitPin";
@@ -42,18 +45,19 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(raw)) notFound();
   const locale = raw;
 
-  let experiences: Awaited<ReturnType<typeof listExperienceTimeline>> = [];
-  try {
-    experiences = await listExperienceTimeline(locale, 8);
-  } catch {
-    experiences = [];
-  }
+  const experiences = await loadCms(
+    `experience-timeline:${locale}:home`,
+    () => listExperienceTimeline(locale, 8),
+    [],
+  );
 
   return (
     <>
       <JsonLdScript
         data={[
           personJsonLd(),
+          webSiteJsonLd(),
+          profilePageJsonLd(locale),
           breadcrumbJsonLd([
             {
               name: locale === "fa" ? "خانه" : "Home",

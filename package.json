@@ -21,7 +21,8 @@
     "nocodb:sync-content": "node scripts/nocodb/sync-content.mjs",
     "nocodb:openapi": "node scripts/nocodb/generate-openapi.mjs",
     "nocodb:sdk": "npm run nocodb:openapi && npm run codegen",
-    "nocodb:webhooks": "node scripts/nocodb/configure-webhooks.mjs"
+    "nocodb:webhooks": "node scripts/nocodb/configure-webhooks.mjs",
+    "seo:smoke": "node scripts/seo/crawler-smoke.mjs"
   },
   "dependencies": {
     "@hey-api/client-fetch": "^0.13.1",

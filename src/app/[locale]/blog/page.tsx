@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { listPublishedPosts } from "@/domains/blog";
+import { loadCms } from "@/server/cms";
 import {
   breadcrumbJsonLd,
   localeAlternates,
@@ -38,12 +39,11 @@ export default async function BlogIndexPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  let posts: Awaited<ReturnType<typeof listPublishedPosts>> = [];
-  try {
-    posts = await listPublishedPosts(locale);
-  } catch {
-    posts = [];
-  }
+  const posts = await loadCms(
+    `blog-list:${locale}`,
+    () => listPublishedPosts(locale),
+    [],
+  );
 
   return (
     <>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { listExperienceTimeline } from "@/domains/cv";
+import { loadCms } from "@/server/cms";
 import {
   breadcrumbJsonLd,
   localeAlternates,
@@ -38,12 +39,11 @@ export default async function ExperiencePage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  let entries: Awaited<ReturnType<typeof listExperienceTimeline>> = [];
-  try {
-    entries = await listExperienceTimeline(locale);
-  } catch {
-    entries = [];
-  }
+  const entries = await loadCms(
+    `experience-timeline:${locale}`,
+    () => listExperienceTimeline(locale),
+    [],
+  );
 
   return (
     <>

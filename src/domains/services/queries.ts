@@ -57,20 +57,22 @@ export async function listServiceCatalog(locale: Locale): Promise<ServiceCategor
     async () => {
       configureNocoClient();
 
-      const [categoriesRes, categoryLocalesRes, servicesRes, serviceLocalesRes] =
-        await Promise.all([
-          servicecategoryDbTableRowList({
-            query: { limit: 100, sort: "Sort", where: "(Active,checked)" },
-          }),
-          servicecategorylocaleDbTableRowList({ query: { limit: 200 } }),
-          serviceDbTableRowList({
-            query: { limit: 200, sort: "Sort", where: "(Active,checked)" },
-          }),
-          servicelocaleDbTableRowList({ query: { limit: 500 } }),
-        ]);
-
+      // Sequential pairs reduce NocoDB 429 bursts from Workers.
+      const [categoriesRes, categoryLocalesRes] = await Promise.all([
+        servicecategoryDbTableRowList({
+          query: { limit: 100, sort: "Sort", where: "(Active,checked)" },
+        }),
+        servicecategorylocaleDbTableRowList({ query: { limit: 200 } }),
+      ]);
       if (categoriesRes.error) throw categoriesRes.error;
       if (categoryLocalesRes.error) throw categoryLocalesRes.error;
+
+      const [servicesRes, serviceLocalesRes] = await Promise.all([
+        serviceDbTableRowList({
+          query: { limit: 200, sort: "Sort", where: "(Active,checked)" },
+        }),
+        servicelocaleDbTableRowList({ query: { limit: 500 } }),
+      ]);
       if (servicesRes.error) throw servicesRes.error;
       if (serviceLocalesRes.error) throw serviceLocalesRes.error;
 
@@ -121,6 +123,6 @@ export async function listServiceCatalog(locale: Locale): Promise<ServiceCategor
         .sort((a, b) => a.sort - b.sort);
     },
     ["service-catalog", locale],
-    { tags: ["services"], revalidate: 3600 },
+    { tags: ["services"], revalidate: 900 },
   )();
 }

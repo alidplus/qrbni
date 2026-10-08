@@ -84,8 +84,18 @@ async function fetchText(path) {
   return { status: res.status, text, contentType: res.headers.get("content-type") };
 }
 
+function emptyMainErrors(main) {
+  const errors = [];
+  for (const marker of EMPTY_MARKERS) {
+    if (main.includes(marker)) {
+      errors.push(`empty CMS placeholder in <main>: ${marker.slice(0, 40)}…`);
+    }
+  }
+  return errors;
+}
+
 async function checkPage(path) {
-  const { status, text } = await fetchText(path);
+  let { status, text } = await fetchText(path);
   const errors = [];
   if (status !== 200) errors.push(`HTTP ${status}`);
   if (!/<title>[^<]+<\/title>/i.test(text)) errors.push("missing title");
@@ -93,12 +103,16 @@ async function checkPage(path) {
   if (!hasCanonical(text)) errors.push("missing canonical");
   if (!hasHreflang(text)) errors.push("missing hreflang set");
 
-  const main = extractMain(text);
-  for (const marker of EMPTY_MARKERS) {
-    if (main.includes(marker)) {
-      errors.push(`empty CMS placeholder in <main>: ${marker.slice(0, 40)}…`);
-    }
+  let main = extractMain(text);
+  let emptyErrors = emptyMainErrors(main);
+  // One retry after pause — cold Workers can still hit NocoDB 429.
+  if (emptyErrors.length) {
+    await new Promise((r) => setTimeout(r, 3000));
+    ({ status, text } = await fetchText(path));
+    main = extractMain(text);
+    emptyErrors = emptyMainErrors(main);
   }
+  errors.push(...emptyErrors);
 
   if (path === "/en" || path === "/fa") {
     const types = jsonLdTypes(text);
@@ -161,6 +175,8 @@ async function main() {
     } else {
       console.log(`ok   ${path}`);
     }
+    // Pace requests so preview Worker does not stampede NocoDB.
+    await new Promise((r) => setTimeout(r, 1500));
   }
 
   const sm = await checkSitemap();

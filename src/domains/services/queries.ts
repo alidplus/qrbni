@@ -51,29 +51,38 @@ function normalizeCta(value: string | null | undefined): ServiceOffering["ctaTyp
   return "both";
 }
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /** Active services grouped by category, with EN fallback for missing FA copy. */
 export async function listServiceCatalog(locale: Locale): Promise<ServiceCategoryGroup[]> {
   return unstable_cache(
     async () => {
       configureNocoClient();
 
-      // Sequential pairs reduce NocoDB 429 bursts from Workers.
-      const [categoriesRes, categoryLocalesRes] = await Promise.all([
-        servicecategoryDbTableRowList({
-          query: { limit: 100, sort: "Sort", where: "(Active,checked)" },
-        }),
-        servicecategorylocaleDbTableRowList({ query: { limit: 200 } }),
-      ]);
+      // Fully sequential — Worker egress IPs hit NocoDB 429 hard under Promise.all.
+      const categoriesRes = await servicecategoryDbTableRowList({
+        query: { limit: 100, sort: "Sort", where: "(Active,checked)" },
+      });
       if (categoriesRes.error) throw categoriesRes.error;
-      if (categoryLocalesRes.error) throw categoryLocalesRes.error;
+      await sleep(200);
 
-      const [servicesRes, serviceLocalesRes] = await Promise.all([
-        serviceDbTableRowList({
-          query: { limit: 200, sort: "Sort", where: "(Active,checked)" },
-        }),
-        servicelocaleDbTableRowList({ query: { limit: 500 } }),
-      ]);
+      const categoryLocalesRes = await servicecategorylocaleDbTableRowList({
+        query: { limit: 200 },
+      });
+      if (categoryLocalesRes.error) throw categoryLocalesRes.error;
+      await sleep(200);
+
+      const servicesRes = await serviceDbTableRowList({
+        query: { limit: 200, sort: "Sort", where: "(Active,checked)" },
+      });
       if (servicesRes.error) throw servicesRes.error;
+      await sleep(200);
+
+      const serviceLocalesRes = await servicelocaleDbTableRowList({
+        query: { limit: 500 },
+      });
       if (serviceLocalesRes.error) throw serviceLocalesRes.error;
 
       const categories = (categoriesRes.data?.list ?? []) as ServiceCategoryResponse[];
@@ -83,7 +92,12 @@ export async function listServiceCatalog(locale: Locale): Promise<ServiceCategor
       const serviceLocales = (serviceLocalesRes.data?.list ??
         []) as ServiceLocaleResponse[];
 
-      return categories
+      // Never poison the Data Cache with an empty catalog (429 soft-empty / partial).
+      if (categories.length === 0) {
+        throw new Error("[services] empty category list — not caching");
+      }
+
+      const groups = categories
         .map((cat) => {
           const catId = cat.Id;
           if (catId == null) return null;
@@ -121,6 +135,12 @@ export async function listServiceCatalog(locale: Locale): Promise<ServiceCategor
         })
         .filter((g): g is ServiceCategoryGroup => Boolean(g))
         .sort((a, b) => a.sort - b.sort);
+
+      if (groups.length === 0) {
+        throw new Error("[services] empty catalog after join — not caching");
+      }
+
+      return groups;
     },
     ["service-catalog", locale],
     { tags: ["services"], revalidate: 900 },

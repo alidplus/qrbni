@@ -156,6 +156,56 @@ industries:
   - Retail
 
 experience:
+  - company: Poulyar
+    company_url: null
+    title:
+      en: Full Stack Engineer
+      fa: مهندس فول‌استک
+    location: Tehran Province, Iran
+    start_date: "2026-01"
+    end_date: null
+    current: true
+    date_notes: >
+      LinkedIn: Jan 2026 – Present · Full-time · On-site (Tehran Province).
+      FA company display name: پولیار (Company field is EN-only in schema).
+    summary:
+      en: >
+        With a team of six engineers, building a cryptocurrency exchange aimed at
+        safer, simpler trading. Own parts of system design, backend services, and
+        the management/admin panel.
+      fa: >
+        در تیمی شش‌نفره، در حال ساخت صرافی رمزارز پولیار با تمرکز بر معامله امن‌تر
+        و ساده‌تر برای کاربران. مالکیت بخشی از طراحی سیستم، توسعه سرویس‌های بک‌اند
+        و پنل مدیریت/ادمین محصول.
+    highlights:
+      - en: >
+          Designed and shipped core money-flow features: bank and crypto
+          deposit/withdraw.
+        fa: >
+          طراحی و پیاده‌سازی جریان‌های اصلی مالی: واریز و برداشت بانکی و رمزارزی.
+      - en: >
+          Built a referral engine and a large set of background workers for
+          business jobs.
+        fa: >
+          ساخت موتور معرف (referral) و مجموعه بزرگی از جاب‌های پس‌زمینه برای
+          فرایندهای کسب‌وکار.
+      - en: >
+          Supported the first campaign launch with steady traffic growth, no
+          downtime, and no restarts—only a few Sentry issues.
+        fa: >
+          همراهی با اولین کمپین محصول با رشد پایدار ترافیک، بدون قطعی سرویس و
+          بدون ری‌استارت—تنها چند مورد محدود در Sentry.
+    tech:
+      - PostgreSQL
+      - Vue.js
+      - React.js
+      - NestJS
+      - TypeScript
+      - Docker Swarm
+      - Domain-Driven Design (DDD)
+      - Test-Driven Development
+      - TypeORM
+
   - company: Abrunnet ITC
     company_url: https://www.linkedin.com/company/abrunnet-itc
     title:

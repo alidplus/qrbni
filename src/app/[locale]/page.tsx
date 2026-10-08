@@ -17,6 +17,9 @@ import {
 import { JsonLdScript } from "@/ui/molecules/JsonLd";
 import { HomeSplitPin } from "@/ui/templates/HomeSplitPin";
 
+/** Request-time CMS — avoid build-time NocoDB fan-out / 429 timeouts. */
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{ locale: string }>;
 };

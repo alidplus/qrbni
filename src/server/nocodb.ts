@@ -4,9 +4,10 @@ import { serverEnv } from "@/server/env";
 let configured = false;
 
 const RETRYABLE = new Set([408, 425, 429, 500, 502, 503, 504]);
-const MAX_ATTEMPTS = 3;
-/** Cap waits — NocoDB often sends Retry-After: 30 which blows SSG/CI budgets. */
-const MAX_WAIT_MS = 2000;
+/** Build must fail fast; runtime Workers may wait longer through 429s. */
+const IS_BUILD = process.env.NEXT_PHASE === "phase-production-build";
+const MAX_ATTEMPTS = IS_BUILD ? 2 : 5;
+const MAX_WAIT_MS = IS_BUILD ? 800 : 4000;
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

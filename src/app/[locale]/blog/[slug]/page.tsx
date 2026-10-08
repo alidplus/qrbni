@@ -11,6 +11,8 @@ import {
 import { JsonLdScript } from "@/ui/molecules/JsonLd";
 import { BlogPostPin } from "@/ui/templates/BlogPostPin";
 
+export const dynamic = "force-dynamic";
+
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

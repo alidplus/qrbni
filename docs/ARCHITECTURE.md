@@ -154,7 +154,7 @@ Locale model: **option B** — parent (or shared identity) + **locale variant ro
 - `show_hireable` / `show_day_rate` / `day_rate_amount` / `day_rate_currency` (hidden by default)
 - `default_og_image` (attachment or URL)
 - `calendly_url` (default `https://calendly.com/alighorbani/30min`)
-- `public_email`, `public_phone`, `public_location` (Istanbul)
+- `public_email`, `public_phone`, `public_location` (Tehran, Iran)
 - `maintenance_message_en` / link to locale rows if preferred
 
 ### cv
@@ -180,7 +180,7 @@ Public contacts (site):
 
 - Email: `ali.ghorbani.tr@gmail.com`
 - Phone: `+989143252762`
-- Location preference: **Istanbul**
+- Location preference: **Tehran, Iran**
 - Fix public copy: **Serverless** (not “Severless”)
 
 ### services

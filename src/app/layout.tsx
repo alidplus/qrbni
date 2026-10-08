@@ -64,7 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "React",
       "Node.js",
       "Cloudflare",
-      "Istanbul",
+      "Tehran",
     ],
     robots: robotsForIndexing(indexing),
     icons: {

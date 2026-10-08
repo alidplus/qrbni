@@ -37,7 +37,7 @@ export function SiteHeader({ locale }: Props) {
             aria-hidden
             className="hidden font-display text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-slate sm:block"
           >
-            Istanbul · Partner
+            {locale === "fa" ? "تهران · شریک" : "Tehran · Partner"}
           </p>
           <nav
             aria-label={locale === "fa" ? "زبان" : "Language"}

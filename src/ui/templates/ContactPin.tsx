@@ -41,7 +41,7 @@ const copy: Record<Locale, Copy> = {
     formHint: "Async fallback — Calendly stays primary.",
     email: "Email",
     phone: "Phone",
-    place: "Istanbul",
+    place: "Tehran, Iran",
   },
   fa: {
     title: "تماس",
@@ -58,7 +58,7 @@ const copy: Record<Locale, Copy> = {
     formHint: "مسیر غیرهم‌زمان — رزرو تقویم اولویت دارد.",
     email: "ایمیل",
     phone: "تلفن",
-    place: "استانبول",
+    place: "تهران، ایران",
   },
 };
 
@@ -141,7 +141,10 @@ export function ContactPin({ locale, siteKey, privacyOpen = false }: Props) {
               className="mt-6"
               rows={[
                 { label: locale === "fa" ? "روش" : "Mode", value: "Direct" },
-                { label: locale === "fa" ? "مکان" : "Site", value: "Istanbul" },
+                {
+                  label: locale === "fa" ? "مکان" : "Location",
+                  value: locale === "fa" ? "تهران" : "Tehran",
+                },
               ]}
             />
           </PinSheet>

@@ -43,7 +43,7 @@ Craft kit (`src/ui/atoms`):
 Also:
 
 - **Book CTA:** solid redline block — primary Calendly conversion
-- **Header:** title-block rule; `qrbni.dev` + EN/FA + Istanbul meta
+- **Header:** title-block rule; `qrbni.dev` + EN/FA + Tehran meta
 - Avoid card grids as page structure; experience/services items are individual pinned sheets
 - Atmosphere only — no invented slogans, fake case studies, or doodle annotations
 

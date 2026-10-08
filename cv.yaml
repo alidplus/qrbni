@@ -18,7 +18,7 @@ meta:
   content_updated_at: "2026-07-31"
   caveats:
     - "Employment dates prefer LinkedIn index data over Twine."
-    - "Public location for the site is Istanbul (PRODUCT.md)."
+    - "Public location for the site is Tehran, Iran (PRODUCT.md)."
     - "Numeric performance claims softened to qualitative until verified."
 
 basics:
@@ -49,7 +49,7 @@ basics:
       بلندمدت تحویل. نه فروش ساعت کاری.
   total_experience_reported: "10 years and 7 months"
   location:
-    preferred: Istanbul
+    preferred: "Tehran, Iran"
     linkedin_reported: "Tehran, Tehran Province, Iran"
     github_reported: "Dubai, UAE"
     twine_reported: "Istanbul, Türkiye"

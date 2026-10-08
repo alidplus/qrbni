@@ -26,7 +26,7 @@ Not a generic freelance “full-stack developer for hire.” Position as a **sen
 
 - Visitors browse on mobile and desktop; EN default, FA with RTL when enabled.
 - Content is edited in **NocoDB** (no in-app admin); the site reads via server-only APIs.
-- Public contact: email, phone, Istanbul location; Calendly for meetings; contact form for async messages (Turnstile-protected).
+- Public contact: email, phone, Tehran location; Calendly for meetings; contact form for async messages (Turnstile-protected).
 - Hireable / day-rate visibility is controlled by settings and **hidden by default**.
 
 ## Capabilities and Constraints
@@ -43,7 +43,7 @@ Not a generic freelance “full-stack developer for hire.” Position as a **sen
 
 - Name: **Ali Ghorbani**
 - Domain: **qrbni.dev** (apex); preview **preview.qrbni.dev**
-- Public location: **Istanbul**
+- Public location: **Tehran, Iran**
 - Public contacts: `ali.ghorbani.tr@gmail.com`, `+989143252762`
 - Meeting CTA: `https://calendly.com/alighorbani/30min`
 - Voice: senior, outcome-oriented, clear; avoid “Severless” typo—use **Serverless**

@@ -277,7 +277,7 @@ export function HomeSplitPin({ locale, experiences }: Props) {
                 rows={[
                   { label: "Drawn", value: "A.G." },
                   { label: "Scale", value: "Human" },
-                  { label: "Site", value: "qrbni.dev · Istanbul" },
+                  { label: "Site", value: "qrbni.dev · Tehran" },
                 ]}
               />
               <Crosshair className="mb-1 shrink-0" size={20} />

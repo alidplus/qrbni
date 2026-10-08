@@ -103,7 +103,7 @@ await createRecords("SiteSettings", [
     calendly_url: "https://calendly.com/alighorbani/30min",
     public_email: "ali.ghorbani.tr@gmail.com",
     public_phone: "+989143252762",
-    public_location: "Istanbul",
+    public_location: "Tehran, Iran",
     maintenance_message_en: "Back soon.",
     maintenance_message_fa: "به‌زودی برمی‌گردیم.",
   },

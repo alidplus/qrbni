@@ -23,8 +23,8 @@ export function personJsonLd(): JsonLd {
     description: SITE_DESCRIPTION_EN,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Istanbul",
-      addressCountry: "TR",
+      addressLocality: "Tehran",
+      addressCountry: "IR",
     },
     email: "mailto:ali.ghorbani.tr@gmail.com",
     telephone: "+989143252762",
